@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#eee8dc" />
+  <meta name="description" content="周洁红教授六十岁纪念互动贺卡" />
+  <title>岁月有光 · 师者如兰</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app-shell" aria-live="polite">
+    <div class="ambient-light ambient-light--one"></div>
+    <div class="ambient-light ambient-light--two"></div>
+
+    <svg class="botanical botanical--left" viewBox="0 0 170 410" aria-hidden="true">
+      <path d="M22 420C32 300 55 183 143 22" />
+      <path d="M56 270C34 248 26 222 32 191C64 200 78 226 56 270Z" />
+      <path d="M82 195C64 167 65 142 79 117C106 134 111 163 82 195Z" />
+      <path d="M111 121C98 94 105 69 123 48C145 69 140 97 111 121Z" />
+      <circle cx="48" cy="307" r="7" /><circle cx="95" cy="159" r="5" />
+    </svg>
+    <svg class="botanical botanical--right" viewBox="0 0 170 410" aria-hidden="true">
+      <path d="M148 420C138 300 115 183 27 22" />
+      <path d="M114 270C136 248 144 222 138 191C106 200 92 226 114 270Z" />
+      <path d="M88 195C106 167 105 142 91 117C64 134 59 163 88 195Z" />
+      <path d="M59 121C72 94 65 69 47 48C25 69 30 97 59 121Z" />
+      <circle cx="122" cy="307" r="7" /><circle cx="75" cy="159" r="5" />
+    </svg>
+
+    <section id="invitation" class="invitation" aria-label="纪念贺卡">
+      <header class="hero-copy">
+        <p class="eyebrow">A TRIBUTE WITH LOVE</p>
+        <h1>岁月有光<span>·</span>师者如兰</h1>
+        <p class="subtitle">周洁红教授六十岁纪念</p>
+      </header>
+
+      <div id="envelopeScene" class="envelope-scene">
+        <div class="envelope-shadow"></div>
+        <div class="letter" aria-hidden="true"><div class="letter-monogram">周</div></div>
+        <div class="envelope">
+          <div class="envelope-back"></div>
+          <div class="envelope-pocket"></div>
+          <div class="envelope-flap"></div>
+          <div class="cord cord--horizontal"></div>
+          <div class="cord cord--vertical"></div>
+          <div class="wax-seal" aria-hidden="true"><span class="seal-ring"></span><span class="seal-character">启</span></div>
+        </div>
+        <button id="openTapZone" class="envelope-tap-zone" type="button" aria-label="轻触开启贺卡"></button>
+      </div>
+
+      <button id="openHint" class="open-hint" type="button"><span class="open-hint__dot"></span>轻触火漆 · 开启心意</button>
+      <p class="edition">二〇二六 · 秋</p>
+    </section>
+
+    <section id="greeting" class="greeting-card" aria-hidden="true">
+      <div class="greeting-card__border"></div>
+      <div class="greeting-card__content">
+        <p class="greeting-card__eyebrow">TO OUR DEAREST MENTOR</p>
+        <h2>敬爱的周老师：</h2>
+        <p class="blessing">六十载春华秋实，您以严谨治学启迪求知，以温厚仁心守护成长。一路走来，您的教诲如灯，照亮我们探索学问、奔赴人生的方向；您的关怀如春风，让周门始终温暖而坚定。值此六十华诞，愿您岁月常欢、身体康健、桃李芬芳，所行皆坦途，所愿皆如意！</p>
+        <div class="signature"><p>周门弟子 敬贺</p><time datetime="2026-09-12">2026 年 9 月 12 日</time></div>
+        <button id="enterAlbum" class="primary-button" type="button"><span>进入纪念册</span><span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section id="album" class="album" aria-hidden="true">
+      <header class="album-header">
+        <div>
+          <p id="albumChapter" class="album-header__chapter">第一章</p>
+          <p id="albumTitle" class="album-header__title">杏坛与治学</p>
+        </div>
+        <p id="albumProgress" class="album-header__progress">引章</p>
+      </header>
+
+      <div id="albumStage" class="album-stage">
+        <article id="chapterIntro" class="chapter-intro">
+          <div class="chapter-intro__halo"></div>
+          <div id="chapterNumeral" class="chapter-intro__number">壹</div>
+          <p id="chapterEnglish" class="eyebrow">CHAPTER ONE</p>
+          <h2 id="chapterTitle">杏坛与治学</h2>
+          <div class="chapter-intro__rule"><span></span></div>
+          <p id="chapterDescription" class="chapter-intro__description">躬耕杏坛，求索不止<br />在田野与课堂之间，见证治学的温度</p>
+          <p id="chapterRange" class="chapter-intro__range">照片 01—10</p>
+          <button id="startChapter" class="chapter-start" type="button"><span>翻开这一章</span><span aria-hidden="true">→</span></button>
+        </article>
+
+        <article id="photoCard" class="photo-card" hidden>
+          <div id="photoFrame" class="photo-card__frame">
+            <img id="albumPhoto" src="" alt="" draggable="false" />
+            <div class="photo-card__corner photo-card__corner--tl"></div><div class="photo-card__corner photo-card__corner--tr"></div>
+            <div class="photo-card__corner photo-card__corner--bl"></div><div class="photo-card__corner photo-card__corner--br"></div>
+          </div>
+          <div class="photo-card__copy">
+            <div class="photo-card__meta"><time id="photoTime"></time><span id="photoPlace"></span></div>
+            <h2 id="photoTitle"></h2>
+            <p id="photoDescription"></p>
+            <p id="photoCredit" class="photo-card__credit"></p>
+          </div>
+        </article>
+
+        <article id="albumEnd" class="album-end" hidden>
+          <p class="eyebrow">THIRTY MOMENTS · ONE SHARED JOURNEY</p>
+          <div class="album-end__mark">叁章</div>
+          <h2>三十帧岁月<br />一程温暖同行</h2>
+          <p>照片故事暂告一段落<br />下一章，将听见大家写下的心意</p>
+          <button id="enterHeartfelt" class="chapter-start" type="button"><span>聆听文字心意</span><span aria-hidden="true">→</span></button>
+          <button id="restartAlbum" class="text-button" type="button">从第一章重看</button>
+        </article>
+      </div>
+
+      <button id="skipChapter" class="skip-chapter" type="button">跳过此章 <span aria-hidden="true">↠</span></button>
+
+      <nav id="albumControls" class="album-controls" aria-label="照片翻页" hidden>
+        <button id="previousPhoto" class="nav-button" type="button" aria-label="上一张"><span aria-hidden="true">←</span><span>上一张</span></button>
+        <div class="chapter-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <button id="nextPhoto" class="nav-button nav-button--primary" type="button" aria-label="下一张"><span>下一张</span><span aria-hidden="true">→</span></button>
+      </nav>
+      <p id="swipeHint" class="swipe-hint" hidden><span aria-hidden="true">‹</span> 左右滑动浏览 <span aria-hidden="true">›</span></p>
+    </section>
+
+    <section id="heartfelt" class="heartfelt" aria-hidden="true">
+      <header class="heartfelt-header">
+        <div>
+          <p class="heartfelt-header__eyebrow">第四章 · WORDS FROM THE HEART</p>
+          <h2>文字心意</h2>
+        </div>
+        <div id="heartProgress" class="heart-progress" aria-label="文字心意进度">
+          <span class="is-active"></span><span></span><span></span>
+        </div>
+      </header>
+
+      <div id="heartStage" class="heart-stage">
+        <article id="keywordScene" class="heart-scene keyword-scene">
+          <div class="heart-orbit heart-orbit--one"></div><div class="heart-orbit heart-orbit--two"></div>
+          <p class="eyebrow">IN EVERYONE'S EYES</p>
+          <h3>大家眼中的<br />周老师</h3>
+          <p class="heart-lead">二十七份心意，汇成共同的答案</p>
+          <div id="keywordCloud" class="keyword-cloud" aria-label="形容周老师的关键词"></div>
+          <button id="toWishes" class="heart-next" type="button"><span>读一读大家的祝福</span><span aria-hidden="true">→</span></button>
+        </article>
+
+        <article id="wishScene" class="heart-scene wish-scene" hidden>
+          <div class="scene-heading">
+            <div><p class="eyebrow">ALL WISHES · FROM EVERYONE</p><h3>一页一心意</h3></div>
+            <p id="wishCounter" class="scene-counter">01 / 27</p>
+          </div>
+          <div id="wishCard" class="wish-card">
+            <span class="wish-card__quote">“</span>
+            <p id="wishText"></p>
+            <p id="wishScrollHint" class="wish-scroll-hint" hidden>上下滑动阅读全文</p>
+            <div class="wish-card__from"><span id="wishName"></span><small id="wishIdentity"></small></div>
+          </div>
+          <nav class="heart-controls" aria-label="祝福短句翻页">
+            <button id="previousWish" class="round-control" type="button" aria-label="上一条祝福">←</button>
+            <div id="wishDots" class="mini-dots" aria-hidden="true"></div>
+            <button id="nextWish" class="round-control round-control--fill" type="button" aria-label="下一条祝福">→</button>
+          </nav>
+          <button id="toStories" class="heart-next heart-next--soft" type="button"><span>翻阅师生故事</span><span aria-hidden="true">→</span></button>
+        </article>
+
+        <article id="storyScene" class="heart-scene story-scene" hidden>
+          <div class="scene-heading">
+            <div><p class="eyebrow">STORIES BETWEEN US</p><h3>师生故事</h3></div>
+            <p id="storyCounter" class="scene-counter">01 / 05</p>
+          </div>
+          <p class="story-hint">每次只读一个故事，轻触卡片展开全文</p>
+          <button id="storyCard" class="story-card" type="button" aria-label="展开故事全文">
+            <div class="story-card__top"><span id="storyTag">治学</span><span>点击展开 ↗</span></div>
+            <h4 id="storyTitle"></h4>
+            <p id="storySummary"></p>
+            <div class="story-card__footer"><span id="storyName"></span><small id="storyIdentity"></small></div>
+          </button>
+          <nav class="heart-controls" aria-label="师生故事翻页">
+            <button id="previousStory" class="round-control" type="button" aria-label="上一个故事">←</button>
+            <div id="storyDots" class="mini-dots" aria-hidden="true"></div>
+            <button id="nextStory" class="round-control round-control--fill" type="button" aria-label="下一个故事">→</button>
+          </nav>
+          <p class="heartfelt-closing">严于学术，宽于为人。<br />这些被照亮的时刻，我们一直记得。</p>
+          <button id="toVideos" class="heart-next video-entry" type="button"><span>观看祝福视频</span><span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+
+      <button id="heartBack" class="heart-back" type="button" aria-label="返回上一页">←</button>
+    </section>
+
+    <section id="videoGallery" class="video-gallery" aria-hidden="true">
+      <header class="video-header">
+        <div>
+          <p>第五章 · BLESSINGS IN MOTION</p>
+          <h2>祝福视频</h2>
+        </div>
+        <p id="videoCounter" class="video-counter">01 / 04</p>
+      </header>
+
+      <div class="video-stage">
+        <article id="videoCard" class="video-card">
+          <div id="videoFrame" class="video-frame">
+            <video id="blessingVideo" controls playsinline webkit-playsinline preload="none" disablepictureinpicture></video>
+            <button id="videoPlay" class="video-play" type="button" aria-label="加载并播放祝福视频">
+              <span class="video-play__icon" aria-hidden="true">▶</span>
+              <span id="videoPlayLabel">点击加载并播放</span>
+            </button>
+            <p id="videoStatus" class="video-status" role="status" aria-live="polite"></p>
+            <span id="videoDurationBadge" class="video-duration-badge">01:28</span>
+          </div>
+          <div class="video-card__content">
+            <p id="videoNumber" class="video-card__number">VIDEO 01</p>
+            <h3 id="videoName">尹世久</h3>
+            <p id="videoIdentity" class="video-card__identity">山东女子学院 · 健康养老学院</p>
+            <div class="video-card__rule"></div>
+            <p id="videoCaption" class="video-card__caption">二十余载师生情，祝福温暖如初</p>
+          </div>
+        </article>
+      </div>
+
+      <nav class="video-controls" aria-label="祝福视频切换">
+        <button id="previousVideo" class="nav-button" type="button" aria-label="上一段视频"><span aria-hidden="true">←</span><span>上一段</span></button>
+        <div id="videoDots" class="chapter-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span></div>
+        <button id="nextVideo" class="nav-button nav-button--primary" type="button" aria-label="下一段视频"><span>下一段</span><span aria-hidden="true">→</span></button>
+      </nav>
+      <p class="video-note">点击后行内播放 · 切换卡片自动暂停</p>
+      <button id="videoBack" class="heart-back" type="button" aria-label="返回文字心意">←</button>
+    </section>
+
+    <section id="credits" class="credits" aria-hidden="true">
+      <header class="credits-header">
+        <p>WITH GRATITUDE · 幕后致谢</p>
+        <h2>筹备组名单</h2>
+      </header>
+
+      <article class="credits-card">
+        <div class="credits-seal" aria-hidden="true">谢</div>
+        <p class="credits-lead">一份纪念册的完成<br />离不开每一份用心与同行</p>
+
+        <div class="credits-list">
+          <section class="credits-group">
+            <p>内容设计 · 网页制作</p>
+            <h3>贾丽婼</h3>
+          </section>
+          <section class="credits-group">
+            <p>素材收集</p>
+            <h3>许蒋鸿、贾丽婼</h3>
+          </section>
+          <section class="credits-group credits-group--support">
+            <p>筹备组支持</p>
+            <h3>鄢贞、李凯、胡亦俊、金宇<br />许蒋鸿、贾丽婼、王璐</h3>
+          </section>
+        </div>
+
+        <div class="credits-closing">
+          <span></span>
+          <p>谨以此页，感谢每一位共同留下珍贵心意的人</p>
+          <time datetime="2026-09-10">二〇二六年九月</time>
+        </div>
+      </article>
+
+      <button id="creditsBack" class="heart-back" type="button" aria-label="返回祝福视频">←</button>
+    </section>
+
+    <div id="storyModal" class="story-modal" aria-hidden="true">
+      <div class="story-modal__backdrop"></div>
+      <article class="story-modal__sheet" role="dialog" aria-modal="true" aria-labelledby="modalStoryTitle">
+        <div class="story-modal__handle"></div>
+        <button id="closeStory" class="story-modal__close" type="button" aria-label="关闭故事">×</button>
+        <p id="modalStoryTag" class="eyebrow"></p>
+        <h3 id="modalStoryTitle"></h3>
+        <p id="modalStoryMeta" class="story-modal__meta"></p>
+        <div id="modalStoryBody" class="story-modal__body"></div>
+        <button id="closeStoryBottom" class="heart-next heart-next--soft" type="button">读完了，收起故事</button>
+      </article>
+    </div>
+
+    <button id="skipAnimation" class="skip-button" type="button" hidden>跳过动画</button>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>
