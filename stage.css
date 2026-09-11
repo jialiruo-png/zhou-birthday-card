@@ -114,11 +114,11 @@ button:focus-visible { outline: 3px solid #e4c389; outline-offset: 4px; }
 .wish-stage-card footer { margin-top: 2.3rem; padding-top: 1.2rem; border-top: 1px solid rgba(105,79,55,.16); color: var(--wine-deep); font-size: clamp(1rem,1.2vw,1.45rem); letter-spacing: .12em; text-align: right; }
 .wish-stage-card footer small { margin-left: .8rem; color: #83776b; font-size: .75em; }
 
-.story-stage { height: 100%; display: grid; grid-template-columns: .76fr 1.24fr; gap: 6vw; align-items: center; padding: 12vh var(--safe-x) 10vh; color: var(--ink); background: var(--stage-bg); }
+.story-stage { height: 100%; display: grid; grid-template-columns: .68fr 1.32fr; gap: 5vw; align-items: center; padding: 11vh var(--safe-x) 9vh; color: var(--ink); background: var(--stage-bg); }
 .story-stage__title .tag { color: var(--wine); font-family: Georgia,serif; letter-spacing: .35em; }
-.story-stage__title h3 { margin: 1.2rem 0; color: var(--ink); font-family: "ZCOOL XiaoWei",serif; font-size: clamp(2.8rem,4vw,5.3rem); font-weight: 400; line-height: 1.4; }
+.story-stage__title h3 { margin: 1.2rem 0; color: var(--ink); font-family: "Songti SC","STSong","Source Han Serif SC","Noto Serif SC",serif; font-size: clamp(2.15rem,3vw,4rem); font-weight: 400; line-height: 1.45; }
 .story-stage__title p { color: var(--wine-deep); font-size: clamp(1rem,1.2vw,1.45rem); letter-spacing: .12em; }
-.story-stage__body { position: relative; padding: clamp(2.2rem,3.5vw,4rem); border-left: 1px solid rgba(117,88,61,.22); color: #5f574f; background: rgba(255,255,255,.18); font-size: clamp(1.05rem,1.32vw,1.65rem); line-height: 2.05; text-align: justify; }
+.story-stage__body { position: relative; max-height: 68vh; padding: clamp(2rem,3vw,3.5rem); overflow-y: hidden; border-left: 1px solid rgba(117,88,61,.22); color: #5f574f; background: rgba(255,255,255,.18); font-family: "Songti SC","STSong","Source Han Serif SC","Noto Serif SC",serif; font-size: clamp(1.02rem,1.12vw,1.35rem); line-height: 1.9; letter-spacing: .025em; text-align: justify; white-space: pre-line; }
 .story-stage__body::before { content: "“"; position: absolute; left: 1.2rem; top: -2rem; color: rgba(152,70,75,.12); font-family: Georgia,serif; font-size: 8rem; }
 
 .video-stage { height: 100%; display: grid; grid-template-columns: minmax(0,1.45fr) minmax(22rem,.62fr); gap: clamp(2rem,4vw,5rem); align-items: center; padding: 10vh var(--safe-x) 8vh; color: var(--ink); background: var(--stage-bg); }

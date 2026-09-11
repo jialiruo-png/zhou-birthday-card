@@ -83,8 +83,62 @@ const stageData = {
     { name: '杨鑫', identity: '2026 级硕士', text: `老师生日快乐，祝您身体健康，诸事顺遂！感谢老师选择了我，也要提前感谢未来三年您对我的指导和栽培，我一定不会辜负老师对我的信任。再次祝老师生日快乐！` }
   ],
   stories: [
-    { tag: '严谨与鼓励', title: '深夜的批注与“打铁还需自身硬”的底气', name: '陈凯文', identity: '2024 级硕士', summary: '深夜 23 点的细致批注、一句“加油干！”，以及“打铁还需自身硬”的叮嘱，成为求学路上温暖而有力的支持。老师对细节的认真与对学生的鼓励，让严谨不再是压力，而成为走得更远的底气。' },
-    { tag: '陪伴与托举', title: '跨越山海的牵挂', name: '梁玉虎', identity: '2021 级学生', summary: '从论文选题到德国联合培养，再到博士毕业求职，老师的指导从不止于科研。远隔重洋的一句“照顾好自己”，一次次为未来设身处地的考虑，都像长辈般守护着每一次成长。' }
+    {
+      tag: '严谨与鼓励',
+      title: '深夜的批注与“打铁还需自身硬”的底气',
+      name: '陈凯文', identity: '2024 级硕士',
+      body: `在撰写专业实践案例与研究报告期间，周老师给予了我和团队（杨小能、袁欣婷等）细致的指导。即使到了深夜 23 点，周老师依然会认真审阅并及时反馈具体的修改建议，对话末尾一句“加油干！”总能在关键时刻给我莫大的动力。在周老师的悉心点拨下，报告逻辑与内容得以不断完善，最终顺利获评浙江大学优秀实践成果一等奖与浙江省专业学位研究生优秀创新成果。
+
+在竞选“文奇奖学金”等荣誉时，周老师不仅耐心帮我梳理汇报思路、指出不足，更叮嘱我“打铁还需自身硬”。这句话不仅缓解了我当时的焦虑，更让我明白把内功练扎实才是立身之本，激励着我放平心态、继续努力。
+
+深夜里的详尽批注与质朴有力的教诲，是我求学期间最温暖也最有力的支持。未来无论在学术探索还是工作岗位上，我都将带着这份严谨与踏实，笃行致远。`
+    },
+    {
+      tag: '陪伴与托举',
+      title: '跨越山海的牵挂',
+      name: '梁玉虎', identity: '2021 级学生',
+      body: `博士求学数载，回望在周门学习和成长的日子，有许多片段始终令我难忘。衷心感谢我的导师周洁红教授。一路走来，周老师不仅给予我严谨细致的学术指导，也在生活、成长和求职过程中给予我长辈般的关怀与支持。
+
+在学术上，周老师始终严谨认真、精益求精。从论文选题、研究设计，到实证分析、论文写作与反复修改，每一个环节都倾注了大量心血。很多时候，一篇论文、一份材料经过周老师指导后，我才真正意识到，看似细微的文字和逻辑背后，体现的是做学问应有的严谨与责任。
+
+赴德国联合培养期间，虽然远隔重洋，周老师依然经常关心我的学习、科研和生活情况，鼓励我珍惜机会、开阔视野，也时常叮嘱我照顾好自己。记得有一次感冒生病，周老师得知后多次叮嘱我要注意身体、劳逸结合。几句朴实的嘱咐，让我在异国求学期间感受到了一份格外温暖的牵挂。
+
+博士毕业求职期间，从就业方向的建议，到机会的推荐，再到一次次鼓励，周老师始终设身处地为学生的长远发展考虑。一位好导师对学生的影响，远远不止于帮助完成一篇论文、取得一个学位，更在于教会学生如何做学问、如何做事、如何走好未来的人生道路。
+
+师恩难忘，薪火相传。愿自己未来无论身处何地，都能铭记周老师的教诲，并将曾经从老师那里得到的关怀、责任与温暖继续传递下去。`
+    },
+    {
+      tag: '毕业后的关怀',
+      title: '暖心小故事',
+      name: '赵文欣', identity: '2021 级硕士',
+      body: `在我毕业工作近一年后，周老师有一次因种业推广研究工作，恰巧到我单位座谈。在忙碌的工作间隙，周老师依然对我的工作、生活关怀备至，不仅细致询问我工作以来的感受、生活近况，还耐心指导我要转换学生思维，适应职场。
+
+周老师语重心长地叮嘱我，年轻人要沉下心来、脚踏实地。这份跨越毕业界限的关怀，让我倍感温暖与感动，也让我在工作遇到困惑的时候重拾信心，坚定踏实前行、不负期许的信念。
+
+周老师用一言一行诠释着师者仁心，这份暖心陪伴成为我人生发展道路上坚实的力量。`
+    },
+    {
+      tag: '尊重与包容',
+      title: '严于学术，宽于为人',
+      name: '沈云', identity: '2018 级博士',
+      body: `感谢我的导师周洁红教授。周老师不仅是我在学术道路上的指路人，更是我科研生涯中最重要的启蒙者。从初入师门时的懵懂无知，到第一篇文章的修改和定稿、第一次参加学术会议，再到最终完成学位论文的每个关键节点，在无数次的讨论、数据分析调整、文字修改和返稿中，周老师始终以她严谨治学、精益求精的学术态度耐心教导和引领着我。
+
+同时还要特别感谢周老师的包容与开放。我在读期间漂发又穿孔，有时在路上都会引人侧目，但周老师从未表现出任何异样眼光，永远淡然微笑着迎接我的每次变化。
+
+这种从容平和的态度和“严于学术，宽于为人”的处世哲学，真正教会了我如何平衡自我表达与专业追求。最后，再次祝周老师生日快乐，永远健康、幸福！`
+    },
+    {
+      tag: '相信与成全',
+      title: '困境中的珍贵成全',
+      name: '魏珂', identity: '2020 级博士',
+      body: `周老师，值您六十华诞，回首师门求学岁月，心中常怀对您的无限感恩。
+
+初入师门之时，我只是一名懵懂青涩的学术新人。您治学严谨，一丝不苟，每一篇小论文，您都会留下百余处细致批注，从篇章架构直至标点字句，悉心打磨；又为我争取机会、搭建平台，引领我踏入学术之门。
+
+求学途中，我一度深陷迷茫困顿。是您始终没有放弃停滞不前的我。学业上多方统筹，协调同门相助，陪伴我熬过论文最艰难的阶段；更看见我内心的煎熬，牵挂我的身心状态，一次次开导劝慰。即便在我怀疑自我时，您依然选择相信我，倾尽心力托举我完成学业、顺利毕业。
+
+这份恩情早已超越普通传道授业，是困境之中一份珍贵的成全。岁月悠长，师恩铭刻肺腑。恭贺您六十寿辰，愿您往后岁月身心安泰，福寿绵长，阖家安康。`
+    }
   ],
   videos: [
     { src: './assets/videos/video-yin-upright.mp4', poster: './assets/posters/video-yin-upright.jpg', name: '尹世久', identity: '山东女子学院 · 健康养老学院', duration: '01:28', caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', focus: 'lower' },
@@ -133,6 +187,7 @@ let controlsTimer = 0;
 let activeVideoUrl = '';
 let videoController = null;
 let videoFailed = false;
+let storyScroll = null;
 let achievementScroll = null;
 let currentPhotoNumber = 0;
 
@@ -146,7 +201,7 @@ function buildTimeline() {
   });
   items.push({ type: 'words', duration: STATIC_TIMINGS.words, eyebrow: 'WORDS FROM THE HEART', chapter: '文字心意' });
   stageData.wishes.forEach((wish) => items.push({ type: 'wish', duration: Math.min(20000, Math.max(STATIC_TIMINGS.wish, wish.text.length * 40)), eyebrow: 'BLESSINGS', chapter: '全员祝福', wish }));
-  stageData.stories.forEach((story) => items.push({ type: 'story', duration: STATIC_TIMINGS.story, eyebrow: 'MENTOR STORIES', chapter: '师生故事', story }));
+  stageData.stories.forEach((story) => items.push({ type: 'story', duration: Math.min(45000, Math.max(18000, story.body.length * 48)), eyebrow: 'MENTOR STORIES', chapter: '师生故事', story }));
   items.push({ type: 'videoIntro', duration: STATIC_TIMINGS.videoIntro, eyebrow: 'BLESSINGS IN MOTION', chapter: '祝福视频' });
   stageData.videos.forEach((video, index) => items.push({ type: 'video', duration: 0, eyebrow: 'BLESSINGS IN MOTION', chapter: '祝福视频', video, videoIndex: index }));
   items.push({ type: 'achievements', duration: STATIC_TIMINGS.achievements, eyebrow: 'A LIFE OF SCHOLARSHIP', chapter: '治学长卷' });
@@ -244,7 +299,8 @@ function renderStory(sceneData) {
   title.appendChild(node('p', 'tag', sceneData.story.tag.toUpperCase()));
   title.appendChild(node('h3', '', sceneData.story.title));
   title.appendChild(node('p', '', `${sceneData.story.name} · ${sceneData.story.identity}`));
-  const body = node('div', 'story-stage__body', sceneData.story.summary);
+  const body = node('div', 'story-stage__body', sceneData.story.body);
+  storyScroll = body;
   scene.append(title, body);
   canvas.appendChild(scene);
 }
@@ -390,6 +446,7 @@ function sceneUsesVideo() {
 
 function resetCanvas() {
   cleanupVideo();
+  storyScroll = null;
   achievementScroll = null;
   canvas.replaceChildren();
 }
@@ -462,6 +519,14 @@ function playbackLoop(now) {
   const progress = currentDuration ? Math.min(elapsed / currentDuration, 1) : 0;
   stageProgress.style.width = `${progress * 100}%`;
   updateClock(elapsed);
+  if (scene.type === 'story' && storyScroll) {
+    const holdStart = 5000;
+    const holdEnd = 5000;
+    const scrollDuration = Math.max(currentDuration - holdStart - holdEnd, 1);
+    const scrollProgress = Math.min(Math.max((elapsed - holdStart) / scrollDuration, 0), 1);
+    const eased = scrollProgress < .5 ? 2 * scrollProgress * scrollProgress : 1 - Math.pow(-2 * scrollProgress + 2, 2) / 2;
+    storyScroll.scrollTop = (storyScroll.scrollHeight - storyScroll.clientHeight) * eased;
+  }
   if (scene.type === 'achievements' && achievementScroll) {
     const holdStart = 7000;
     const holdEnd = 8000;
