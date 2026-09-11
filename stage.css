@@ -108,9 +108,11 @@ button:focus-visible { outline: 3px solid #e4c389; outline-offset: 4px; }
 .keyword-wall span:nth-child(4n) { font-size: clamp(1.25rem,1.7vw,2.1rem); }
 
 .wish-scene { height: 100%; display: grid; place-items: center; padding: 12vh var(--safe-x) 10vh; color: var(--ink); background: var(--stage-bg); }
-.wish-stage-card { position: relative; width: min(74vw,78rem); min-height: 54vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(3rem,5vw,6rem); border: 0; background: transparent; box-shadow: none; color: var(--ink); }
+.wish-stage-card { position: relative; width: min(82vw,92rem); min-height: 54vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(2.6rem,4.2vw,5.2rem); border: 0; overflow: hidden; background: transparent; box-shadow: none; color: var(--ink); }
 .wish-stage-card::before { content: "“"; position: absolute; left: 3rem; top: .8rem; color: rgba(152,70,75,.12); font-family: Georgia,serif; font-size: clamp(7rem,10vw,13rem); line-height: 1; }
-.wish-stage-card blockquote { position: relative; margin: 0; font-size: clamp(1.45rem,2vw,2.5rem); line-height: 2; letter-spacing: .055em; text-align: justify; }
+.wish-stage-card blockquote { position: relative; margin: 0; font-size: clamp(1.45rem,2vw,2.5rem); line-height: 2; letter-spacing: .055em; text-align: justify; white-space: pre-line; }
+.wish-stage-card.is-long blockquote { font-size: clamp(1.08rem,1.3vw,1.55rem); line-height: 1.78; }
+.wish-stage-card.is-very-long blockquote { font-size: clamp(.88rem,.96vw,1.15rem); line-height: 1.62; letter-spacing: .035em; }
 .wish-stage-card footer { margin-top: 2.3rem; padding-top: 1.2rem; border-top: 1px solid rgba(105,79,55,.16); color: var(--wine-deep); font-size: clamp(1rem,1.2vw,1.45rem); letter-spacing: .12em; text-align: right; }
 .wish-stage-card footer small { margin-left: .8rem; color: #83776b; font-size: .75em; }
 
