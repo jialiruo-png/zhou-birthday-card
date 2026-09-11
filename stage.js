@@ -141,10 +141,10 @@ const stageData = {
     }
   ],
   videos: [
-    { src: './assets/videos/video-yin-upright.mp4', poster: './assets/posters/video-yin-upright.jpg', name: '尹世久', identity: '山东女子学院 · 健康养老学院', duration: '01:28', caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', focus: 'lower' },
+    { src: './assets/videos/video-yin-upright.mp4', poster: './assets/posters/video-yin-upright.jpg', name: '尹世久', identity: '山东女子学院 · 健康养老学院', duration: '01:28', caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', ratio: 9 / 16 },
     { src: './assets/videos/video-01.mp4', poster: './assets/posters/video-01.jpg', name: '陈凯文', identity: '2024 级硕士生', duration: '00:46', caption: '感恩培养，生日快乐', orientation: 'landscape' },
     { src: './assets/videos/video-02.mp4', poster: './assets/posters/video-02.jpg', name: '梁玉虎', identity: '2021 级学生', duration: '00:52', caption: '感谢一路引领，祝福六十华诞', orientation: 'landscape' },
-    { src: './assets/videos/video-03.mp4', poster: './assets/posters/video-03.jpg', name: '金宇、张晶及家人', identity: '2019 级博士 · 2020 级硕士', duration: '01:03', caption: '来自师门与家人的温暖祝福', orientation: 'portrait' },
+    { src: './assets/videos/video-03.mp4', poster: './assets/posters/video-03.jpg', name: '金宇、张晶及家人', identity: '2019 级博士 · 2020 级硕士', duration: '01:03', caption: '来自师门与家人的温暖祝福', orientation: 'portrait', ratio: 3 / 4 },
     { src: './assets/videos/video-liyi.mp4', poster: './assets/posters/video-liyi.jpg', name: '李祎', identity: '师门成员', duration: '01:19', caption: '一路相伴，从本科到今日的感恩与祝愿', orientation: 'landscape' }
   ]
 };
@@ -337,8 +337,9 @@ function renderVideoIntro() {
 function renderVideo(sceneData) {
   const scene = node('div', 'video-stage scene-enter');
   const screen = node('div', 'video-stage__screen');
-  if (sceneData.video.orientation === 'portrait') screen.classList.add('is-portrait');
-  if (sceneData.video.focus === 'lower') screen.classList.add('is-focus-lower');
+  const fallbackRatio = sceneData.video.ratio || 16 / 9;
+  screen.style.setProperty('--video-ratio', String(fallbackRatio));
+  screen.classList.toggle('is-portrait', fallbackRatio < 1);
   stageVideo.hidden = false;
   stageVideo.poster = sceneData.video.poster;
   screen.append(stageVideo, node('span', 'video-stage__badge', `VIDEO ${String(sceneData.videoIndex + 1).padStart(2, '0')} / 05`));
@@ -634,6 +635,13 @@ function restartShow() {
   showNotice('已重新开始放映');
 }
 
+stageVideo.addEventListener('loadedmetadata', () => {
+  const screen = document.querySelector('.video-stage__screen');
+  if (!screen || !stageVideo.videoWidth || !stageVideo.videoHeight) return;
+  const ratio = stageVideo.videoWidth / stageVideo.videoHeight;
+  screen.style.setProperty('--video-ratio', String(ratio));
+  screen.classList.toggle('is-portrait', ratio < 1);
+});
 stageVideo.addEventListener('ended', () => {
   if (sceneUsesVideo()) nextScene();
 });

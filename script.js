@@ -755,7 +755,7 @@ const blessingVideos = [
   {
     src: './assets/videos/video-yin-upright.mp4', poster: './assets/posters/video-yin-upright.jpg',
     name: '尹世久', identity: '山东女子学院 · 健康养老学院', duration: '01:28',
-    caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', focus: 'lower'
+    caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', ratio: 9 / 16
   },
   {
     src: './assets/videos/video-01.mp4', poster: './assets/posters/video-01.jpg',
@@ -770,7 +770,7 @@ const blessingVideos = [
   {
     src: './assets/videos/video-03.mp4', poster: './assets/posters/video-03.jpg',
     name: '金宇、张晶及家人', identity: '2019 级博士 · 2020 级硕士', duration: '01:03',
-    caption: '来自师门与家人的温暖祝福', orientation: 'portrait'
+    caption: '来自师门与家人的温暖祝福', orientation: 'portrait', ratio: 3 / 4
   },
   {
     src: './assets/videos/video-liyi.mp4', poster: './assets/posters/video-liyi.jpg',
@@ -831,7 +831,7 @@ function renderVideo(direction = 'forward') {
   videoPlay.disabled = false;
   videoPlayLabel.textContent = '点击加载并播放';
   frame.classList.toggle('is-portrait', item.orientation === 'portrait');
-  frame.classList.toggle('is-focus-lower', item.focus === 'lower');
+  frame.style.setProperty('--video-ratio', String(item.ratio || 16 / 9));
   document.querySelector('#videoCounter').textContent = `${String(videoIndex + 1).padStart(2, '0')} / ${String(blessingVideos.length).padStart(2, '0')}`;
   document.querySelector('#videoNumber').textContent = `VIDEO ${String(videoIndex + 1).padStart(2, '0')}`;
   document.querySelector('#videoName').textContent = item.name;
@@ -1128,6 +1128,13 @@ videoPlay.addEventListener('click', async () => {
     videoPlayLabel.textContent = '点击播放';
     videoStatus.textContent = '视频已加载，请再次点击播放';
   }
+});
+blessingVideo.addEventListener('loadedmetadata', () => {
+  const frame = document.querySelector('#videoFrame');
+  if (!frame || !blessingVideo.videoWidth || !blessingVideo.videoHeight) return;
+  const ratio = blessingVideo.videoWidth / blessingVideo.videoHeight;
+  frame.style.setProperty('--video-ratio', String(ratio));
+  frame.classList.toggle('is-portrait', ratio < 1);
 });
 blessingVideo.addEventListener('play', () => {
   pauseBackgroundForVideo();
