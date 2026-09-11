@@ -4,7 +4,7 @@ const stageData = {
     ['portrait-02.webp', '卡特年末工作会议留影', '2019 年 1 月 19 日', '', '在行走与交流之间，留下从容而明朗的一刻。', '供图：鄢贞', 'right'],
     ['portrait-03.webp', '师门研讨会', '', '', '一方屏幕、一席讨论，把求知与思考带到每位学生身边。', '供图：胡亦俊', 'left'],
     ['photo-10.webp', '调研交流中的专注笃定', '2026 年 5 月 24 日', '浙江蓝美技术股份有限公司', '言传身教，将多年积淀化作现场清晰而温暖的启发。', '供图：贾丽婼', 'cover'],
-    ['portrait-05.webp', '温哥华农经年会留影', '2018 年', '加拿大温哥华', '行走在更广阔的学术天地里，也留下旅途中的明亮身影。', '供图：唐利群', 'right']
+    ['portrait-05.webp', '温哥华农经年会留影', '2018 年', '加拿大温哥华', '行走在更广阔的学术天地里，也留下旅途中的明亮身影。', '供图：唐利群', 'portrait-focus']
   ],
   chapters: [
     {
@@ -43,7 +43,7 @@ const stageData = {
       photos: [
         ['photo-21.webp', '生日相聚', '2018 年', '', '烛光与笑意相映，那些被惦念的时刻总格外温暖。', '供图：唐利群'],
         ['photo-24.webp', '露营烧烤', '2023 年', '', '走出课堂，围坐相谈；烟火气里，是师门自在的亲近。', '供图：胡亦俊'],
-        ['photo-22.webp', '生日祝福', '2024 年', '', '年年有今日的祝愿，也有始终如一的敬爱与感恩。', '供图：胡亦俊'],
+        ['photo-22.webp', '生日祝福', '2024 年', '', '年年有今日的祝愿，也有始终如一的敬爱与感恩。', '供图：胡亦俊', 'group-bottom'],
         ['photo-26.webp', '师门记忆', '岁月留影', '', '镜头记下相聚，也记下彼此陪伴的轻松时刻。', '供图：金宇'],
         ['photo-27.webp', '师门记忆', '岁月留影', '', '时光流转，熟悉的笑容让每次回望都倍感亲切。', '供图：金宇'],
         ['photo-28.webp', '欢聚一堂', '岁月留影', '', '生活的可爱，藏在一次次自然、真挚的相聚之中。', '供图：金宇'],
@@ -178,6 +178,8 @@ function renderPhoto(sceneData) {
   if (mode === 'cover') visual.classList.add('is-cover');
   if (mode === 'left') visual.classList.add('is-left');
   if (mode === 'right') visual.classList.add('is-right');
+  if (mode === 'portrait-focus') visual.classList.add('is-portrait-focus');
+  if (mode === 'group-bottom') visual.classList.add('is-group-bottom');
   const image = node('img');
   image.src = `./assets/photos/${file}`;
   image.alt = title;
@@ -374,6 +376,7 @@ function enterScene(index) {
   if (!timeline.length) return;
   currentIndex = Math.min(Math.max(index, 0), timeline.length - 1);
   const scene = timeline[currentIndex];
+  app.dataset.scene = scene.type;
   resetCanvas();
   currentDuration = scene.duration;
   elapsedBeforePause = 0;
