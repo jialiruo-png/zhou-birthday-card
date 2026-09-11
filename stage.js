@@ -230,8 +230,6 @@ function renderWords() {
 function renderWish(sceneData) {
   const scene = node('div', 'wish-scene scene-enter');
   const card = node('article', 'wish-stage-card');
-  if (sceneData.wish.text.length > 320) card.classList.add('is-very-long');
-  else if (sceneData.wish.text.length > 140) card.classList.add('is-long');
   card.appendChild(node('blockquote', '', sceneData.wish.text));
   const footer = node('footer', '', sceneData.wish.name);
   footer.appendChild(node('small', '', sceneData.wish.identity));
