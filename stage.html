@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./stage.css?v=2" />
+  <link rel="stylesheet" href="./stage.css?v=3" />
 </head>
 <body>
   <main id="stageApp" class="stage-app" aria-live="polite">
@@ -18,16 +18,30 @@
     <div class="stage-glow stage-glow--two" aria-hidden="true"></div>
 
     <section id="standby" class="standby">
-      <div class="standby__ornament" aria-hidden="true"><span>六十</span></div>
-      <p class="standby__eyebrow">A TRIBUTE WITH LOVE · 2026</p>
-      <h1>岁月有光<span>·</span>师者如兰</h1>
-      <p class="standby__subtitle">周洁红教授六十岁生日纪念</p>
-      <div class="standby__rule"><i></i><b>周</b><i></i></div>
-      <button id="startShow" class="start-show" type="button">
-        <span class="start-show__icon" aria-hidden="true">▶</span>
-        <span><strong>开始放映</strong><small>自动播放 · 建议进入全屏</small></span>
+      <svg class="standby__botanical standby__botanical--left" viewBox="0 0 170 410" aria-hidden="true">
+        <path d="M22 420C32 300 55 183 143 22" />
+        <path d="M56 270C34 248 26 222 32 191C64 200 78 226 56 270Z" />
+        <path d="M82 195C64 167 65 142 79 117C106 134 111 163 82 195Z" />
+        <path d="M111 121C98 94 105 69 123 48C145 69 140 97 111 121Z" />
+        <circle cx="48" cy="307" r="7" /><circle cx="95" cy="159" r="5" />
+      </svg>
+      <svg class="standby__botanical standby__botanical--right" viewBox="0 0 170 410" aria-hidden="true">
+        <path d="M148 420C138 300 115 183 27 22" />
+        <path d="M114 270C136 248 144 222 138 191C106 200 92 226 114 270Z" />
+        <path d="M88 195C106 167 105 142 91 117C64 134 59 163 88 195Z" />
+        <path d="M59 121C72 94 65 69 47 48C25 69 30 97 59 121Z" />
+        <circle cx="122" cy="307" r="7" /><circle cx="75" cy="159" r="5" />
+      </svg>
+      <header class="standby__copy">
+        <p class="standby__eyebrow">A TRIBUTE WITH LOVE</p>
+        <h1>岁月有光<span>·</span>师者如兰</h1>
+        <p class="standby__subtitle">周洁红教授六十岁纪念</p>
+      </header>
+      <button id="startShow" class="start-show" type="button" aria-label="轻触开启贺卡">
+        <span class="stage-envelope" aria-hidden="true"><i>周</i><b></b></span>
       </button>
-      <p class="standby__tip">开始前请确认投影仪声音已开启</p>
+      <p class="standby__hint"><span></span>轻触火漆 · 开启心意</p>
+      <p class="standby__edition">二〇二六 · 秋</p>
     </section>
 
     <section id="showScene" class="show-scene" aria-hidden="true">
@@ -68,6 +82,6 @@
   </main>
 
   <script src="./achievements-data.js"></script>
-  <script src="./stage.js?v=2"></script>
+  <script src="./stage.js?v=3"></script>
 </body>
 </html>
