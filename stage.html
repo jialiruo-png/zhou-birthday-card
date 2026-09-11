@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#171814" />
+  <meta name="description" content="周洁红教授六十岁生日纪念相册宴会大屏版" />
+  <title>岁月有光 · 师者如兰｜宴会大屏版</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./stage.css" />
+</head>
+<body>
+  <main id="stageApp" class="stage-app" aria-live="polite">
+    <div class="stage-grain" aria-hidden="true"></div>
+    <div class="stage-glow stage-glow--one" aria-hidden="true"></div>
+    <div class="stage-glow stage-glow--two" aria-hidden="true"></div>
+
+    <section id="standby" class="standby">
+      <div class="standby__ornament" aria-hidden="true"><span>六十</span></div>
+      <p class="standby__eyebrow">A TRIBUTE WITH LOVE · 2026</p>
+      <h1>岁月有光<span>·</span>师者如兰</h1>
+      <p class="standby__subtitle">周洁红教授六十岁生日纪念</p>
+      <div class="standby__rule"><i></i><b>周</b><i></i></div>
+      <button id="startShow" class="start-show" type="button">
+        <span class="start-show__icon" aria-hidden="true">▶</span>
+        <span><strong>开始放映</strong><small>自动播放 · 建议进入全屏</small></span>
+      </button>
+      <p class="standby__tip">开始前请确认投影仪声音已开启</p>
+    </section>
+
+    <section id="showScene" class="show-scene" aria-hidden="true">
+      <header class="stage-header">
+        <div>
+          <p id="stageEyebrow">OPENING</p>
+          <h2 id="stageChapter">岁月有光</h2>
+        </div>
+        <div class="stage-status">
+          <span id="stageClock">00:00</span>
+          <span id="stageIndex">01 / 01</span>
+        </div>
+      </header>
+
+      <div id="sceneCanvas" class="scene-canvas"></div>
+
+      <div class="stage-progress" aria-hidden="true"><span id="stageProgress"></span></div>
+      <p id="stageNotice" class="stage-notice" role="status" aria-live="polite"></p>
+    </section>
+
+    <aside id="showControls" class="show-controls" aria-label="放映控制" hidden>
+      <button id="previousScene" type="button" title="上一幕（←）" aria-label="上一幕">←</button>
+      <button id="togglePlayback" class="show-controls__primary" type="button" title="暂停或继续（空格）" aria-label="暂停放映">Ⅱ</button>
+      <button id="nextScene" type="button" title="下一幕（→）" aria-label="下一幕">→</button>
+      <span></span>
+      <button id="toggleMute" type="button" title="静音（M）" aria-label="静音">♪</button>
+      <button id="toggleFullscreen" type="button" title="全屏（F）" aria-label="进入全屏">⛶</button>
+      <button id="restartShow" type="button" title="重新开始（R）" aria-label="重新开始">↻</button>
+    </aside>
+
+    <div id="mediaGate" class="media-gate" hidden>
+      <p>浏览器暂停了自动播放</p>
+      <button id="resumeMedia" type="button">点击继续放映</button>
+    </div>
+
+    <audio id="stageBgm" src="./assets/audio/flowing-river.mp3" preload="auto" loop></audio>
+    <video id="stageVideo" preload="metadata" playsinline></video>
+  </main>
+
+  <script src="./achievements-data.js"></script>
+  <script src="./stage.js"></script>
+</body>
+</html>
