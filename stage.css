@@ -107,11 +107,11 @@ button:focus-visible { outline: 3px solid #e4c389; outline-offset: 4px; }
 .keyword-wall span:nth-child(3n+1) { color: var(--wine-deep); border-color: rgba(152,70,75,.27); background: rgba(255,247,238,.52); transform: translateY(-.4rem); }
 .keyword-wall span:nth-child(4n) { font-size: clamp(1.25rem,1.7vw,2.1rem); }
 
-.wish-scene { height: 100%; display: grid; place-items: center; padding: 12vh var(--safe-x) 10vh; color: var(--ink); background: var(--stage-bg); }
-.wish-stage-card { position: relative; width: min(82vw,92rem); min-height: 54vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(2.6rem,4.2vw,5.2rem); border: 0; overflow: hidden; background: transparent; box-shadow: none; color: var(--ink); }
+.wish-scene { height: 100%; display: grid; place-items: center; padding: 10vh var(--safe-x) 6vh; color: var(--ink); background: var(--stage-bg); }
+.wish-stage-card { position: relative; width: min(86vw,98rem); min-height: 54vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(2.2rem,3.6vw,4.4rem); border: 0; overflow: hidden; background: transparent; box-shadow: none; color: var(--ink); }
 .wish-stage-card::before { content: "“"; position: absolute; left: 3rem; top: .8rem; color: rgba(152,70,75,.12); font-family: Georgia,serif; font-size: clamp(7rem,10vw,13rem); line-height: 1; }
-.wish-stage-card blockquote { position: relative; margin: 0; font-size: clamp(1.12rem,1.25vw,1.45rem); line-height: 1.78; letter-spacing: .04em; text-align: justify; white-space: pre-line; }
-.wish-stage-card footer { margin-top: 2.3rem; padding-top: 1.2rem; border-top: 1px solid rgba(105,79,55,.16); color: var(--wine-deep); font-size: clamp(1rem,1.2vw,1.45rem); letter-spacing: .12em; text-align: right; }
+.wish-stage-card blockquote { position: relative; margin: 0; font-size: clamp(1.38rem,1.55vw,1.78rem); line-height: 1.72; letter-spacing: .035em; text-align: justify; white-space: pre-line; }
+.wish-stage-card footer { margin-top: 2.3rem; padding-top: 1.2rem; border-top: 1px solid rgba(105,79,55,.16); color: var(--wine-deep); font-size: clamp(1.12rem,1.32vw,1.55rem); letter-spacing: .12em; text-align: right; }
 .wish-stage-card footer small { margin-left: .8rem; color: #83776b; font-size: .75em; }
 
 .story-stage { height: 100%; display: grid; grid-template-columns: .68fr 1.32fr; gap: 5vw; align-items: center; padding: 11vh var(--safe-x) 9vh; color: var(--ink); background: var(--stage-bg); }
@@ -155,7 +155,7 @@ button:focus-visible { outline: 3px solid #e4c389; outline-offset: 4px; }
 .closing-scene__seal { width: clamp(6rem,7vw,9rem); aspect-ratio: 1; display: grid; place-items: center; margin: 0 auto 2rem; border: 1px solid rgba(152,70,75,.42); border-radius: 50%; color: var(--wine); font-family: "ZCOOL XiaoWei",serif; font-size: clamp(2.3rem,3vw,4rem); }
 .closing-scene h3 { margin: 0; color: var(--ink); font-family: "ZCOOL XiaoWei",serif; font-size: clamp(4rem,6vw,8rem); font-weight: 400; letter-spacing: .14em; }
 .closing-scene__wish { margin: 1.5rem 0 0; color: #665d54; font-size: clamp(1.25rem,1.65vw,2rem); line-height: 2; letter-spacing: .12em; }
-.closing-scene__credits { margin-top: 3rem; color: #83776b; font-family: "Noto Sans SC",sans-serif; font-size: clamp(.72rem,.85vw,1rem); line-height: 1.9; letter-spacing: .08em; }
+.closing-scene__credits { margin-top: 4rem; color: #83776b; font-family: "Noto Sans SC",sans-serif; font-size: clamp(.72rem,.85vw,1rem); line-height: 1.9; letter-spacing: .08em; }
 .closing-scene__credits strong { color: var(--wine-deep); font-weight: 400; }
 
 .stage-app[data-scene="opening"] .stage-header h2,
