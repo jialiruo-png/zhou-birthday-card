@@ -1,19 +1,26 @@
+const portraitPrelude = [
+  ['photo-25.webp', '舞台上的从容与笑意', '2011 年', '', '聚光灯下的鲜活笑容，定格一份明亮的师者风采。', '供图：胡亦俊', 'contain'],
+  ['portrait-02.webp', '卡特年末工作会议留影', '2019 年 1 月 19 日', '', '在行走与交流之间，留下从容而明朗的一刻。', '供图：鄢贞', 'right'],
+  ['portrait-03.webp', '师门研讨会', '', '', '一方屏幕、一席讨论，把求知与思考带到每位学生身边。', '供图：胡亦俊', 'left'],
+  ['photo-10.webp', '调研交流中的专注笃定', '2026 年 5 月 24 日', '浙江蓝美技术股份有限公司', '言传身教，将多年积淀化作现场清晰而温暖的启发。', '供图：贾丽婼', 'center'],
+  ['portrait-05.webp', '温哥华农经年会留影', '2018 年', '加拿大温哥华', '行走在更广阔的学术天地里，也留下旅途中的明亮身影。', '供图：唐利群', 'right']
+];
+
 const chapters = [
   {
     numeral: '壹', label: '第一章', english: 'CHAPTER ONE', title: '杏坛与治学',
     description: '躬耕杏坛，求索不止<br>在田野与课堂之间，见证治学的温度',
     tone: 'scholar',
     photos: [
+      ['photo-02.webp', '早年调研', '早年', '', '从书斋走向田野，在真实世界中寻找问题，也寻找答案。', ''],
       ['photo-01.webp', '课题申报研讨', '2011 年 11 月 25 日', '', '围坐研讨、切磋求真，是一段关于治学初心的珍贵记录。', '供图：胡亦俊'],
-      ['photo-02.webp', '早年调研', '早年', '', '从书斋走向田野，在真实世界中寻找问题，也寻找答案。', '时间、地点待补充'],
-      ['photo-03.webp', '衢州龙游水产调研', '2018 年 6 月 27 日', '浙江 · 衢州龙游', '师门一行深入一线开展水产调研，把学问写在广阔大地上。', '供图：鄢贞'],
-      ['photo-04.webp', '京都大学访学', '2023 年', '日本 · 京都大学', '跨越山海的学术交流，让思考在更开阔的坐标中生长。', '人物、供图待确认'],
       ['photo-05.webp', '与 MIT 团队合影', '2017 年暑假', '', '在交流与碰撞中拓展研究边界，也留下同行的珍贵瞬间。', '供图：杨之颖'],
+      ['photo-03.webp', '衢州龙游水产调研', '2018 年 6 月 27 日', '浙江 · 衢州龙游', '师门一行深入一线开展水产调研，把学问写在广阔大地上。', '供图：鄢贞'],
       ['photo-06.webp', '温哥华农经年会', '2018 年', '加拿大 · 温哥华', '在国际学术舞台上交流新知，步履不停，求索不止。', '供图：唐利群'],
       ['photo-07.webp', '临安太阳镇调研', '2022 年', '杭州 · 临安太阳镇', '走进乡村、倾听现场，让研究始终与现实紧密相连。', '供图：赵文欣'],
+      ['photo-04.webp', '京都大学访学', '2023 年', '日本 · 京都大学', '跨越山海的学术交流，让思考在更开阔的坐标中生长。', ''],
       ['photo-08.webp', '海外调研学习', '2025 年', '德国 · 哥廷根大学', '严谨的指导与充分的信任，托举学生走向更远的学术天地。', '供图：陈凯文'],
-      ['photo-09.webp', 'MPA 班企业调研合影', '2026 年 5 月 24 日', '浙江蓝美技术股份有限公司', '师生同行，在企业一线观察、提问与思考。', '供图：贾丽婼'],
-      ['photo-10.webp', '调研交流分享', '2026 年 5 月 24 日', '浙江蓝美技术股份有限公司', '言传身教，将多年积淀化作现场清晰而温暖的启发。', '供图：贾丽婼']
+      ['photo-09.webp', 'MPA 班企业调研合影', '2026 年 5 月 24 日', '浙江蓝美技术股份有限公司', '师生同行，在企业一线观察、提问与思考。', '供图：贾丽婼']
     ]
   },
   {
@@ -22,9 +29,8 @@ const chapters = [
     tone: 'companions',
     photos: [
       ['photo-11.webp', '2011 届毕业聚餐', '2011 年', '', '从课堂到人生新程，老师的陪伴与祝福始终都在。', '供图：胡亦俊'],
-      ['photo-12.webp', '师门合影', '2021 年', '', '一张合影，定格师门相聚的亲切与踏实。', '供图：赵文欣 · 年份待确认'],
-      ['photo-13.webp', '毕业聚餐', '2022 年 6 月', '', '在告别与启程之间，把共同成长的岁月珍藏。', '人物、供图待补充'],
-      ['photo-14.webp', '教师节相聚', '2023 年', '', '桃李不言，心意自明；每一次相聚都是深深的惦念。', '人物、供图待补充'],
+      ['photo-12.webp', '师门合影', '2021 年', '', '一张合影，定格师门相聚的亲切与踏实。', '供图：赵文欣'],
+      ['photo-13.webp', '毕业聚餐', '2022 年 6 月', '', '在告别与启程之间，把共同成长的岁月珍藏。', ''],
       ['photo-15.webp', '教师节留影', '2024 年', '', '以花与笑容致敬师恩，感谢一路的指引和守护。', '供图：梁玉虎'],
       ['photo-16.webp', '又一年教师节', '2025 年', '', '岁月向前，师生情谊在一次次重逢里历久弥新。', '供图：胡亦俊'],
       ['photo-17.webp', '毕业时刻', '2026 年 6 月', '', '梁玉虎、袁欣婷毕业，带着老师的嘱托奔赴新程。', '供图：梁玉虎'],
@@ -39,15 +45,12 @@ const chapters = [
     tone: 'celebration',
     photos: [
       ['photo-21.webp', '生日相聚', '2018 年', '', '烛光与笑意相映，那些被惦念的时刻总格外温暖。', '供图：唐利群'],
-      ['photo-22.webp', '生日祝福', '2024 年', '', '年年有今日的祝愿，也有始终如一的敬爱与感恩。', '供图：胡亦俊'],
-      ['photo-23.webp', '生日留影', '2023 年', '', '在熟悉的笑脸之间，共度一段温暖欢欣的时光。', '供图：胡亦俊'],
       ['photo-24.webp', '露营烧烤', '2023 年', '', '走出课堂，围坐相谈；烟火气里，是师门自在的亲近。', '供图：胡亦俊'],
-      ['photo-25.webp', '卡特新年晚会', '2011 年', '', '周老师放声歌唱，张关良老师伴舞，留下生动又可爱的记忆。', '供图：胡亦俊'],
-      ['photo-26.webp', '师门记忆', '岁月留影', '', '镜头记下相聚，也记下彼此陪伴的轻松时刻。', '供图：金宇 · 事件待补充'],
-      ['photo-27.webp', '师门记忆', '岁月留影', '', '时光流转，熟悉的笑容让每次回望都倍感亲切。', '供图：金宇 · 事件待补充'],
-      ['photo-28.webp', '欢聚一堂', '岁月留影', '', '生活的可爱，藏在一次次自然、真挚的相聚之中。', '供图：金宇 · 事件待补充'],
-      ['photo-29.webp', '温暖相伴', '岁月留影', '', '亦师亦友的情谊，让师门一直可靠，也一直像家。', '供图：金宇 · 事件待补充'],
-      ['photo-30.webp', '笑语长存', '岁月留影', '', '愿往后的每一年，都有这样的欢笑、从容与明亮。', '供图：金宇 · 事件待补充']
+      ['photo-22.webp', '生日祝福', '2024 年', '', '年年有今日的祝愿，也有始终如一的敬爱与感恩。', '供图：胡亦俊'],
+      ['photo-26.webp', '师门记忆', '岁月留影', '', '镜头记下相聚，也记下彼此陪伴的轻松时刻。', '供图：金宇'],
+      ['photo-27.webp', '师门记忆', '岁月留影', '', '时光流转，熟悉的笑容让每次回望都倍感亲切。', '供图：金宇'],
+      ['photo-28.webp', '欢聚一堂', '岁月留影', '', '生活的可爱，藏在一次次自然、真挚的相聚之中。', '供图：金宇'],
+      ['photo-30.webp', '笑语长存', '岁月留影', '', '愿往后的每一年，都有这样的欢笑、从容与明亮。', '供图：金宇']
     ]
   }
 ];
@@ -59,6 +62,16 @@ const skipButton = document.querySelector('#skipAnimation');
 const greeting = document.querySelector('#greeting');
 const enterAlbum = document.querySelector('#enterAlbum');
 const album = document.querySelector('#album');
+const portraitPreludeEl = document.querySelector('#portraitPrelude');
+const portraitCard = document.querySelector('#portraitCard');
+const portraitPhoto = document.querySelector('#portraitPhoto');
+const portraitCounter = document.querySelector('#portraitCounter');
+const portraitTitle = document.querySelector('#portraitTitle');
+const portraitTime = document.querySelector('#portraitTime');
+const portraitDots = document.querySelector('#portraitDots');
+const previousPortrait = document.querySelector('#previousPortrait');
+const nextPortrait = document.querySelector('#nextPortrait');
+const enterFirstChapter = document.querySelector('#enterFirstChapter');
 const chapterIntro = document.querySelector('#chapterIntro');
 const photoCard = document.querySelector('#photoCard');
 const albumEnd = document.querySelector('#albumEnd');
@@ -68,11 +81,125 @@ const skipChapter = document.querySelector('#skipChapter');
 const previousButton = document.querySelector('#previousPhoto');
 const nextButton = document.querySelector('#nextPhoto');
 const stage = document.querySelector('#albumStage');
+const backgroundMusic = document.querySelector('#backgroundMusic');
+const musicToggle = document.querySelector('#musicToggle');
+
+let musicMuted = false;
+let musicStarted = false;
+let pageIsHidden = false;
+let musicDockSide = 'right';
+let suppressMusicClick = false;
+const musicDrag = { active: false, moved: false, pointerId: null, offsetX: 0, offsetY: 0 };
+
+function updateMusicControl(videoPaused = false) {
+  const isPlaying = !backgroundMusic.paused && !musicMuted && !videoPaused;
+  musicToggle.classList.toggle('is-muted', musicMuted);
+  musicToggle.classList.toggle('is-video-paused', videoPaused && !musicMuted);
+  musicToggle.classList.toggle('is-playing', isPlaying);
+  musicToggle.setAttribute('aria-pressed', String(musicMuted));
+  musicToggle.setAttribute('aria-label', musicMuted ? '播放背景音乐' : '静音背景音乐');
+  musicToggle.title = musicMuted ? '播放背景音乐' : (videoPaused ? '视频播放中，背景音乐已暂停' : '静音背景音乐');
+}
+
+async function playBackgroundMusic() {
+  if (musicMuted || pageIsHidden || (blessingVideo && !blessingVideo.paused)) return;
+  backgroundMusic.volume = 0.22;
+  try {
+    await backgroundMusic.play();
+    musicStarted = true;
+    updateMusicControl(false);
+  } catch (error) {
+    console.debug('Background music needs a user gesture to start.', error);
+  }
+}
+
+function pauseBackgroundForVideo() {
+  backgroundMusic.pause();
+  updateMusicControl(true);
+}
+
+function resumeBackgroundAfterVideo() {
+  if (!musicStarted || musicMuted || pageIsHidden) return;
+  playBackgroundMusic();
+}
+
+function clampMusicTop(top) {
+  const edgeGap = 12;
+  return Math.min(Math.max(top, edgeGap), window.innerHeight - musicToggle.offsetHeight - edgeGap);
+}
+
+function dockMusicToggle(side = musicDockSide, top = musicToggle.getBoundingClientRect().top) {
+  const peek = 9;
+  const x = side === 'left' ? -peek : window.innerWidth - musicToggle.offsetWidth + peek;
+  musicDockSide = side;
+  musicToggle.style.right = 'auto';
+  musicToggle.style.left = `${x}px`;
+  musicToggle.style.top = `${clampMusicTop(top)}px`;
+}
+
+musicToggle.addEventListener('pointerdown', (event) => {
+  const rect = musicToggle.getBoundingClientRect();
+  musicDrag.active = true;
+  musicDrag.moved = false;
+  musicDrag.pointerId = event.pointerId;
+  musicDrag.offsetX = event.clientX - rect.left;
+  musicDrag.offsetY = event.clientY - rect.top;
+  musicToggle.setPointerCapture(event.pointerId);
+});
+
+musicToggle.addEventListener('pointermove', (event) => {
+  if (!musicDrag.active || event.pointerId !== musicDrag.pointerId) return;
+  const nextX = event.clientX - musicDrag.offsetX;
+  const nextY = clampMusicTop(event.clientY - musicDrag.offsetY);
+  const current = musicToggle.getBoundingClientRect();
+  if (!musicDrag.moved && Math.hypot(nextX - current.left, nextY - current.top) < 5) return;
+  musicDrag.moved = true;
+  musicToggle.classList.add('is-dragging');
+  musicToggle.style.right = 'auto';
+  musicToggle.style.left = `${Math.min(Math.max(nextX, -9), window.innerWidth - musicToggle.offsetWidth + 9)}px`;
+  musicToggle.style.top = `${nextY}px`;
+});
+
+function finishMusicDrag(event) {
+  if (!musicDrag.active || event.pointerId !== musicDrag.pointerId) return;
+  musicDrag.active = false;
+  musicToggle.classList.remove('is-dragging');
+  if (musicDrag.moved) {
+    suppressMusicClick = true;
+    const rect = musicToggle.getBoundingClientRect();
+    const side = rect.left + rect.width / 2 < window.innerWidth / 2 ? 'left' : 'right';
+    dockMusicToggle(side, rect.top);
+  }
+  musicDrag.pointerId = null;
+}
+
+musicToggle.addEventListener('pointerup', finishMusicDrag);
+musicToggle.addEventListener('pointercancel', finishMusicDrag);
+window.addEventListener('resize', () => dockMusicToggle());
+
+musicToggle.addEventListener('click', () => {
+  if (suppressMusicClick) {
+    suppressMusicClick = false;
+    return;
+  }
+  musicMuted = !musicMuted;
+  if (musicMuted) {
+    backgroundMusic.pause();
+    updateMusicControl(false);
+  } else {
+    playBackgroundMusic();
+  }
+});
+
+document.addEventListener('pointerdown', (event) => {
+  if (!event.target.closest('#musicToggle')) playBackgroundMusic();
+}, { once: true });
 
 let openingTimer;
 let isOpening = false;
 let chapterIndex = 0;
 let photoIndex = 0;
+let portraitIndex = 0;
 let albumMode = 'intro';
 let touchStartX = 0;
 let touchStartY = 0;
@@ -103,14 +230,81 @@ function bindOpenTrigger(element) {
   element.addEventListener('touchend', (event) => { event.preventDefault(); openCard(); }, { passive: false });
 }
 
+const chapterPhotoTotal = chapters.reduce((total, chapter) => total + chapter.photos.length, 0);
+const albumPhotoTotal = portraitPrelude.length + chapterPhotoTotal;
+
+function chapterStartNumber(index) {
+  return portraitPrelude.length + chapters.slice(0, index).reduce((total, chapter) => total + chapter.photos.length, 0) + 1;
+}
+
+function currentPhotoNumber() {
+  return chapterStartNumber(chapterIndex) + photoIndex;
+}
+
 function updateHeader() {
   const chapter = chapters[chapterIndex];
   document.querySelector('#albumChapter').textContent = chapter.label;
   document.querySelector('#albumTitle').textContent = chapter.title;
   document.querySelector('#albumProgress').textContent = albumMode === 'photo'
-    ? `${String(chapterIndex * 10 + photoIndex + 1).padStart(2, '0')} / 30`
-    : albumMode === 'end' ? '30 / 30' : '引章';
+    ? `${String(currentPhotoNumber()).padStart(2, '0')} / ${albumPhotoTotal}`
+    : albumMode === 'end' ? `${albumPhotoTotal} / ${albumPhotoTotal}` : '引章';
   document.querySelectorAll('.chapter-dots span').forEach((dot, index) => dot.classList.toggle('is-active', index === chapterIndex));
+}
+
+function renderPortraitSlide(direction = 'forward') {
+  const portrait = portraitPrelude[portraitIndex];
+  portraitPhoto.src = `./assets/photos/${portrait[0]}`;
+  portraitPhoto.alt = `${portrait[1]}，${portrait[2]}`;
+  portraitPhoto.classList.toggle('is-focus-right', portrait[6] === 'right');
+  portraitPhoto.classList.toggle('is-focus-left', portrait[6] === 'left');
+  portraitPhoto.classList.toggle('is-landscape-contain', portrait[6] === 'contain');
+  portraitTitle.textContent = portrait[1];
+  portraitTime.textContent = portrait[2];
+  portraitTime.hidden = !portrait[2];
+  portraitCounter.textContent = `${String(portraitIndex + 1).padStart(2, '0')} / ${String(portraitPrelude.length).padStart(2, '0')}`;
+  document.querySelector('#albumProgress').textContent = `${String(portraitIndex + 1).padStart(2, '0')} / ${albumPhotoTotal}`;
+  portraitDots.querySelectorAll('span').forEach((dot, index) => dot.classList.toggle('is-active', index === portraitIndex));
+  previousPortrait.disabled = portraitIndex === 0;
+  nextPortrait.disabled = portraitIndex === portraitPrelude.length - 1;
+  enterFirstChapter.hidden = portraitIndex !== portraitPrelude.length - 1;
+  portraitCard.classList.remove('card-forward', 'card-back');
+  void portraitCard.offsetWidth;
+  portraitCard.classList.add(direction === 'back' ? 'card-back' : 'card-forward');
+  const neighbor = portraitPrelude[portraitIndex + (direction === 'back' ? -1 : 1)];
+  if (neighbor) { const image = new Image(); image.src = `./assets/photos/${neighbor[0]}`; }
+}
+
+function renderPortraitPrelude(reset = true) {
+  chapterIndex = 0;
+  photoIndex = 0;
+  if (reset) portraitIndex = 0;
+  albumMode = 'prelude';
+  album.dataset.tone = 'red';
+  portraitPreludeEl.hidden = false;
+  chapterIntro.hidden = true;
+  photoCard.hidden = true;
+  albumEnd.hidden = true;
+  controls.hidden = true;
+  swipeHint.hidden = true;
+  skipChapter.hidden = true;
+  document.querySelector('#albumChapter').textContent = '人物序章';
+  document.querySelector('#albumTitle').textContent = '先看见周老师';
+  document.querySelectorAll('.chapter-dots span').forEach((dot) => dot.classList.remove('is-active'));
+  portraitPrelude.forEach(([name]) => { const image = new Image(); image.src = `./assets/photos/${name}`; });
+  renderPortraitSlide('forward');
+  animateStage('forward');
+}
+
+function nextPortraitPhoto() {
+  if (portraitIndex >= portraitPrelude.length - 1) return;
+  portraitIndex += 1;
+  renderPortraitSlide('forward');
+}
+
+function previousPortraitPhoto() {
+  if (portraitIndex <= 0) return;
+  portraitIndex -= 1;
+  renderPortraitSlide('back');
 }
 
 function renderChapterIntro(index) {
@@ -118,7 +312,10 @@ function renderChapterIntro(index) {
   photoIndex = 0;
   albumMode = 'intro';
   const chapter = chapters[index];
+  const firstNumber = chapterStartNumber(index);
+  const lastNumber = firstNumber + chapter.photos.length - 1;
   album.dataset.tone = chapter.tone;
+  portraitPreludeEl.hidden = true;
   chapterIntro.hidden = false;
   photoCard.hidden = true;
   albumEnd.hidden = true;
@@ -129,7 +326,7 @@ function renderChapterIntro(index) {
   document.querySelector('#chapterEnglish').textContent = chapter.english;
   document.querySelector('#chapterTitle').textContent = chapter.title;
   document.querySelector('#chapterDescription').innerHTML = chapter.description;
-  document.querySelector('#chapterRange').textContent = `照片 ${String(index * 10 + 1).padStart(2, '0')}—${String(index * 10 + 10).padStart(2, '0')}`;
+  document.querySelector('#chapterRange').textContent = `照片 ${String(firstNumber).padStart(2, '0')}—${String(lastNumber).padStart(2, '0')}`;
   updateHeader();
   animateStage('forward');
 }
@@ -138,6 +335,7 @@ function renderPhoto(direction = 'forward') {
   const chapter = chapters[chapterIndex];
   const photo = chapter.photos[photoIndex];
   albumMode = 'photo';
+  portraitPreludeEl.hidden = true;
   chapterIntro.hidden = true;
   albumEnd.hidden = true;
   photoCard.hidden = false;
@@ -147,14 +345,19 @@ function renderPhoto(direction = 'forward') {
   document.querySelector('#albumPhoto').src = `./assets/photos/${photo[0]}`;
   document.querySelector('#albumPhoto').alt = `${photo[1]}，${photo[2]}`;
   document.querySelector('#photoTitle').textContent = photo[1];
-  document.querySelector('#photoTime').textContent = photo[2];
+  const time = document.querySelector('#photoTime');
+  time.textContent = photo[2];
+  time.hidden = !photo[2];
   const place = document.querySelector('#photoPlace');
   place.textContent = photo[3];
   place.hidden = !photo[3];
   document.querySelector('#photoDescription').textContent = photo[4];
-  document.querySelector('#photoCredit').textContent = photo[5];
-  previousButton.disabled = chapterIndex === 0 && photoIndex === 0;
-  nextButton.querySelector('span:first-child').textContent = photoIndex === 9 ? (chapterIndex === 2 ? '看完本章' : '下一章') : '下一张';
+  const credit = document.querySelector('#photoCredit');
+  credit.textContent = photo[5];
+  credit.hidden = !photo[5];
+  previousButton.disabled = false;
+  const isLastPhoto = photoIndex === chapter.photos.length - 1;
+  nextButton.querySelector('span:first-child').textContent = isLastPhoto ? (chapterIndex === chapters.length - 1 ? '看完本章' : '下一章') : '下一张';
   updateHeader();
   animateStage(direction);
   preloadNeighbors();
@@ -162,6 +365,7 @@ function renderPhoto(direction = 'forward') {
 
 function renderAlbumEnd() {
   albumMode = 'end';
+  portraitPreludeEl.hidden = true;
   chapterIntro.hidden = true;
   photoCard.hidden = true;
   albumEnd.hidden = false;
@@ -185,7 +389,8 @@ function startChapter() { photoIndex = 0; renderPhoto('forward'); }
 function nextPhoto() {
   if (isTransitioning || albumMode !== 'photo') return;
   isTransitioning = true;
-  if (photoIndex < 9) { photoIndex += 1; renderPhoto('forward'); }
+  const chapterLength = chapters[chapterIndex].photos.length;
+  if (photoIndex < chapterLength - 1) { photoIndex += 1; renderPhoto('forward'); }
   else if (chapterIndex < chapters.length - 1) renderChapterIntro(chapterIndex + 1);
   else renderAlbumEnd();
   window.setTimeout(() => { isTransitioning = false; }, 360);
@@ -193,10 +398,14 @@ function nextPhoto() {
 
 function previousPhoto() {
   if (isTransitioning || albumMode !== 'photo') return;
-  if (chapterIndex === 0 && photoIndex === 0) return;
   isTransitioning = true;
   if (photoIndex > 0) { photoIndex -= 1; renderPhoto('back'); }
-  else { chapterIndex -= 1; photoIndex = 9; album.dataset.tone = chapters[chapterIndex].tone; renderPhoto('back'); }
+  else if (chapterIndex > 0) {
+    chapterIndex -= 1;
+    photoIndex = chapters[chapterIndex].photos.length - 1;
+    album.dataset.tone = chapters[chapterIndex].tone;
+    renderPhoto('back');
+  } else renderPortraitPrelude(false);
   window.setTimeout(() => { isTransitioning = false; }, 360);
 }
 
@@ -207,8 +416,9 @@ function jumpToNextChapter() {
 
 function preloadNeighbors() {
   const targets = [];
-  if (photoIndex < 9) targets.push(chapters[chapterIndex].photos[photoIndex + 1][0]);
-  if (photoIndex > 0) targets.push(chapters[chapterIndex].photos[photoIndex - 1][0]);
+  const photos = chapters[chapterIndex].photos;
+  if (photoIndex < photos.length - 1) targets.push(photos[photoIndex + 1][0]);
+  if (photoIndex > 0) targets.push(photos[photoIndex - 1][0]);
   targets.forEach((name) => { const image = new Image(); image.src = `./assets/photos/${name}`; });
 }
 
@@ -217,21 +427,24 @@ function openAlbum() {
   shell.classList.add('is-album');
   greeting.setAttribute('aria-hidden', 'true');
   album.setAttribute('aria-hidden', 'false');
-  renderChapterIntro(0);
+  renderPortraitPrelude();
 }
 
 bindOpenTrigger(tapZone);
 bindOpenTrigger(openHint);
 skipButton.addEventListener('click', showGreeting);
 enterAlbum.addEventListener('click', openAlbum);
+previousPortrait.addEventListener('click', previousPortraitPhoto);
+nextPortrait.addEventListener('click', nextPortraitPhoto);
+enterFirstChapter.addEventListener('click', () => renderChapterIntro(0));
 document.querySelector('#startChapter').addEventListener('click', startChapter);
-document.querySelector('#restartAlbum').addEventListener('click', () => renderChapterIntro(0));
+document.querySelector('#restartAlbum').addEventListener('click', renderPortraitPrelude);
 nextButton.addEventListener('click', nextPhoto);
 previousButton.addEventListener('click', previousPhoto);
 skipChapter.addEventListener('click', jumpToNextChapter);
 
 stage.addEventListener('touchstart', (event) => {
-  if (albumMode !== 'photo' || event.target.closest('button')) return;
+  if (!['photo', 'prelude'].includes(albumMode) || event.target.closest('button')) return;
   const touch = event.changedTouches[0];
   touchStartX = touch.clientX;
   touchStartY = touch.clientY;
@@ -239,7 +452,7 @@ stage.addEventListener('touchstart', (event) => {
 }, { passive: true });
 
 stage.addEventListener('touchend', (event) => {
-  if (albumMode !== 'photo' || !touchStartTime) return;
+  if (!['photo', 'prelude'].includes(albumMode) || !touchStartTime) return;
   const touch = event.changedTouches[0];
   const deltaX = touch.clientX - touchStartX;
   const deltaY = touch.clientY - touchStartY;
@@ -247,14 +460,21 @@ stage.addEventListener('touchend', (event) => {
   touchStartTime = 0;
   if (Math.abs(deltaX) < Math.abs(deltaY) * 1.25) return;
   if (Math.abs(deltaX) > 56 || (Math.abs(deltaX) > 34 && duration < 260)) {
-    if (deltaX < 0) nextPhoto(); else previousPhoto();
+    if (albumMode === 'prelude') {
+      if (deltaX < 0) nextPortraitPhoto(); else previousPortraitPhoto();
+    } else if (deltaX < 0) nextPhoto(); else previousPhoto();
   }
 }, { passive: true });
 
 document.addEventListener('keydown', (event) => {
   if (!shell.classList.contains('is-album') || shell.classList.contains('is-heartfelt')) return;
-  if (event.key === 'ArrowRight') nextPhoto();
-  if (event.key === 'ArrowLeft') previousPhoto();
+  if (albumMode === 'prelude') {
+    if (event.key === 'ArrowRight') nextPortraitPhoto();
+    if (event.key === 'ArrowLeft') previousPortraitPhoto();
+  } else {
+    if (event.key === 'ArrowRight') nextPhoto();
+    if (event.key === 'ArrowLeft') previousPhoto();
+  }
 });
 
 window.addEventListener('pageshow', (event) => { if (event.persisted && isOpening) showGreeting(); });
@@ -546,15 +766,25 @@ const blessingVideos = [
     src: './assets/videos/video-03.mp4', poster: './assets/posters/video-03.jpg',
     name: '金宇、张晶及家人', identity: '2019 级博士 · 2020 级硕士', duration: '01:03',
     caption: '来自师门与家人的温暖祝福', orientation: 'portrait'
+  },
+  {
+    src: './assets/videos/video-liyi.mp4', poster: './assets/posters/video-liyi.jpg',
+    name: '李祎', identity: '师门成员', duration: '01:19',
+    caption: '一路相伴，从本科到今日的感恩与祝愿', orientation: 'landscape'
   }
 ];
 
 const videoGallery = document.querySelector('#videoGallery');
+const videoIntro = document.querySelector('#videoIntro');
+const startVideos = document.querySelector('#startVideos');
 const blessingVideo = document.querySelector('#blessingVideo');
 const videoPlay = document.querySelector('#videoPlay');
+const videoFullscreen = document.querySelector('#videoFullscreen');
 const videoPlayLabel = document.querySelector('#videoPlayLabel');
 const videoStatus = document.querySelector('#videoStatus');
 const videoCard = document.querySelector('#videoCard');
+const videoControls = document.querySelector('#videoControls');
+const videoNote = document.querySelector('#videoNote');
 const credits = document.querySelector('#credits');
 const nextVideoButton = document.querySelector('#nextVideo');
 let videoIndex = 0;
@@ -568,6 +798,7 @@ function releaseVideoSource() {
   videoLoadController = null;
   isVideoLoading = false;
   blessingVideo.pause();
+  videoFullscreen.hidden = true;
   blessingVideo.removeAttribute('src');
   blessingVideo.load();
   if (activeVideoUrl) URL.revokeObjectURL(activeVideoUrl);
@@ -605,8 +836,8 @@ function renderVideo(direction = 'forward') {
   document.querySelector('#previousVideo').disabled = videoIndex === 0;
   const isLastVideo = videoIndex === blessingVideos.length - 1;
   nextVideoButton.disabled = false;
-  nextVideoButton.setAttribute('aria-label', isLastVideo ? '查看筹备组名单' : '下一段视频');
-  nextVideoButton.querySelector('span:first-child').textContent = isLastVideo ? '筹备组名单' : '下一段';
+  nextVideoButton.setAttribute('aria-label', isLastVideo ? '查看治学长卷' : '下一段视频');
+  nextVideoButton.querySelector('span:first-child').textContent = isLastVideo ? '治学长卷' : '下一段';
   document.querySelectorAll('#videoDots span').forEach((dot, index) => dot.classList.toggle('is-active', index === videoIndex));
   videoCard.classList.remove('card-forward', 'card-back');
   void videoCard.offsetWidth;
@@ -634,6 +865,7 @@ async function prepareVideo() {
     preparedVideoIndex = requestedIndex;
     blessingVideo.src = activeVideoUrl;
     blessingVideo.load();
+    videoFullscreen.hidden = false;
     videoStatus.textContent = '';
     videoPlayLabel.textContent = '点击播放';
     return true;
@@ -656,40 +888,199 @@ async function prepareVideo() {
   }
 }
 
-function openVideos() {
+function showVideoIntro() {
+  releaseVideoSource();
+  videoIndex = 0;
+  videoIntro.hidden = false;
+  videoCard.hidden = true;
+  videoControls.hidden = true;
+  videoNote.hidden = true;
+  document.querySelector('#videoCounter').textContent = '引章';
+  document.querySelectorAll('#videoDots span').forEach((dot) => dot.classList.remove('is-active'));
+}
+
+function beginVideos(direction = 'forward') {
+  videoIntro.hidden = true;
+  videoCard.hidden = false;
+  videoControls.hidden = false;
+  videoNote.hidden = false;
+  renderVideo(direction);
+}
+
+function openVideos(direct = false) {
   if (storyModal.classList.contains('is-open')) closeStory();
   shell.classList.add('is-videos');
   heartfelt.setAttribute('aria-hidden', 'true');
   videoGallery.setAttribute('aria-hidden', 'false');
-  renderVideo();
+  if (direct) beginVideos();
+  else showVideoIntro();
 }
 
 function closeVideos() {
   releaseVideoSource();
-  shell.classList.remove('is-credits', 'is-videos');
+  shell.classList.remove('is-credits', 'is-achievements', 'is-videos');
   credits.setAttribute('aria-hidden', 'true');
+  achievements.setAttribute('aria-hidden', 'true');
   videoGallery.setAttribute('aria-hidden', 'true');
   heartfelt.setAttribute('aria-hidden', 'false');
   showHeartScene(2, 'back');
+}
+
+const achievements = document.querySelector('#achievements');
+const achievementsScroll = document.querySelector('#achievementsScroll');
+const achievementNav = document.querySelector('#achievementNav');
+const achievementProgress = document.querySelector('#achievementProgress span');
+const achievementsContent = window.achievementData;
+let achievementsRendered = false;
+
+const archiveConfigs = [
+  { target: '#achievementBookList', key: 'books', ranges: [['2020—2026', 2020, 2026], ['2010—2019', 2010, 2019], ['2009 年及以前', 0, 2009]] },
+  { target: '#achievementPaperList', key: 'papers', ranges: [['2024—2026', 2024, 2026], ['2020—2023', 2020, 2023], ['2015—2019', 2015, 2019], ['2010—2014', 2010, 2014], ['2005—2009', 2005, 2009], ['1992—2004', 0, 2004]] },
+  { target: '#achievementProjectList', key: 'projects', ranges: [['2024—2026', 2024, 2026], ['2020—2023', 2020, 2023], ['2015—2019', 2015, 2019], ['2014 年及以前', 0, 2014]] },
+  { target: '#achievementAwardList', key: 'awards', ranges: [['2018—2024', 2018, 2024]] },
+  { target: '#achievementReportList', key: 'reports', ranges: [['2024—2026', 2024, 2026], ['2020—2023', 2020, 2023], ['2017—2019', 0, 2019]] }
+];
+
+function createAchievementItem(entry) {
+  const item = document.createElement('li');
+  item.className = 'achievement-item';
+  const year = document.createElement('span');
+  year.className = 'achievement-item__year';
+  year.textContent = entry.year || '—';
+  const text = document.createElement('p');
+  text.className = 'achievement-item__text';
+  text.textContent = entry.text || entry.title || '';
+  item.append(year, text);
+  return item;
+}
+
+function renderAchievementArchive(config) {
+  const container = document.querySelector(config.target);
+  const items = [...achievementsContent[config.key]].sort((a, b) => (b.year || 0) - (a.year || 0));
+  config.ranges.forEach(([label, min, max], groupIndex) => {
+    const matches = items.filter((item) => (item.year || 0) >= min && (item.year || 0) <= max);
+    if (!matches.length) return;
+    const details = document.createElement('details');
+    details.className = 'achievement-group';
+    details.open = groupIndex === 0;
+    const summary = document.createElement('summary');
+    const title = document.createElement('span');
+    title.textContent = `${label} · ${matches.length} 项`;
+    const icon = document.createElement('span');
+    icon.textContent = '+';
+    summary.append(title, icon);
+    const list = document.createElement('ol');
+    list.className = 'achievement-list';
+    matches.forEach((entry) => list.appendChild(createAchievementItem(entry)));
+    details.append(summary, list);
+    container.appendChild(details);
+  });
+}
+
+function renderAchievements() {
+  if (achievementsRendered) return;
+  if (typeof achievementsContent === 'undefined') {
+    document.querySelector('#achievementProfile').textContent = '成果资料暂未加载，请稍后重试。';
+    return;
+  }
+  document.querySelector('#achievementProfile').textContent = `${achievementsContent.profile.intro}${achievementsContent.profile.research}`;
+  const statLabels = { books: '部著作', papers: '篇论文', projects: '项科研项目', awards: '项荣誉', reports: '项咨政成果' };
+  const stats = document.querySelector('#achievementStats');
+  Object.entries(statLabels).forEach(([key, label]) => {
+    const card = document.createElement('div');
+    card.className = 'achievement-stat';
+    const number = document.createElement('strong');
+    number.textContent = achievementsContent.stats[key];
+    const caption = document.createElement('span');
+    caption.textContent = label;
+    card.append(number, caption);
+    stats.appendChild(card);
+  });
+
+  const typeMap = { paper: ['论文', 'papers'], project: ['项目', 'projects'], report: ['咨政', 'reports'], award: ['荣誉', 'awards'] };
+  const highlightList = document.querySelector('#achievementHighlightList');
+  achievementsContent.highlights.forEach((highlight) => {
+    const [label, key] = typeMap[highlight.type];
+    const source = achievementsContent[key][highlight.index];
+    const card = document.createElement('article');
+    card.className = 'achievement-highlight';
+    const type = document.createElement('span');
+    type.textContent = `${label} · ${source.year || ''}`;
+    const title = document.createElement('h4');
+    title.textContent = highlight.summary;
+    const detail = document.createElement('p');
+    detail.textContent = source.text;
+    card.append(type, title, detail);
+    highlightList.appendChild(card);
+  });
+  archiveConfigs.forEach(renderAchievementArchive);
+  achievementsRendered = true;
+}
+
+function updateAchievementScroll() {
+  const maxScroll = achievementsScroll.scrollHeight - achievementsScroll.clientHeight;
+  const progress = maxScroll > 0 ? Math.min(100, achievementsScroll.scrollTop / maxScroll * 100) : 0;
+  achievementProgress.style.width = `${progress}%`;
+  const sections = [...document.querySelectorAll('.achievement-section')];
+  let activeId = sections[0]?.id;
+  sections.forEach((section) => {
+    if (section.offsetTop - achievementsScroll.scrollTop <= 110) activeId = section.id;
+  });
+  achievementNav.querySelectorAll('button').forEach((button) => button.classList.toggle('is-active', button.dataset.target === activeId));
+}
+
+function openAchievements(resetScroll = true) {
+  releaseVideoSource();
+  renderAchievements();
+  shell.classList.remove('is-credits');
+  shell.classList.add('is-achievements');
+  videoGallery.setAttribute('aria-hidden', 'true');
+  credits.setAttribute('aria-hidden', 'true');
+  achievements.setAttribute('aria-hidden', 'false');
+  if (resetScroll) achievementsScroll.scrollTop = 0;
+  updateAchievementScroll();
+}
+
+function closeAchievements() {
+  shell.classList.remove('is-credits', 'is-achievements');
+  achievements.setAttribute('aria-hidden', 'true');
+  credits.setAttribute('aria-hidden', 'true');
+  videoGallery.setAttribute('aria-hidden', 'false');
+  videoIntro.hidden = true;
+  videoCard.hidden = false;
+  videoControls.hidden = false;
+  videoNote.hidden = false;
+  renderVideo('back');
 }
 
 function openCredits() {
   releaseVideoSource();
   shell.classList.add('is-credits');
   videoGallery.setAttribute('aria-hidden', 'true');
+  achievements.setAttribute('aria-hidden', 'true');
   credits.setAttribute('aria-hidden', 'false');
 }
 
 function closeCredits() {
   shell.classList.remove('is-credits');
   credits.setAttribute('aria-hidden', 'true');
-  videoGallery.setAttribute('aria-hidden', 'false');
-  renderVideo('back');
+  achievements.setAttribute('aria-hidden', 'false');
+  updateAchievementScroll();
 }
 
-document.querySelector('#toVideos').addEventListener('click', openVideos);
+document.querySelector('#toVideos').addEventListener('click', () => openVideos(false));
+startVideos.addEventListener('click', () => beginVideos());
 document.querySelector('#videoBack').addEventListener('click', closeVideos);
+document.querySelector('#achievementsBack').addEventListener('click', closeAchievements);
+document.querySelector('#achievementsNext').addEventListener('click', openCredits);
 document.querySelector('#creditsBack').addEventListener('click', closeCredits);
+achievementsScroll.addEventListener('scroll', updateAchievementScroll, { passive: true });
+achievementNav.querySelectorAll('button').forEach((button) => {
+  button.addEventListener('click', () => {
+    const target = document.getElementById(button.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
 document.querySelector('#previousVideo').addEventListener('click', () => {
   if (videoIndex > 0) { videoIndex -= 1; renderVideo('back'); }
 });
@@ -698,9 +1089,27 @@ nextVideoButton.addEventListener('click', () => {
     videoIndex += 1;
     renderVideo();
   } else {
-    openCredits();
+    openAchievements();
   }
 });
+
+videoFullscreen.addEventListener('click', async () => {
+  try {
+    if (blessingVideo.requestFullscreen) {
+      await blessingVideo.requestFullscreen();
+    } else if (blessingVideo.webkitRequestFullscreen) {
+      blessingVideo.webkitRequestFullscreen();
+    } else if (blessingVideo.webkitEnterFullscreen) {
+      blessingVideo.webkitEnterFullscreen();
+    } else {
+      throw new Error('Fullscreen API is unavailable');
+    }
+  } catch (error) {
+    console.debug('Unable to enter video fullscreen.', error);
+    videoStatus.textContent = '未能自动全屏，请使用视频控制栏中的全屏按钮';
+  }
+});
+
 videoPlay.addEventListener('click', async () => {
   const ready = await prepareVideo();
   if (!ready) return;
@@ -715,22 +1124,48 @@ videoPlay.addEventListener('click', async () => {
     videoStatus.textContent = '视频已加载，请再次点击播放';
   }
 });
-blessingVideo.addEventListener('play', () => { videoPlay.hidden = true; videoStatus.textContent = ''; });
-blessingVideo.addEventListener('ended', () => { videoPlay.hidden = false; videoPlayLabel.textContent = '重新播放'; });
+blessingVideo.addEventListener('play', () => {
+  pauseBackgroundForVideo();
+  videoPlay.hidden = true;
+  videoFullscreen.hidden = false;
+  videoStatus.textContent = '';
+});
+blessingVideo.addEventListener('pause', resumeBackgroundAfterVideo);
+blessingVideo.addEventListener('ended', () => {
+  resumeBackgroundAfterVideo();
+  videoPlay.hidden = false;
+  videoPlayLabel.textContent = '重新播放';
+});
 blessingVideo.addEventListener('error', () => {
+  resumeBackgroundAfterVideo();
   if (!blessingVideo.getAttribute('src')) return;
   videoPlay.hidden = false;
   videoPlayLabel.textContent = '重新加载';
   videoStatus.textContent = '视频暂时没有加载成功，请点击重试';
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) pauseCurrentVideo(false); });
+document.addEventListener('visibilitychange', () => {
+  pageIsHidden = document.hidden;
+  if (document.hidden) {
+    pauseCurrentVideo(false);
+    backgroundMusic.pause();
+    updateMusicControl(false);
+  } else {
+    resumeBackgroundAfterVideo();
+  }
+});
 
-if (previewState === 'videos' || previewState === 'credits') {
+if (previewState === 'videos' || previewState === 'achievements' || previewState === 'credits') {
   showGreeting();
   shell.classList.add('is-album');
   openHeartfelt();
-  const requestedVideo = Number(new URLSearchParams(window.location.search).get('video'));
-  if (Number.isInteger(requestedVideo) && requestedVideo >= 1 && requestedVideo <= blessingVideos.length) videoIndex = requestedVideo - 1;
-  openVideos();
-  if (previewState === 'credits') openCredits();
+  if (previewState === 'achievements' || previewState === 'credits') {
+    openVideos(true);
+    openAchievements();
+    if (previewState === 'credits') openCredits();
+  } else {
+    const requestedVideo = Number(new URLSearchParams(window.location.search).get('video'));
+    const hasRequestedVideo = Number.isInteger(requestedVideo) && requestedVideo >= 1 && requestedVideo <= blessingVideos.length;
+    if (hasRequestedVideo) videoIndex = requestedVideo - 1;
+    openVideos(hasRequestedVideo);
+  }
 }

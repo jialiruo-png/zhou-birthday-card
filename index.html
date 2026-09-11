@@ -77,6 +77,29 @@
       </header>
 
       <div id="albumStage" class="album-stage">
+        <article id="portraitPrelude" class="portrait-prelude" hidden>
+          <p class="eyebrow">PORTRAIT PRELUDE · 人物序章</p>
+          <h2>先看见周老师</h2>
+          <p class="portrait-prelude__lead">在三段岁月展开之前<br />先留住五帧属于她自己的光</p>
+          <figure id="portraitCard" class="portrait-prelude__card">
+            <div class="portrait-prelude__frame">
+              <img id="portraitPhoto" src="" alt="" draggable="false" />
+              <span id="portraitCounter" class="portrait-prelude__counter">01 / 05</span>
+            </div>
+            <figcaption>
+              <strong id="portraitTitle"></strong>
+              <span id="portraitTime"></span>
+            </figcaption>
+          </figure>
+          <nav class="portrait-prelude__controls" aria-label="人物序章照片切换">
+            <button id="previousPortrait" type="button" aria-label="上一张人物照片">←</button>
+            <div id="portraitDots" class="mini-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <button id="nextPortrait" type="button" aria-label="下一张人物照片">→</button>
+          </nav>
+          <p class="portrait-prelude__hint">左右滑动 · 共五帧</p>
+          <button id="enterFirstChapter" class="chapter-start" type="button" hidden><span>进入三章岁月</span><span aria-hidden="true">→</span></button>
+        </article>
+
         <article id="chapterIntro" class="chapter-intro">
           <div class="chapter-intro__halo"></div>
           <div id="chapterNumeral" class="chapter-intro__number">壹</div>
@@ -197,9 +220,18 @@
       </header>
 
       <div class="video-stage">
-        <article id="videoCard" class="video-card">
+        <article id="videoIntro" class="video-intro">
+          <div class="video-intro__mark" aria-hidden="true">影</div>
+          <p class="eyebrow">BLESSINGS IN MOTION</p>
+          <h2>让祝福，被听见</h2>
+          <p>五段跨越山海的问候<br />将在这里依次展开</p>
+          <button id="startVideos" class="chapter-start" type="button"><span>观看第一段祝福</span><span aria-hidden="true">→</span></button>
+        </article>
+
+        <article id="videoCard" class="video-card" hidden>
           <div id="videoFrame" class="video-frame">
             <video id="blessingVideo" controls playsinline webkit-playsinline preload="none" disablepictureinpicture></video>
+            <button id="videoFullscreen" class="video-fullscreen" type="button" aria-label="全屏播放视频" title="全屏播放" hidden>⛶</button>
             <button id="videoPlay" class="video-play" type="button" aria-label="加载并播放祝福视频">
               <span class="video-play__icon" aria-hidden="true">▶</span>
               <span id="videoPlayLabel">点击加载并播放</span>
@@ -217,13 +249,92 @@
         </article>
       </div>
 
-      <nav class="video-controls" aria-label="祝福视频切换">
+      <nav id="videoControls" class="video-controls" aria-label="祝福视频切换" hidden>
         <button id="previousVideo" class="nav-button" type="button" aria-label="上一段视频"><span aria-hidden="true">←</span><span>上一段</span></button>
-        <div id="videoDots" class="chapter-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span></div>
+        <div id="videoDots" class="chapter-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
         <button id="nextVideo" class="nav-button nav-button--primary" type="button" aria-label="下一段视频"><span>下一段</span><span aria-hidden="true">→</span></button>
       </nav>
-      <p class="video-note">点击后行内播放 · 切换卡片自动暂停</p>
+      <p id="videoNote" class="video-note" hidden>点击后行内播放 · 右上角可全屏 · 切换卡片自动暂停</p>
       <button id="videoBack" class="heart-back" type="button" aria-label="返回文字心意">←</button>
+    </section>
+
+    <section id="achievements" class="achievements" aria-hidden="true">
+      <div id="achievementProgress" class="achievement-progress" aria-hidden="true"><span></span></div>
+      <header class="achievements-header">
+        <div>
+          <p>第六章 · A LIFE OF SCHOLARSHIP</p>
+          <h2>治学长卷</h2>
+        </div>
+        <p class="achievements-header__note">上下滑动阅览</p>
+      </header>
+
+      <article id="achievementsScroll" class="achievements-scroll">
+        <section class="achievement-hero">
+          <div class="achievement-hero__seal" aria-hidden="true">学</div>
+          <p class="eyebrow">SCHOLARSHIP · LEGACY</p>
+          <h2>治学不辍<br />桃李成蹊</h2>
+          <p>谨以这份成果长卷<br />记录数十载求索与耕耘</p>
+          <span class="achievement-hero__scroll">向下展开长卷 ↓</span>
+        </section>
+
+        <section class="achievement-overview" aria-labelledby="achievementOverviewTitle">
+          <p class="achievement-kicker">ACADEMIC PORTRAIT</p>
+          <h3 id="achievementOverviewTitle">求索经年，硕果成章</h3>
+          <p id="achievementProfile" class="achievement-overview__lead"></p>
+          <div id="achievementStats" class="achievement-stats"></div>
+          <p class="achievement-source">据现有成果材料整理</p>
+        </section>
+
+        <nav id="achievementNav" class="achievement-nav" aria-label="成果分类导航">
+          <button type="button" data-target="achievementHighlights">代表</button>
+          <button type="button" data-target="achievementBooks">著作</button>
+          <button type="button" data-target="achievementPapers">论文</button>
+          <button type="button" data-target="achievementProjects">项目</button>
+          <button type="button" data-target="achievementHonors">荣誉</button>
+          <button type="button" data-target="achievementReports">咨政</button>
+        </nav>
+
+        <section id="achievementHighlights" class="achievement-section achievement-highlights">
+          <div class="achievement-section__heading">
+            <p>SELECTED MILESTONES</p>
+            <h3>代表成果</h3>
+          </div>
+          <div id="achievementHighlightList" class="achievement-highlight-list"></div>
+        </section>
+
+        <section id="achievementBooks" class="achievement-section">
+          <div class="achievement-section__heading"><p>PUBLICATIONS</p><h3>著作</h3></div>
+          <div id="achievementBookList" class="achievement-archive"></div>
+        </section>
+
+        <section id="achievementPapers" class="achievement-section">
+          <div class="achievement-section__heading"><p>PAPERS</p><h3>论文</h3></div>
+          <div id="achievementPaperList" class="achievement-archive"></div>
+        </section>
+
+        <section id="achievementProjects" class="achievement-section">
+          <div class="achievement-section__heading"><p>RESEARCH PROJECTS</p><h3>科研项目</h3></div>
+          <div id="achievementProjectList" class="achievement-archive"></div>
+        </section>
+
+        <section id="achievementHonors" class="achievement-section">
+          <div class="achievement-section__heading"><p>HONORS</p><h3>荣誉奖励</h3></div>
+          <div id="achievementAwardList" class="achievement-archive"></div>
+        </section>
+
+        <section id="achievementReports" class="achievement-section">
+          <div class="achievement-section__heading"><p>POLICY IMPACT</p><h3>咨政成果</h3></div>
+          <div id="achievementReportList" class="achievement-archive"></div>
+        </section>
+
+        <footer class="achievement-closing">
+          <span></span>
+          <p>学问写在大地上<br />育人留在岁月里</p>
+          <button id="achievementsNext" class="chapter-start" type="button"><span>查看筹备组名单</span><span aria-hidden="true">→</span></button>
+        </footer>
+      </article>
+
+      <button id="achievementsBack" class="heart-back" type="button" aria-label="返回祝福视频">←</button>
     </section>
 
     <section id="credits" class="credits" aria-hidden="true">
@@ -274,8 +385,13 @@
       </article>
     </div>
 
+    <button id="musicToggle" class="music-toggle" type="button" aria-label="静音背景音乐" aria-pressed="false">
+      <span class="music-toggle__icon" aria-hidden="true">♪</span>
+    </button>
     <button id="skipAnimation" class="skip-button" type="button" hidden>跳过动画</button>
   </main>
+  <audio id="backgroundMusic" src="./assets/audio/flowing-river.mp3" loop preload="metadata"></audio>
+  <script src="./achievements-data.js"></script>
   <script src="./script.js"></script>
 </body>
 </html>

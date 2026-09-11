@@ -14,7 +14,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { width: 100%; min-height: 100%; margin: 0; }
+html, body { width: 100%; min-height: 100%; margin: 0; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { min-width: 320px; overflow: hidden; color: var(--ink); background: #e8e1d4; -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
 button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
@@ -63,11 +63,19 @@ button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 .open-hint__dot { width: .35rem; height: .35rem; border-radius: 50%; background: var(--wine); box-shadow: 0 0 0 5px rgba(135,58,59,.1); }
 .edition { margin-top: auto; margin-bottom: 0; color: rgba(72,68,62,.62); font-size: .68rem; letter-spacing: .35em; }
 .skip-button { position: fixed; z-index: 30; right: 1rem; top: max(1rem,env(safe-area-inset-top)); padding: .5rem .8rem; border: 1px solid rgba(84,70,55,.2); border-radius: 999px; color: var(--muted); background: rgba(255,255,255,.55); backdrop-filter: blur(10px); font-size: .72rem; }
+.music-toggle { position: fixed; z-index: 45; top: 55%; right: -.55rem; bottom: auto; width: 2.55rem; height: 2.55rem; display: grid; place-items: center; padding: 0; border: 1px solid rgba(84,70,55,.18); border-radius: 50%; color: #fffaf2; background: rgba(255,253,247,.84); box-shadow: 0 8px 22px rgba(71,52,39,.14); backdrop-filter: blur(12px); touch-action: none; cursor: grab; user-select: none; transition: left .28s cubic-bezier(.22,1,.36,1),right .28s cubic-bezier(.22,1,.36,1),top .18s ease,opacity .25s ease,transform .25s ease,background .25s ease; }
+.music-toggle.is-dragging { cursor: grabbing; transition: none; }
+.music-toggle:active { transform: scale(.94); }
+.music-toggle__icon { width: 1.65rem; height: 1.65rem; display: grid; place-items: center; border-radius: 50%; color: #fffaf2; background: var(--wine); font-family: Georgia,serif; font-size: .9rem; transform-origin: center; }
+.music-toggle.is-playing .music-toggle__icon { animation: music-spin 3.2s linear infinite; }
+.music-toggle.is-muted .music-toggle__icon { background: #8d877f; }
+.music-toggle.is-video-paused { opacity: .62; }
+@keyframes music-spin { to { transform: rotate(360deg); } }
 
 .greeting-card { z-index: 15; display: grid; place-items: center; padding: max(2.3rem,env(safe-area-inset-top)) 1.5rem max(1.7rem,env(safe-area-inset-bottom)); opacity: 0; visibility: hidden; transform: translateY(9%) scale(.84); transition: opacity .6s ease, visibility .6s, transform .85s cubic-bezier(.2,.8,.2,1); }
 .greeting-card::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; background: rgba(230,225,214,.56); backdrop-filter: blur(13px); transition: opacity .65s ease; }
-.greeting-card__content { position: relative; width: min(88vw,27rem); max-height: min(82svh,46rem); overflow: auto; padding: 2.6rem 1.65rem 1.7rem; border: 1px solid rgba(130,101,69,.2); border-radius: .25rem; background: rgba(255,252,244,.92); box-shadow: 0 24px 55px rgba(70,51,37,.2); }
-.greeting-card__border { position: absolute; width: min(91vw,28.3rem); height: min(85svh,48rem); border: 1px solid rgba(135,58,59,.22); pointer-events: none; }
+.greeting-card__content { position: relative; width: min(100%,27rem); max-height: min(82svh,46rem); overflow: auto; padding: 2.6rem 1.65rem 1.7rem; border: 1px solid rgba(130,101,69,.2); border-radius: .25rem; background: rgba(255,252,244,.92); box-shadow: 0 24px 55px rgba(70,51,37,.2); }
+.greeting-card__border { position: absolute; left: 50%; top: 50%; width: min(calc(100% - 2rem),28.3rem); height: min(85svh,48rem); border: 1px solid rgba(135,58,59,.22); pointer-events: none; transform: translate(-50%,-50%); }
 .greeting-card__eyebrow { margin: 0 0 1.8rem; color: var(--wine); font-family: Georgia,serif; font-size: .57rem; letter-spacing: .25em; }
 .greeting-card h2 { margin: 0 0 1.1rem; font-family: "ZCOOL XiaoWei",serif; font-size: 1.5rem; font-weight: 400; letter-spacing: .08em; }
 .blessing { margin: 0; font-size: .94rem; line-height: 2.05; letter-spacing: .035em; text-align: justify; }
@@ -97,6 +105,33 @@ button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 .chapter-intro__rule span { position: absolute; left: 50%; top: 50%; width: .35rem; height: .35rem; border: 1px solid var(--wine); transform: translate(-50%,-50%) rotate(45deg); background: #f2e9df; }
 .chapter-intro__description { position: relative; margin: 0; color: var(--muted); font-size: .86rem; line-height: 2; letter-spacing: .08em; }
 .chapter-intro__range { position: relative; margin: 1.3rem 0 0; color: var(--blue); font-family: Georgia,serif; font-size: .68rem; letter-spacing: .2em; }
+.portrait-prelude { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: .35rem .35rem 2.6rem; text-align: center; }
+.portrait-prelude .eyebrow { margin: 0 0 .4rem; }
+.portrait-prelude h2 { margin: 0; font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: 1.7rem; font-weight: 500; letter-spacing: .12em; }
+.portrait-prelude__lead { margin: .45rem 0 .65rem; color: var(--muted); font-size: .68rem; line-height: 1.7; letter-spacing: .07em; }
+.portrait-prelude__card { width: min(72vw,18rem); margin: 0; padding: .38rem; border: 1px solid rgba(100,77,55,.18); background: rgba(255,252,245,.8); box-shadow: 0 14px 30px rgba(66,50,39,.14); }
+.portrait-prelude__frame { position: relative; overflow: hidden; background: #e8e1d6; }
+.portrait-prelude__frame img { width: 100%; aspect-ratio: 4/5; display: block; object-fit: cover; object-position: center; user-select: none; }
+.portrait-prelude__frame img.is-focus-right { object-position: 88% center; }
+.portrait-prelude__frame img.is-focus-left { object-position: 12% center; }
+.portrait-prelude__frame img.is-landscape-contain { aspect-ratio: 4/3; object-fit: contain; object-position: center; }
+.portrait-prelude__counter { position: absolute; right: .5rem; bottom: .45rem; padding: .22rem .38rem; border-radius: 999px; color: #fffaf2; background: rgba(47,42,37,.58); font-family: Georgia,serif; font-size: .52rem; letter-spacing: .08em; }
+.portrait-prelude figcaption { min-height: 3rem; display: flex; flex-direction: column; justify-content: center; gap: .12rem; padding: .42rem .2rem .08rem; }
+.portrait-prelude figcaption strong { color: var(--tea-dark); font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: .72rem; font-weight: 500; letter-spacing: .05em; }
+.portrait-prelude figcaption span { color: var(--muted); font-size: .55rem; letter-spacing: .06em; }
+.portrait-prelude__controls { display: flex; align-items: center; justify-content: center; gap: .65rem; margin-top: .55rem; }
+.portrait-prelude__controls button { width: 2rem; height: 2rem; display: grid; place-items: center; padding: 0; border: 1px solid rgba(100,77,55,.17); border-radius: 50%; color: var(--wine); background: rgba(255,252,245,.72); }
+.portrait-prelude__controls button:disabled { opacity: .25; }
+.portrait-prelude__controls .mini-dots { min-width: 4.6rem; }
+.portrait-prelude__hint { margin: .35rem 0 0; color: #887d72; font-size: .5rem; letter-spacing: .08em; }
+.portrait-prelude .chapter-start { min-height: 2.55rem; margin-top: .55rem; padding: .62rem 1.2rem; font-size: .72rem; }
+@media (max-height: 700px) {
+  .portrait-prelude { padding-bottom: 2.2rem; }
+  .portrait-prelude__card { width: min(62vw,14.5rem); }
+  .portrait-prelude__lead { margin: .32rem 0 .45rem; line-height: 1.5; }
+  .portrait-prelude figcaption { min-height: 2.65rem; padding-top: .3rem; }
+  .portrait-prelude__controls { margin-top: .35rem; }
+}
 .chapter-start { position: relative; min-width: 11rem; min-height: 3rem; margin-top: 2rem; padding: .8rem 1.4rem; border-radius: 999px; font-size: .82rem; }
 
 .photo-card { height: 100%; overflow: hidden; padding: .65rem .25rem .25rem; }
@@ -217,7 +252,7 @@ button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 .wish-card::before { left: -3.7rem; top: -3.6rem; }
 .wish-card::after { right: -4rem; bottom: -4rem; box-shadow: 0 0 0 1.2rem rgba(135,58,59,.025); }
 .wish-card__quote { position: absolute; left: 1.35rem; top: .65rem; color: rgba(135,58,59,.18); font-family: Georgia,serif; font-size: 5rem; line-height: 1; }
-.wish-card #wishText { position: relative; z-index: 1; align-self: center; width: 100%; max-height: 100%; min-height: 0; margin: 0; padding: .35rem .2rem .5rem; overflow-y: auto; overscroll-behavior: contain; color: #413d38; font-family: "Songti SC", "STSong", "Source Han Serif SC", "Noto Serif SC", serif; font-size: clamp(.91rem, 4vw, 1.02rem); font-weight: 400; line-height: 1.82; letter-spacing: .03em; text-align: justify; text-justify: inter-ideograph; word-break: break-all; white-space: pre-line; scrollbar-width: thin; scrollbar-color: rgba(135,58,59,.26) transparent; }
+.wish-card #wishText { position: relative; z-index: 1; align-self: center; width: 100%; max-height: 100%; min-height: 0; margin: 0; padding: .35rem .2rem .5rem; overflow-y: auto; overscroll-behavior: contain; color: #413d38; font-family: "Songti SC", "STSong", "Source Han Serif SC", "Noto Serif SC", serif; font-size: .94rem; font-weight: 400; line-height: 1.85; letter-spacing: .03em; text-align: justify; text-justify: inter-ideograph; word-break: break-all; white-space: pre-line; scrollbar-width: thin; scrollbar-color: rgba(135,58,59,.26) transparent; }
 .wish-card #wishText::-webkit-scrollbar { width: 3px; }
 .wish-card #wishText::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(135,58,59,.26); }
 .wish-card__from { position: relative; z-index: 1; display: flex; align-items: baseline; justify-content: flex-end; gap: .6rem; margin-top: 1rem; padding-top: .85rem; border-top: 1px solid rgba(96,76,59,.1); color: var(--wine); }
@@ -247,7 +282,7 @@ button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 .story-card__footer small { color: var(--muted); font-size: .61rem; }
 .heartfelt-closing { margin: .7rem 0 0; color: var(--muted); font-size: .65rem; line-height: 1.75; text-align: center; letter-spacing: .08em; }
 
-.story-modal { position: fixed; inset: 0; z-index: 60; visibility: hidden; pointer-events: none; }
+.story-modal { position: fixed; left: 50%; right: auto; top: 0; bottom: 0; z-index: 60; width: min(100%,430px); visibility: hidden; pointer-events: none; transform: translateX(-50%); }
 .story-modal__backdrop { position: absolute; inset: 0; opacity: 0; background: rgba(43,34,29,.44); backdrop-filter: blur(5px); transition: opacity .35s ease; }
 .story-modal__sheet { position: absolute; left: 0; right: 0; bottom: 0; max-height: 88svh; display: flex; flex-direction: column; padding: 1.5rem 1.3rem max(1.2rem,env(safe-area-inset-bottom)); border-radius: 1.3rem 1.3rem 0 0; background: #fbf7ef; box-shadow: 0 -18px 45px rgba(52,39,31,.24); transform: translateY(103%); transition: transform .48s cubic-bezier(.22,1,.36,1); }
 .story-modal.is-open { visibility: visible; pointer-events: auto; }
@@ -288,7 +323,7 @@ button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 .mini-dots.is-track { position: relative; width: 5.4rem; min-width: 5.4rem; height: .24rem; overflow: hidden; border-radius: 999px; background: rgba(84,73,63,.14); }
 .mini-dots.is-track span { display: block; width: var(--progress); height: 100%; border-radius: inherit; background: var(--wine); transition: width .32s ease; }
 @media (max-height: 700px) {
-  .wish-card #wishText { font-size: .82rem; line-height: 1.82; }
+  .wish-card #wishText { font-size: .94rem; line-height: 1.85; }
 }
 
 
@@ -304,10 +339,18 @@ button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 .video-header h2 { margin-top: .28rem; font-family: "ZCOOL XiaoWei",serif; font-size: 1.18rem; font-weight: 400; letter-spacing: .16em; }
 .video-counter { padding-top: .35rem; color: var(--muted); font-family: Georgia,serif; font-size: .68rem; letter-spacing: .12em; }
 .video-stage { flex: 1; min-height: 0; display: grid; place-items: center; padding: 1rem 0 .65rem; }
+.video-intro { width: 100%; max-width: 24rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .8rem; padding: 1.6rem 1.2rem 1.85rem; border: 1px solid rgba(118,89,65,.16); border-radius: .45rem; background: rgba(255,252,245,.78); box-shadow: 0 18px 38px rgba(71,52,39,.12); text-align: center; }
+.video-intro__mark { width: 3.2rem; height: 3.2rem; display: grid; place-items: center; border: 1px solid rgba(126,89,73,.18); border-radius: 50%; color: var(--wine); font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: 1.45rem; letter-spacing: .18em; background: rgba(255,255,255,.58); }
+.video-intro p,.video-intro h2 { margin: 0; }
+.video-intro h2 { font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: 1.62rem; font-weight: 500; letter-spacing: .12em; }
+.video-intro > p:last-of-type { color: var(--muted); font-size: .75rem; line-height: 1.9; letter-spacing: .08em; }
+.video-intro .chapter-start { margin-top: .45rem; }
 .video-card { width: 100%; max-height: 100%; overflow: hidden; border: 1px solid rgba(118,89,65,.18); border-radius: .45rem; background: rgba(255,252,245,.8); box-shadow: 0 18px 38px rgba(71,52,39,.15); }
 .video-frame { position: relative; width: 100%; aspect-ratio: 16/9; display: grid; place-items: center; overflow: hidden; background: #302d29; }
 .video-frame.is-portrait { aspect-ratio: 4/5; max-height: 52svh; }
 .video-frame video { width: 100%; height: 100%; display: block; object-fit: contain; background: #302d29; }
+.video-fullscreen { position: absolute; z-index: 7; right: .62rem; top: .62rem; width: 2.35rem; height: 2.35rem; display: grid; place-items: center; padding: 0; border: 1px solid rgba(255,255,255,.52); border-radius: 50%; color: #fff; background: rgba(28,27,25,.58); box-shadow: 0 4px 14px rgba(0,0,0,.22); backdrop-filter: blur(8px); font-family: Arial,sans-serif; font-size: 1.12rem; line-height: 1; cursor: pointer; }
+.video-fullscreen:hover { background: rgba(135,58,59,.82); }
 .video-frame.is-portrait.is-focus-lower video { object-fit: cover; object-position: center bottom; }
 .video-play { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7rem; border: 0; color: #fffaf2; background: linear-gradient(180deg,rgba(31,29,26,.08),rgba(31,29,26,.38)); font-size: .72rem; letter-spacing: .12em; text-shadow: 0 1px 5px rgba(0,0,0,.35); }
 .video-play:disabled { cursor: wait; }
@@ -338,6 +381,74 @@ button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 }
 
 .video-controls .nav-button:disabled { color: var(--muted); border-color: rgba(91,71,54,.14); background: rgba(255,252,245,.35); box-shadow: none; opacity: .42; }
+
+/* 第六章：治学长卷 */
+.achievements { position: absolute; inset: 0; z-index: 29; display: flex; flex-direction: column; padding: max(1.1rem,env(safe-area-inset-top)) 0 max(.85rem,env(safe-area-inset-bottom)); opacity: 0; visibility: hidden; transform: translateY(100%); transition: transform .8s cubic-bezier(.2,.8,.2,1),opacity .5s ease,visibility .8s; background: radial-gradient(circle at 86% 8%,rgba(255,255,255,.88),transparent 24%),linear-gradient(160deg,#e4e9df 0%,#f8f0e4 42%,#ead8ce 100%); }
+.achievements::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .28; pointer-events: none; background-image: linear-gradient(90deg,transparent 0 8%,rgba(126,92,61,.08) 8.2%,transparent 8.4%),radial-gradient(circle at 8% 82%,rgba(88,116,95,.16),transparent 26%); }
+.app-shell.is-achievements .video-gallery { opacity: 0; transform: translateY(-9%) scale(.96); pointer-events: none; }
+.app-shell.is-achievements .achievements { opacity: 1; visibility: visible; transform: translateY(0); }
+.app-shell.is-credits .achievements { opacity: 0; transform: translateY(-9%) scale(.96); pointer-events: none; }
+.achievement-progress { position: absolute; top: 0; left: 0; right: 0; z-index: 8; height: 2px; background: rgba(108,78,54,.09); }
+.achievement-progress span { width: 0; height: 100%; display: block; background: linear-gradient(90deg,var(--botanical),var(--wine)); transition: width .15s linear; }
+.achievements-header { min-height: 3.7rem; display: flex; align-items: flex-start; justify-content: space-between; flex: 0 0 auto; padding: .2rem 1.4rem .65rem 3.8rem; border-bottom: 1px solid rgba(80,69,58,.13); }
+.achievements-header p,.achievements-header h2 { margin: 0; }
+.achievements-header > div > p { color: var(--wine); font-family: Georgia,serif; font-size: .52rem; letter-spacing: .14em; }
+.achievements-header h2 { margin-top: .28rem; font-family: "ZCOOL XiaoWei",serif; font-size: 1.18rem; font-weight: 400; letter-spacing: .16em; }
+.achievements-header__note { padding-top: .4rem; color: var(--muted); font-size: .56rem; letter-spacing: .08em; }
+.achievements-scroll { flex: 1; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; scroll-behavior: smooth; scrollbar-width: none; }
+.achievements-scroll::-webkit-scrollbar { display: none; }
+.achievement-hero { min-height: 72svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem 1.5rem; text-align: center; }
+.achievement-hero__seal { width: 4rem; height: 4rem; display: grid; place-items: center; margin-bottom: 1.1rem; border: 1px solid rgba(135,58,59,.35); border-radius: 50%; color: var(--wine); background: rgba(255,252,245,.62); box-shadow: inset 0 0 0 .32rem rgba(135,58,59,.04),0 16px 36px rgba(81,57,39,.12); font-family: "ZCOOL XiaoWei",serif; font-size: 1.75rem; }
+.achievement-hero .eyebrow { margin-bottom: .7rem; }
+.achievement-hero h2 { margin: 0; color: var(--tea-dark); font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: clamp(2rem,9vw,2.6rem); font-weight: 500; line-height: 1.42; letter-spacing: .16em; }
+.achievement-hero > p:not(.eyebrow) { margin: 1rem 0 0; color: var(--muted); font-size: .78rem; line-height: 2; letter-spacing: .1em; }
+.achievement-hero__scroll { margin-top: 2.2rem; color: var(--wine); font-size: .58rem; letter-spacing: .12em; animation: scroll-pulse 2.2s ease-in-out infinite; }
+@keyframes scroll-pulse { 50% { transform: translateY(.32rem); opacity: .55; } }
+.achievement-overview,.achievement-section { margin: 0 1rem 1rem; padding: 1.35rem 1.1rem; border: 1px solid rgba(112,84,61,.14); border-radius: .6rem; background: rgba(255,252,245,.78); box-shadow: 0 14px 32px rgba(73,53,38,.1); }
+.achievement-kicker,.achievement-section__heading p { margin: 0; color: var(--wine); font-family: Georgia,serif; font-size: .55rem; letter-spacing: .18em; }
+.achievement-overview h3,.achievement-section__heading h3 { margin: .4rem 0 0; font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: 1.45rem; font-weight: 500; letter-spacing: .08em; }
+.achievement-overview__lead { margin: .8rem 0 1rem; color: #5e574f; font-size: .72rem; line-height: 1.9; text-align: justify; }
+.achievement-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: .55rem; }
+.achievement-stat { min-height: 5.2rem; display: flex; flex-direction: column; justify-content: center; padding: .8rem; border-radius: .42rem; background: linear-gradient(145deg,rgba(102,122,104,.09),rgba(135,58,59,.055)); }
+.achievement-stat strong { color: var(--wine-dark); font-family: Georgia,"Songti SC",serif; font-size: 1.45rem; font-weight: 500; }
+.achievement-stat span { margin-top: .2rem; color: var(--muted); font-size: .62rem; letter-spacing: .08em; }
+.achievement-stat:last-child { grid-column: 1 / -1; min-height: 4.4rem; }
+.achievement-source { margin: .8rem 0 0; color: #8a8279; font-size: .55rem; text-align: right; letter-spacing: .06em; }
+.achievement-nav { position: sticky; top: 0; z-index: 6; display: flex; gap: .38rem; margin: 0; padding: .65rem 1rem; overflow-x: auto; background: rgba(246,239,229,.92); border-top: 1px solid rgba(101,78,57,.1); border-bottom: 1px solid rgba(101,78,57,.12); backdrop-filter: blur(14px); scrollbar-width: none; }
+.achievement-nav::-webkit-scrollbar { display: none; }
+.achievement-nav button { flex: 0 0 auto; min-width: 3rem; padding: .5rem .72rem; border: 1px solid rgba(112,84,61,.14); border-radius: 999px; color: var(--muted); background: rgba(255,252,245,.72); font-size: .62rem; letter-spacing: .08em; }
+.achievement-nav button.is-active { color: #fffaf2; border-color: var(--wine); background: var(--wine); box-shadow: 0 6px 16px rgba(108,45,47,.18); }
+.achievement-section { scroll-margin-top: 4.2rem; }
+.achievement-section__heading { display: flex; align-items: flex-end; justify-content: space-between; padding-bottom: .85rem; border-bottom: 1px solid rgba(100,76,55,.12); }
+.achievement-highlight-list { display: grid; gap: .7rem; margin-top: .85rem; }
+.achievement-highlight { position: relative; overflow: hidden; padding: 1rem 1rem 1rem 1.15rem; border-radius: .42rem; background: linear-gradient(135deg,rgba(96,119,100,.11),rgba(255,255,255,.35)); }
+.achievement-highlight::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--botanical),var(--wine)); }
+.achievement-highlight span { color: var(--wine); font-family: Georgia,serif; font-size: .58rem; letter-spacing: .12em; }
+.achievement-highlight h4 { margin: .38rem 0 0; color: var(--tea-dark); font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: .88rem; font-weight: 600; line-height: 1.65; }
+.achievement-highlight p { margin: .4rem 0 0; color: var(--muted); font-size: .65rem; line-height: 1.7; }
+.achievement-archive { margin-top: .85rem; }
+.achievement-group { border-top: 1px solid rgba(100,76,55,.12); }
+.achievement-group:first-child { border-top: 0; }
+.achievement-group summary { display: flex; align-items: center; justify-content: space-between; gap: .7rem; padding: .85rem .1rem; cursor: pointer; list-style: none; color: var(--tea-dark); font-size: .75rem; font-weight: 600; letter-spacing: .05em; }
+.achievement-group summary::-webkit-details-marker { display: none; }
+.achievement-group summary span:last-child { width: 1.5rem; height: 1.5rem; display: grid; place-items: center; flex: 0 0 auto; border-radius: 50%; color: var(--wine); background: rgba(135,58,59,.08); transition: transform .25s ease; }
+.achievement-group[open] summary span:last-child { transform: rotate(45deg); }
+.achievement-list { margin: 0; padding: 0 0 .8rem; list-style: none; }
+.achievement-item { display: grid; grid-template-columns: 2.6rem 1fr; gap: .65rem; padding: .72rem .1rem; border-top: 1px dashed rgba(100,76,55,.12); }
+.achievement-item__year { color: var(--wine); font-family: Georgia,serif; font-size: .63rem; line-height: 1.55; }
+.achievement-item__text { margin: 0; color: #514c45; font-size: .68rem; line-height: 1.72; overflow-wrap: anywhere; }
+.achievement-item__note { display: block; margin-top: .25rem; color: #91877d; font-size: .58rem; }
+.achievement-empty { margin: .8rem 0 0; color: var(--muted); font-size: .7rem; }
+.achievement-closing { min-height: 60svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.8rem 1.2rem 4rem; text-align: center; }
+.achievement-closing > span { width: 3.2rem; height: 1px; margin-bottom: 1.1rem; background: rgba(135,58,59,.45); }
+.achievement-closing p { margin: 0; color: var(--tea-dark); font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: 1.25rem; line-height: 2; letter-spacing: .12em; }
+.achievement-closing .chapter-start { margin-top: 1.8rem; }
+.achievements .heart-back { top: max(1.05rem,env(safe-area-inset-top)); }
+@media (max-height: 700px) {
+  .achievement-hero { min-height: 66svh; }
+  .achievement-overview,.achievement-section { margin-left: .75rem; margin-right: .75rem; }
+  .achievements-header__note { display: none; }
+}
 
 /* 尾声：筹备组名单 */
 .credits { position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; padding: max(1.1rem,env(safe-area-inset-top)) 1.05rem max(.85rem,env(safe-area-inset-bottom)); opacity: 0; visibility: hidden; transform: translateY(100%); transition: transform .8s cubic-bezier(.2,.8,.2,1),opacity .5s ease,visibility .8s; background: radial-gradient(circle at 16% 12%,rgba(255,255,255,.76),transparent 27%),linear-gradient(155deg,#e5e9e1 0%,#f7efe5 48%,#e8d2cc 100%); }
