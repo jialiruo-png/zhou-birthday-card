@@ -149,6 +149,24 @@ const stageData = {
   ]
 };
 
+const PHOTO_ASSET_VERSION = '20260912';
+
+function stagePhotoSrc(file) {
+  return `./assets/photos/${file}?v=${PHOTO_ASSET_VERSION}`;
+}
+
+function preloadStagePhotos() {
+  const files = [
+    ...stageData.portraits.map((photo) => photo[0]),
+    ...stageData.chapters.flatMap((chapter) => chapter.photos.map((photo) => photo[0]))
+  ];
+  [...new Set(files)].forEach((file) => {
+    const image = new Image();
+    image.decoding = 'async';
+    image.src = stagePhotoSrc(file);
+  });
+}
+
 const app = document.querySelector('#stageApp');
 const standby = document.querySelector('#standby');
 const showScene = document.querySelector('#showScene');
@@ -258,7 +276,9 @@ function renderPhoto(sceneData) {
   if (mode === 'portrait-focus') visual.classList.add('is-portrait-focus');
   if (mode === 'group-bottom') visual.classList.add('is-group-bottom');
   const image = node('img');
-  image.src = `./assets/photos/${file}`;
+  image.loading = 'eager';
+  image.decoding = 'async';
+  image.src = stagePhotoSrc(file);
   image.alt = title;
   visual.appendChild(image);
   const copy = node('div', 'photo-scene__copy');
@@ -657,6 +677,7 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden && isRunning && !isPaused) pauseShow();
 });
 
+preloadStagePhotos();
 animationFrame = window.requestAnimationFrame(playbackLoop);
 window.addEventListener('beforeunload', () => {
   window.cancelAnimationFrame(animationFrame);
