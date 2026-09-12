@@ -159,6 +159,7 @@ const stageData = {
 };
 
 const PHOTO_ASSET_VERSION = '20260912';
+const STORY_SCROLL_SPEED = 1.5;
 
 function stagePhotoSrc(file) {
   return `./assets/photos/${file}?v=${PHOTO_ASSET_VERSION}`;
@@ -218,6 +219,93 @@ let storyScroll = null;
 let achievementScroll = null;
 let currentPhotoNumber = 0;
 
+function wishPageDuration(text) {
+  const characterCount = [...text].filter((character) => !/\s/u.test(character)).length;
+  return Math.min(12000, Math.max(6000, characterCount * 32));
+}
+
+function tokenizeWishText(text) {
+  const paragraphs = text.split(/\n{2,}/u);
+  const tokens = [];
+  paragraphs.forEach((paragraph, paragraphIndex) => {
+    const sentences = paragraph.match(/[^。！？；]+[。！？；]?/gu) || [paragraph];
+    tokens.push(...sentences);
+    if (paragraphIndex < paragraphs.length - 1) tokens.push('\n\n');
+  });
+  return tokens;
+}
+
+function createWishMeasure(wish) {
+  const card = node('article', 'wish-stage-card wish-stage-card--measure');
+  const quote = node('blockquote');
+  const footer = node('footer', '', wish.name);
+  footer.appendChild(node('small', '', wish.identity));
+  card.append(quote, footer);
+  document.body.appendChild(card);
+  return { card, quote, footer };
+}
+
+function wishPageFits(measure, text) {
+  measure.quote.textContent = text;
+  return measure.card.scrollHeight <= measure.card.clientHeight + 1;
+}
+
+function largestWishPrefix(measure, text) {
+  let low = 1;
+  let high = text.length;
+  let best = 0;
+  while (low <= high) {
+    const middle = Math.floor((low + high) / 2);
+    if (wishPageFits(measure, text.slice(0, middle))) {
+      best = middle;
+      low = middle + 1;
+    } else {
+      high = middle - 1;
+    }
+  }
+  return best || 1;
+}
+
+function paginateWishText(wish) {
+  const measure = createWishMeasure(wish);
+  const pages = [];
+  let current = '';
+  let pageIndex = 0;
+  measure.footer.hidden = true;
+  const startNextPage = () => {
+    pageIndex += 1;
+    measure.footer.hidden = false;
+  };
+  tokenizeWishText(wish.text).forEach((token) => {
+    if (!token.trim() && !current) return;
+    const candidate = current + token;
+    if (wishPageFits(measure, candidate)) {
+      current = candidate;
+      return;
+    }
+    if (current.trim()) {
+      pages.push(current.trim());
+      startNextPage();
+    }
+    current = '';
+    if (wishPageFits(measure, token)) {
+      current = token;
+      return;
+    }
+    let remaining = token;
+    while (remaining) {
+      const prefixLength = largestWishPrefix(measure, remaining);
+      const prefix = remaining.slice(0, prefixLength).trim();
+      if (prefix) pages.push(prefix);
+      remaining = remaining.slice(prefixLength);
+      if (remaining) startNextPage();
+    }
+  });
+  if (current.trim()) pages.push(current.trim());
+  measure.card.remove();
+  return pages.length ? pages : [wish.text];
+}
+
 function buildTimeline() {
   const items = [{ type: 'opening', duration: STATIC_TIMINGS.opening, eyebrow: 'OPENING', chapter: '岁月有光' }];
   items.push({ type: 'chapter', duration: STATIC_TIMINGS.chapter, eyebrow: 'PORTRAIT PRELUDE', chapter: '先看见周老师', numeral: '序', description: '在三段岁月展开之前\n先留住五帧属于她自己的光' });
@@ -227,8 +315,19 @@ function buildTimeline() {
     chapter.photos.forEach((photo) => items.push({ type: 'photo', duration: STATIC_TIMINGS.photo, eyebrow: chapter.english, chapter: chapter.title, photo }));
   });
   items.push({ type: 'words', duration: STATIC_TIMINGS.words, eyebrow: 'WORDS FROM THE HEART', chapter: '文字心意' });
-  stageData.wishes.forEach((wish) => items.push({ type: 'wish', duration: Math.min(20000, Math.max(STATIC_TIMINGS.wish, wish.text.length * 40)), eyebrow: 'BLESSINGS', chapter: '全员祝福', wish }));
-  stageData.stories.forEach((story) => items.push({ type: 'story', duration: Math.min(45000, Math.max(18000, story.body.length * 48)), eyebrow: 'MENTOR STORIES', chapter: '师生故事', story }));
+  stageData.wishes.forEach((wish) => {
+    const pages = paginateWishText(wish);
+    pages.forEach((text, pageIndex) => items.push({
+      type: 'wish',
+      duration: wishPageDuration(text),
+      eyebrow: 'BLESSINGS',
+      chapter: '全员祝福',
+      wish: { ...wish, text },
+      wishPageIndex: pageIndex,
+      wishPageCount: pages.length
+    }));
+  });
+  stageData.stories.forEach((story) => items.push({ type: 'story', duration: Math.min(60000, Math.max(20000, story.body.length * 56)), eyebrow: 'MENTOR STORIES', chapter: '师生故事', story }));
   items.push({ type: 'videoIntro', duration: STATIC_TIMINGS.videoIntro, eyebrow: 'BLESSINGS IN MOTION', chapter: '祝福视频' });
   stageData.videos.forEach((video, index) => items.push({ type: 'video', duration: 0, eyebrow: 'BLESSINGS IN MOTION', chapter: '祝福视频', video, videoIndex: index }));
   items.push({ type: 'achievements', duration: STATIC_TIMINGS.achievements, eyebrow: 'A LIFE OF SCHOLARSHIP', chapter: '治学长卷' });
@@ -311,29 +410,18 @@ function renderWords() {
   canvas.appendChild(scene);
 }
 
-function fitWishTypography(card) {
-  const quote = card.querySelector('blockquote');
-  if (!quote) return;
-  quote.style.fontSize = '';
-  let fontSize = parseFloat(window.getComputedStyle(quote).fontSize);
-  const minimumFontSize = 32;
-  quote.style.fontSize = `${fontSize}px`;
-  while (card.scrollHeight > card.clientHeight + 1 && fontSize > minimumFontSize) {
-    fontSize = Math.max(minimumFontSize, fontSize - .5);
-    quote.style.fontSize = `${fontSize}px`;
-  }
-}
-
 function renderWish(sceneData) {
   const scene = node('div', 'wish-scene scene-enter');
   const card = node('article', 'wish-stage-card');
   card.appendChild(node('blockquote', '', sceneData.wish.text));
-  const footer = node('footer', '', sceneData.wish.name);
-  footer.appendChild(node('small', '', sceneData.wish.identity));
-  card.appendChild(footer);
+  const isFirstSplitPage = sceneData.wishPageCount > 1 && sceneData.wishPageIndex === 0;
+  if (!isFirstSplitPage) {
+    const footer = node('footer', '', sceneData.wish.name);
+    footer.appendChild(node('small', '', sceneData.wish.identity));
+    card.appendChild(footer);
+  }
   scene.appendChild(card);
   canvas.appendChild(scene);
-  window.requestAnimationFrame(() => fitWishTypography(card));
 }
 
 function renderStory(sceneData) {
@@ -567,7 +655,7 @@ function playbackLoop(now) {
     const holdStart = 5000;
     const holdEnd = 5000;
     const scrollDuration = Math.max(currentDuration - holdStart - holdEnd, 1);
-    const scrollProgress = Math.min(Math.max((elapsed - holdStart) / scrollDuration, 0), 1);
+    const scrollProgress = Math.min(Math.max(((elapsed - holdStart) / scrollDuration) * STORY_SCROLL_SPEED, 0), 1);
     const eased = scrollProgress < .5 ? 2 * scrollProgress * scrollProgress : 1 - Math.pow(-2 * scrollProgress + 2, 2) / 2;
     storyScroll.scrollTop = (storyScroll.scrollHeight - storyScroll.clientHeight) * eased;
   }
@@ -632,9 +720,8 @@ async function toggleFullscreen(forceEnter = false) {
   }
 }
 
-function startShow() {
+async function startShow() {
   if (isRunning) return;
-  timeline = buildTimeline();
   currentPhotoNumber = 0;
   isRunning = true;
   isPaused = false;
@@ -644,7 +731,9 @@ function startShow() {
   controls.hidden = false;
   stageBgm.volume = 0.24;
   stageBgm.muted = isMuted;
-  toggleFullscreen(true);
+  await toggleFullscreen(true);
+  await new Promise((resolve) => window.requestAnimationFrame(resolve));
+  timeline = buildTimeline();
   enterScene(0);
 }
 
@@ -706,11 +795,6 @@ document.addEventListener('mousemove', () => {
 
 document.addEventListener('visibilitychange', () => {
   if (document.hidden && isRunning && !isPaused) pauseShow();
-});
-
-window.addEventListener('resize', () => {
-  const card = document.querySelector('.wish-stage-card');
-  if (card) window.requestAnimationFrame(() => fitWishTypography(card));
 });
 
 preloadStagePhotos();

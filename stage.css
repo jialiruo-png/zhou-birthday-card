@@ -109,16 +109,17 @@ button:focus-visible { outline: 3px solid #e4c389; outline-offset: 4px; }
 
 .wish-scene { height: 100%; display: grid; place-items: center; padding: 10vh var(--safe-x) 6vh; color: var(--ink); background: var(--stage-bg); }
 .wish-stage-card { position: relative; width: min(94vw,116rem); height: min(76vh,54rem); min-height: 54vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(1.8rem,2.6vw,3.2rem); border: 0; overflow: hidden; background: transparent; box-shadow: none; color: var(--ink); }
+.wish-stage-card--measure { position: fixed; left: -200vw; top: 0; visibility: hidden; pointer-events: none; }
 .wish-stage-card::before { content: "“"; position: absolute; left: 3rem; top: .8rem; color: rgba(152,70,75,.12); font-family: Georgia,serif; font-size: clamp(7rem,10vw,13rem); line-height: 1; }
-.wish-stage-card blockquote { position: relative; margin: 0; font-size: clamp(1.8rem,2.15vw,2.55rem); line-height: 1.55; letter-spacing: .035em; text-align: justify; white-space: pre-line; }
-.wish-stage-card footer { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid rgba(105,79,55,.16); color: var(--wine-deep); font-size: clamp(1.45rem,1.65vw,2rem); letter-spacing: .12em; text-align: right; }
+.wish-stage-card blockquote { position: relative; margin: 0; font-size: clamp(2.2rem,2.55vw,3rem); line-height: 1.48; letter-spacing: .035em; text-align: justify; white-space: pre-line; }
+.wish-stage-card footer { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid rgba(105,79,55,.16); color: var(--wine-deep); font-size: clamp(1.55rem,1.8vw,2.2rem); letter-spacing: .12em; text-align: right; }
 .wish-stage-card footer small { margin-left: .8rem; color: #83776b; font-size: .75em; }
 
 .story-stage { height: 100%; display: grid; grid-template-columns: .68fr 1.32fr; gap: 5vw; align-items: center; padding: 11vh var(--safe-x) 9vh; color: var(--ink); background: var(--stage-bg); }
 .story-stage__title .tag { color: var(--wine); font-family: Georgia,serif; font-size: clamp(.85rem,.95vw,1.1rem); letter-spacing: .35em; }
 .story-stage__title h3 { margin: 1.2rem 0; color: var(--ink); font-family: "Songti SC","STSong","Source Han Serif SC","Noto Serif SC",serif; font-size: clamp(2.15rem,3vw,4rem); font-weight: 400; line-height: 1.45; }
 .story-stage__title p { color: var(--wine-deep); font-size: clamp(1.26rem,1.5vw,1.82rem); letter-spacing: .12em; }
-.story-stage__body { position: relative; max-height: 68vh; padding: clamp(2rem,3vw,3.5rem); overflow-y: hidden; border-left: 1px solid rgba(117,88,61,.22); color: #5f574f; background: rgba(255,255,255,.18); font-family: "Songti SC","STSong","Source Han Serif SC","Noto Serif SC",serif; font-size: clamp(1.28rem,1.42vw,1.7rem); line-height: 1.78; letter-spacing: .025em; text-align: justify; white-space: pre-line; }
+.story-stage__body { position: relative; max-height: 68vh; padding: clamp(2rem,3vw,3.5rem); overflow-y: hidden; border-left: 1px solid rgba(117,88,61,.22); color: #5f574f; background: rgba(255,255,255,.18); font-family: "Songti SC","STSong","Source Han Serif SC","Noto Serif SC",serif; font-size: clamp(1.56rem,1.72vw,2.1rem); line-height: 1.7; letter-spacing: .025em; text-align: justify; white-space: pre-line; }
 .story-stage__body::before { content: "“"; position: absolute; left: 1.2rem; top: -2rem; color: rgba(152,70,75,.12); font-family: Georgia,serif; font-size: 8rem; }
 
 .video-stage { height: 100%; display: grid; grid-template-columns: minmax(0,1.45fr) minmax(22rem,.62fr); gap: clamp(2rem,4vw,5rem); align-items: center; padding: 10vh var(--safe-x) 8vh; color: var(--ink); background: var(--stage-bg); }
