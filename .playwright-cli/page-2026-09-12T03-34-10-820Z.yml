@@ -1,0 +1,71 @@
+- main [ref=e2]:
+  - region "纪念贺卡":
+    - generic:
+      - paragraph: A TRIBUTE WITH LOVE
+      - heading "岁月有光·师者如兰" [level=1]
+      - paragraph: 周洁红教授六十岁纪念
+    - generic:
+      - generic [aria-hidden]:
+        - generic: 周
+      - generic:
+        - generic [aria-hidden]:
+          - generic: 启
+      - button "轻触开启贺卡"
+    - button "轻触火漆 · 开启心意"
+    - paragraph: 二〇二六 · 秋
+  - generic:
+    - generic:
+      - paragraph: TO OUR DEAREST MENTOR
+      - heading "敬爱的周老师：" [level=2]
+      - paragraph: 六十载春华秋实，您以严谨治学启迪求知，以温厚仁心守护成长。一路走来，您的教诲如灯，照亮我们探索学问、奔赴人生的方向；您的关怀如春风，让周门始终温暖而坚定。值此六十华诞，愿您岁月常欢、身体康健、桃李芬芳，所行皆坦途，所愿皆如意！
+      - generic:
+        - paragraph: 周门弟子 敬贺
+        - time: 2026 年 9 月 12 日
+      - button "进入纪念册":
+        - generic [aria-hidden]: →
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - paragraph: 第一章
+        - paragraph: 杏坛与治学
+      - paragraph: 引章
+    - generic:
+      - article:
+        - generic: 壹
+        - paragraph: CHAPTER ONE
+        - heading [level=2]: 杏坛与治学
+        - paragraph: 躬耕杏坛，求索不止 在田野与课堂之间，见证治学的温度
+        - paragraph: 照片 01—10
+        - button:
+          - generic: 翻开这一章
+          - generic [aria-hidden]: →
+      - text: ·
+    - button: 跳过此章 ↠
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: 第四章 · WORDS FROM THE HEART
+        - heading "文字心意" [level=2] [ref=e21]
+      - generic "文字心意进度" [ref=e22]
+    - generic [ref=e26]:
+      - article [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - paragraph [ref=e30]: ALL WISHES · FROM EVERYONE
+            - heading "一页一心意" [level=3] [ref=e31]
+          - paragraph [ref=e32]: 17 / 31
+        - generic [ref=e33]:
+          - generic [ref=e34]: “
+          - paragraph [ref=e35]: 何其有幸，幸得良师。犹记在周门读博的时光，承蒙周老师悉心指引治学与立身方向，周老师团队秉持的 “勤勉务实、砥砺创新”理念，对我如今在智库做研究也很有裨益，督促我踏踏实实做事。恰逢周老师六十华诞，愿咱们周门同门情谊绵长，各自在岗位上都有长进，不辜负您的栽培与期许。
+          - generic [ref=e36]:
+            - generic [ref=e37]: 韩飞
+            - generic [ref=e38]: 2020 级博士
+        - navigation "祝福短句翻页" [ref=e39]:
+          - button "上一条祝福" [ref=e40]: ←
+          - button "下一条祝福" [ref=e43]: →
+        - button "翻阅师生故事" [ref=e44]:
+          - generic [aria-hidden] [ref=e46]: →
+      - text: 忆
+    - button "返回上一页" [ref=e47]: ←
+  - button "静音背景音乐" [ref=e48]:
+    - generic [aria-hidden] [ref=e49]: ♪

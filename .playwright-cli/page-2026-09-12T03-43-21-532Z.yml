@@ -1,0 +1,10 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e18]:
+      - paragraph [ref=e19]: A TRIBUTE WITH LOVE
+      - heading "岁月有光·师者如兰" [level=1] [ref=e20]
+      - paragraph [ref=e21]: 周洁红教授六十岁纪念
+    - button "轻触开启贺卡" [ref=e22] [cursor=pointer]:
+      - generic [ref=e24]: 周
+    - paragraph [ref=e26]: 轻触火漆 · 开启心意
+    - paragraph [ref=e28]: 二〇二六 · 秋

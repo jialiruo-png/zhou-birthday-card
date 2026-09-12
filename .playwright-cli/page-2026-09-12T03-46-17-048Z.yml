@@ -1,0 +1,24 @@
+- main [ref=f2e2]:
+  - generic [ref=f2e30]:
+    - generic:
+      - generic:
+        - paragraph: OPENING
+        - heading "岁月有光" [level=2]
+      - generic:
+        - generic: 00:00
+        - generic: 01 / 81
+    - generic [ref=f2e32]:
+      - generic [ref=f2e33]: 周
+      - generic [ref=f2e36]:
+        - paragraph [ref=f2e37]: TO OUR DEAREST MENTOR
+        - heading "敬爱的周老师：" [level=3] [ref=f2e38]
+        - blockquote [ref=f2e39]: 六十载春华秋实，您以严谨治学启迪求知，以温厚仁心守护成长。您的教诲如灯，照亮我们探索学问、奔赴人生的方向；您的关怀如春风，让周门始终温暖而坚定。愿您岁月常欢、身体康健、桃李芬芳，所行皆坦途，所愿皆如意！
+        - paragraph [ref=f2e40]: 周门弟子 敬贺 · 2026 年 9 月 12 日
+    - status [ref=f2e43]
+  - complementary "放映控制" [ref=f2e44]:
+    - button "上一幕" [ref=f2e45] [cursor=pointer]: ←
+    - button "暂停放映" [ref=f2e46] [cursor=pointer]: Ⅱ
+    - button "下一幕" [ref=f2e47] [cursor=pointer]: →
+    - button "静音" [ref=f2e49] [cursor=pointer]: ♪
+    - button "进入全屏" [ref=f2e50] [cursor=pointer]: ⛶
+    - button "重新开始" [ref=f2e51] [cursor=pointer]: ↻

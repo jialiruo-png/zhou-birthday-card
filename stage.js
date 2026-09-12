@@ -4,7 +4,7 @@ const stageData = {
     ['portrait-02.webp', '卡特年末工作会议留影', '2019 年 1 月 19 日', '', '在行走与交流之间，留下从容而明朗的一刻。', '供图：鄢贞', 'contain'],
     ['portrait-03.webp', '师门研讨会', '', '', '一方屏幕、一席讨论，把求知与思考带到每位学生身边。', '供图：胡亦俊', 'left'],
     ['photo-10.webp', '调研交流中的专注笃定', '2026 年 5 月 24 日', '浙江蓝美技术股份有限公司', '言传身教，将多年积淀化作现场清晰而温暖的启发。', '供图：贾丽婼', 'cover'],
-    ['portrait-05.webp', '德国哥廷根牧鹅少女喷泉', '', '', '德国哥廷根牧鹅少女喷泉。', '', 'portrait-focus']
+    ['portrait-05.webp', '德国哥廷根牧鹅少女喷泉', '2018 年', '德国哥廷根', '行走在更广阔的学术天地里，也留下旅途中的明亮身影。', '供图：唐利群', 'right']
   ],
   chapters: [
     {
@@ -69,6 +69,7 @@ const stageData = {
     { name: '金宇', identity: '2019 级博士', text: `感谢周老师一路以来的悉心引领与温暖鼓励，祝您生日快乐、岁岁安康、阖家幸福、桃李芬芳！` },
     { name: '张晶', identity: '2020 级硕士', text: `周老师是一位负责、耐心、亲切的老师，祝周老师 60 周岁快乐，身体健康，阖家幸福，万事胜意。` },
     { name: '魏珂', identity: '2020 级博士', text: `周老师，值您六十华诞，回首师门求学岁月，心中常怀对您的无限感恩。\n\n初入师门之时，我只是一名懵懂青涩的学术新人。您治学严谨，一丝不苟，每一篇小论文，您都会留下百余处细致批注，从篇章架构直至标点字句，悉心打磨；又为我争取机会、搭建平台，引领我踏入学术之门。\n\n求学途中，我一度深陷迷茫困顿。是您始终没有放弃停滞不前的我。学业上多方统筹，协调同门相助，陪伴我熬过论文最艰难的阶段；更看见我内心的煎熬，牵挂我的身心状态，一次次开导劝慰，即便在我怀疑自我时，依然选择相信我，倾尽心力托举我完成学业，顺利毕业。\n\n这份恩情早已超越普通传道授业，是困境之中一份珍贵的成全。我既感念与您相遇的幸运，心底也始终留存一份沉甸甸的感念。\n\n岁月悠长，师恩铭刻肺腑。恭贺您六十寿辰，愿您往后岁月身心安泰，福寿绵长，阖家安康。` },
+    { name: '韩飞', identity: '2020 级博士', text: `何其有幸，幸得良师。犹记在周门读博的时光，承蒙周老师悉心指引治学与立身方向，周老师团队秉持的 “勤勉务实、砥砺创新”理念，对我如今在智库做研究也很有裨益，督促我踏踏实实做事。恰逢周老师六十华诞，愿咱们周门同门情谊绵长，各自在岗位上都有长进，不辜负您的栽培与期许。` },
     { name: '梁玉虎', identity: '2021 级学生', text: `衷心祝愿周老师身体健康、工作顺遂，桃李满园，幸福常伴！` },
     { name: '赵文欣', identity: '2021 级硕士', text: `敬爱的周老师，值您六十华诞，谨向您致以最诚挚的生日祝福！求学路上，承蒙周老师悉心教诲，您严谨务实的治学态度、宽厚谦和的待人风范，不仅指引我深耕专业学识，更教会我立身行事的道理，工作后念起周老师的谆谆教诲也受益颇多。六十岁是人生丰盈从容的新起点，衷心祝愿周老师福寿安康，身体康健；桃李芬芳，顺遂常乐；闲暇尽享岁月悠然，岁岁皆安，万事胜意！` },
     { name: '胡亦俊', identity: '2022 级博士', text: `印象中，我总是在办公室里跟您唠嗑，从论文框架到人生规划，从课题文章到家长里短。您就像农经之母，用您的“唠叨”和“操心”，把我们从一个个懵懂的学生，培养成独当一面的各界精英。感念师恩，在我人生的众多抉择中，始终为我指引前行的方向。祝愿老师六十岁生日快乐，天天开心、事事顺心，永葆热情与活力！` },
@@ -310,6 +311,19 @@ function renderWords() {
   canvas.appendChild(scene);
 }
 
+function fitWishTypography(card) {
+  const quote = card.querySelector('blockquote');
+  if (!quote) return;
+  quote.style.fontSize = '';
+  let fontSize = parseFloat(window.getComputedStyle(quote).fontSize);
+  const minimumFontSize = 32;
+  quote.style.fontSize = `${fontSize}px`;
+  while (card.scrollHeight > card.clientHeight + 1 && fontSize > minimumFontSize) {
+    fontSize = Math.max(minimumFontSize, fontSize - .5);
+    quote.style.fontSize = `${fontSize}px`;
+  }
+}
+
 function renderWish(sceneData) {
   const scene = node('div', 'wish-scene scene-enter');
   const card = node('article', 'wish-stage-card');
@@ -319,6 +333,7 @@ function renderWish(sceneData) {
   card.appendChild(footer);
   scene.appendChild(card);
   canvas.appendChild(scene);
+  window.requestAnimationFrame(() => fitWishTypography(card));
 }
 
 function renderStory(sceneData) {
@@ -691,6 +706,11 @@ document.addEventListener('mousemove', () => {
 
 document.addEventListener('visibilitychange', () => {
   if (document.hidden && isRunning && !isPaused) pauseShow();
+});
+
+window.addEventListener('resize', () => {
+  const card = document.querySelector('.wish-stage-card');
+  if (card) window.requestAnimationFrame(() => fitWishTypography(card));
 });
 
 preloadStagePhotos();
