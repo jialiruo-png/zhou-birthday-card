@@ -465,9 +465,10 @@ button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 .credits-group { padding-top: .7rem; border-top: 1px solid rgba(95,77,60,.12); }
 .credits-group p,.credits-group h3 { margin: 0; }
 .credits-group p { color: var(--wine); font-size: .56rem; letter-spacing: .14em; }
-.credits-group h3 { margin-top: .38rem; color: var(--tea-dark); font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: .92rem; font-weight: 500; line-height: 1.8; letter-spacing: .06em; }
+.credits-group h3 { margin-top: .38rem; color: var(--tea-dark); font-family: "Songti SC","STSong","Noto Serif SC",serif; font-size: .86rem; font-weight: 500; line-height: 1.8; letter-spacing: .06em; }
 .credits-group h3 span { color: var(--muted); font-size: .7rem; font-weight: 400; }
-.credits-group--support h3 { font-size: .79rem; line-height: 1.9; }
+.credits-group--technical p { font-size: .52rem; letter-spacing: .1em; white-space: nowrap; }
+.credits-group--technical h3,.credits-group--support h3 { font-size: .84rem; line-height: 1.9; }
 .credits-closing { margin-top: 1rem; color: var(--muted); }
 .credits-closing > span { width: 2.5rem; height: 1px; display: block; margin: 0 auto .65rem; background: rgba(135,58,59,.42); }
 .credits-closing p { margin: 0; font-size: .58rem; line-height: 1.7; letter-spacing: .07em; }
