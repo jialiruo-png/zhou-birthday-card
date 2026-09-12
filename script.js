@@ -521,10 +521,11 @@ const selectedWishes = [
   { name: '贾丽婼', identity: '2025 级硕士', text: `敬爱的周老师，祝您六十岁生日快乐！作为 2025 级硕士新生，能够加入周门、成为您的学生，我感到非常幸运。您雍容而有气度，始终尊重每一位学生的想法，鼓励我们探索适合自己的方向、勇敢成长。无论面对学业上的困难，还是未来发展的选择，您总能给予我们最坚定、最有力的支持，是我们可以安心依靠的坚实后盾。在师门，我感受到的不仅是严谨与专业，更有像家一样的可靠与温暖。衷心祝愿您身体健康、岁月从容、喜乐常伴，未来的每一天都顺遂如意、幸福美满！` },
   { name: '王璐', identity: '2025 级硕士', text: `很幸运能够成为周门的一份子，感谢周老师在求学路上的悉心指引与包容鼓励。祝您生日快乐，岁月从容，喜乐安康，万事皆如意！` },
   { name: '豆泽欣', identity: '2026 级博士', text: `愿老师生辰喜乐，身体康健，万事顺遂，桃李芬芳！` },
-  { name: '杨鑫', identity: '2026 级硕士', text: `老师生日快乐，祝您身体健康，诸事顺遂！感谢老师选择了我，也要提前感谢未来三年您对我的指导和栽培，我一定不会辜负老师对我的信任。再次祝老师生日快乐！` }
+  { name: '杨鑫', identity: '2026 级硕士', text: `老师生日快乐，祝您身体健康，诸事顺遂！感谢老师选择了我，也要提前感谢未来三年您对我的指导和栽培，我一定不会辜负老师对我的信任。再次祝老师生日快乐！` },
+  { name: '甘华粱', identity: '2021 级本科', text: `祝周老师生日快乐！虽然只是本科时短暂受教，但学生始终记得您的帮助与教导，感谢您在学业上给予的悉心指导和在生活上给予的关怀与鼓励。祝您身体健康，阖家欢乐，平安顺遂，喜乐常伴！` }
 ];
 
-const wishOrder = ['叶俊焘', '张仕都', '张劲萧', '李凯', '章迎迎', '刘青', '唐利群', '高霈', '武宗励', '王煜', '黄好', '李祎', '沈云', '金宇', '张晶', '魏珂', '赵文欣', '胡亦俊', '钭露露', '徐子龙', '袁欣婷', '陈凯文', '杨小能', '尹宗硕', '贾丽婼', '王璐', '豆泽欣', '杨鑫'];
+const wishOrder = ['叶俊焘', '张仕都', '张劲萧', '李凯', '章迎迎', '刘青', '唐利群', '高霈', '武宗励', '王煜', '黄好', '李祎', '沈云', '金宇', '张晶', '魏珂', '梁玉虎', '赵文欣', '胡亦俊', '钭露露', '徐子龙', '袁欣婷', '陈凯文', '杨小能', '尹宗硕', '贾丽婼', '王璐', '豆泽欣', '杨鑫', '甘华粱'];
 const wishOrderIndex = new Map(wishOrder.map((name, index) => [name, index]));
 selectedWishes.sort((a, b) => wishOrderIndex.get(a.name) - wishOrderIndex.get(b.name));
 
@@ -589,6 +590,13 @@ const mentorStories = [
 求学途中，我一度深陷迷茫困顿。是您始终没有放弃停滞不前的我。学业上多方统筹，协调同门相助，陪伴我熬过论文最艰难的阶段；更看见我内心的煎熬，牵挂我的身心状态，一次次开导劝慰。即便在我怀疑自我时，您依然选择相信我，倾尽心力托举我完成学业、顺利毕业。
 
 这份恩情早已超越普通传道授业，是困境之中一份珍贵的成全。岁月悠长，师恩铭刻肺腑。恭贺您六十寿辰，愿您往后岁月身心安泰，福寿绵长，阖家安康。`
+  },
+   {
+    tag: '周阿姨',
+    title: '亦师亦母的周老师',
+    summary: '在我心中卓然如莲，亭立高洁烨生辉，濯清静雅气自华。',
+    name: '马一源', identity: '2009级本科、2013级硕士',
+    body: `离开校园多年，仍能忆起周老师语重心长地教诲，“做学术就像挖一口井，要沉心深挖”。若干年后才知这便是证道，是自我规训，系统化地学习深挖，而后提炼抽象内化成认知，融会贯通，如同喝到水的畅快。`
   }
 ];
 
@@ -1028,9 +1036,12 @@ function updateAchievementScroll() {
   const progress = maxScroll > 0 ? Math.min(100, achievementsScroll.scrollTop / maxScroll * 100) : 0;
   achievementProgress.style.width = `${progress}%`;
   const sections = [...document.querySelectorAll('.achievement-section')];
+  const scrollBoxTop = achievementsScroll.getBoundingClientRect().top;
+  const navBottom = achievementNav.offsetHeight + 24;
   let activeId = sections[0]?.id;
   sections.forEach((section) => {
-    if (section.offsetTop - achievementsScroll.scrollTop <= 110) activeId = section.id;
+    const sectionTop = section.getBoundingClientRect().top - scrollBoxTop;
+    if (sectionTop <= navBottom) activeId = section.id;
   });
   achievementNav.querySelectorAll('button').forEach((button) => button.classList.toggle('is-active', button.dataset.target === activeId));
 }
@@ -1084,7 +1095,14 @@ achievementsScroll.addEventListener('scroll', updateAchievementScroll, { passive
 achievementNav.querySelectorAll('button').forEach((button) => {
   button.addEventListener('click', () => {
     const target = document.getElementById(button.dataset.target);
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!target) return;
+    const scrollBoxTop = achievementsScroll.getBoundingClientRect().top;
+    const targetTop = target.getBoundingClientRect().top - scrollBoxTop + achievementsScroll.scrollTop;
+    const topOffset = achievementNav.offsetHeight + 12;
+    achievementsScroll.scrollTo({
+      top: Math.max(0, targetTop - topOffset),
+      behavior: 'smooth'
+    });
   });
 });
 document.querySelector('#previousVideo').addEventListener('click', () => {
