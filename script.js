@@ -29,8 +29,8 @@ const chapters = [
     tone: 'companions',
     photos: [
       ['photo-11.webp', '2011 届毕业聚餐', '2011 年', '', '从课堂到人生新程，老师的陪伴与祝福始终都在。', '供图：胡亦俊'],
-      ['photo-12.webp', '师门合影', '2021 年', '', '一张合影，定格师门相聚的亲切与踏实。', '供图：赵文欣'],
       ['photo-13.webp', '毕业聚餐', '2022 年 6 月', '', '在告别与启程之间，把共同成长的岁月珍藏。', ''],
+      ['photo-14.webp', '教师节留影', '2023 年', '', '一束鲜花、一张合影，记录师生之间真挚而温暖的情谊。', ''],
       ['photo-15.webp', '教师节留影', '2024 年', '', '以花与笑容致敬师恩，感谢一路的指引和守护。', '供图：梁玉虎'],
       ['photo-16.webp', '又一年教师节', '2025 年', '', '岁月向前，师生情谊在一次次重逢里历久弥新。', '供图：胡亦俊'],
       ['photo-17.webp', '毕业时刻', '2026 年 6 月', '', '梁玉虎、袁欣婷毕业，带着老师的嘱托奔赴新程。', '供图：梁玉虎'],
@@ -524,6 +524,10 @@ const selectedWishes = [
   { name: '杨鑫', identity: '2026 级硕士', text: `老师生日快乐，祝您身体健康，诸事顺遂！感谢老师选择了我，也要提前感谢未来三年您对我的指导和栽培，我一定不会辜负老师对我的信任。再次祝老师生日快乐！` }
 ];
 
+const wishOrder = ['叶俊焘', '张仕都', '张劲萧', '李凯', '章迎迎', '刘青', '唐利群', '高霈', '武宗励', '王煜', '黄好', '李祎', '沈云', '金宇', '张晶', '魏珂', '赵文欣', '胡亦俊', '钭露露', '徐子龙', '袁欣婷', '陈凯文', '杨小能', '尹宗硕', '贾丽婼', '王璐', '豆泽欣', '杨鑫'];
+const wishOrderIndex = new Map(wishOrder.map((name, index) => [name, index]));
+selectedWishes.sort((a, b) => wishOrderIndex.get(a.name) - wishOrderIndex.get(b.name));
+
 const mentorStories = [
   {
     tag: '严谨与鼓励',
@@ -752,7 +756,7 @@ const blessingVideos = [
   {
     src: './assets/videos/video-yin-upright.mp4', poster: './assets/posters/video-yin-upright.jpg',
     name: '尹世久', identity: '山东女子学院 · 健康养老学院', duration: '01:28',
-    caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', focus: 'lower'
+    caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', ratio: 9 / 16
   },
   {
     src: './assets/videos/video-01.mp4', poster: './assets/posters/video-01.jpg',
@@ -767,7 +771,7 @@ const blessingVideos = [
   {
     src: './assets/videos/video-03.mp4', poster: './assets/posters/video-03.jpg',
     name: '金宇、张晶及家人', identity: '2019 级博士 · 2020 级硕士', duration: '01:03',
-    caption: '来自师门与家人的温暖祝福', orientation: 'portrait'
+    caption: '来自师门与家人的温暖祝福', orientation: 'portrait', ratio: 3 / 4
   },
   {
     src: './assets/videos/video-liyi.mp4', poster: './assets/posters/video-liyi.jpg',
@@ -828,7 +832,7 @@ function renderVideo(direction = 'forward') {
   videoPlay.disabled = false;
   videoPlayLabel.textContent = '点击加载并播放';
   frame.classList.toggle('is-portrait', item.orientation === 'portrait');
-  frame.classList.toggle('is-focus-lower', item.focus === 'lower');
+  frame.style.setProperty('--video-ratio', String(item.ratio || 16 / 9));
   document.querySelector('#videoCounter').textContent = `${String(videoIndex + 1).padStart(2, '0')} / ${String(blessingVideos.length).padStart(2, '0')}`;
   document.querySelector('#videoNumber').textContent = `VIDEO ${String(videoIndex + 1).padStart(2, '0')}`;
   document.querySelector('#videoName').textContent = item.name;
@@ -1125,6 +1129,13 @@ videoPlay.addEventListener('click', async () => {
     videoPlayLabel.textContent = '点击播放';
     videoStatus.textContent = '视频已加载，请再次点击播放';
   }
+});
+blessingVideo.addEventListener('loadedmetadata', () => {
+  const frame = document.querySelector('#videoFrame');
+  if (!frame || !blessingVideo.videoWidth || !blessingVideo.videoHeight) return;
+  const ratio = blessingVideo.videoWidth / blessingVideo.videoHeight;
+  frame.style.setProperty('--video-ratio', String(ratio));
+  frame.classList.toggle('is-portrait', ratio < 1);
 });
 blessingVideo.addEventListener('play', () => {
   pauseBackgroundForVideo();

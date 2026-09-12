@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#171814" />
+  <meta name="description" content="周洁红教授六十岁生日纪念相册宴会大屏版" />
+  <title>岁月有光 · 师者如兰｜宴会大屏版</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./stage.css?v=11" />
+</head>
+<body>
+  <main id="stageApp" class="stage-app" aria-live="polite">
+    <div class="stage-grain" aria-hidden="true"></div>
+    <div class="stage-glow stage-glow--one" aria-hidden="true"></div>
+    <div class="stage-glow stage-glow--two" aria-hidden="true"></div>
+
+    <section id="standby" class="standby">
+      <svg class="standby__botanical standby__botanical--left" viewBox="0 0 170 410" aria-hidden="true">
+        <path d="M22 420C32 300 55 183 143 22" />
+        <path d="M56 270C34 248 26 222 32 191C64 200 78 226 56 270Z" />
+        <path d="M82 195C64 167 65 142 79 117C106 134 111 163 82 195Z" />
+        <path d="M111 121C98 94 105 69 123 48C145 69 140 97 111 121Z" />
+        <circle cx="48" cy="307" r="7" /><circle cx="95" cy="159" r="5" />
+      </svg>
+      <svg class="standby__botanical standby__botanical--right" viewBox="0 0 170 410" aria-hidden="true">
+        <path d="M148 420C138 300 115 183 27 22" />
+        <path d="M114 270C136 248 144 222 138 191C106 200 92 226 114 270Z" />
+        <path d="M88 195C106 167 105 142 91 117C64 134 59 163 88 195Z" />
+        <path d="M59 121C72 94 65 69 47 48C25 69 30 97 59 121Z" />
+        <circle cx="122" cy="307" r="7" /><circle cx="75" cy="159" r="5" />
+      </svg>
+      <header class="standby__copy">
+        <p class="standby__eyebrow">A TRIBUTE WITH LOVE</p>
+        <h1>岁月有光<span>·</span>师者如兰</h1>
+        <p class="standby__subtitle">周洁红教授六十岁纪念</p>
+      </header>
+      <button id="startShow" class="start-show" type="button" aria-label="轻触开启贺卡">
+        <span class="stage-envelope" aria-hidden="true"><i>周</i><b></b></span>
+      </button>
+      <p class="standby__hint"><span></span>轻触火漆 · 开启心意</p>
+      <p class="standby__edition">二〇二六 · 秋</p>
+    </section>
+
+    <section id="showScene" class="show-scene" aria-hidden="true">
+      <header class="stage-header">
+        <div>
+          <p id="stageEyebrow">OPENING</p>
+          <h2 id="stageChapter">岁月有光</h2>
+        </div>
+        <div class="stage-status">
+          <span id="stageClock">00:00</span>
+          <span id="stageIndex">01 / 01</span>
+        </div>
+      </header>
+
+      <div id="sceneCanvas" class="scene-canvas"></div>
+
+      <div class="stage-progress" aria-hidden="true"><span id="stageProgress"></span></div>
+      <p id="stageNotice" class="stage-notice" role="status" aria-live="polite"></p>
+    </section>
+
+    <aside id="showControls" class="show-controls" aria-label="放映控制" hidden>
+      <button id="previousScene" type="button" title="上一幕（←）" aria-label="上一幕">←</button>
+      <button id="togglePlayback" class="show-controls__primary" type="button" title="暂停或继续（空格）" aria-label="暂停放映">Ⅱ</button>
+      <button id="nextScene" type="button" title="下一幕（→）" aria-label="下一幕">→</button>
+      <span></span>
+      <button id="toggleMute" type="button" title="静音（M）" aria-label="静音">♪</button>
+      <button id="toggleFullscreen" type="button" title="全屏（F）" aria-label="进入全屏">⛶</button>
+      <button id="restartShow" type="button" title="重新开始（R）" aria-label="重新开始">↻</button>
+    </aside>
+
+    <div id="mediaGate" class="media-gate" hidden>
+      <p>浏览器暂停了自动播放</p>
+      <button id="resumeMedia" type="button">点击继续放映</button>
+    </div>
+
+    <audio id="stageBgm" src="./assets/audio/flowing-river.mp3" preload="auto" loop></audio>
+    <video id="stageVideo" preload="metadata" playsinline></video>
+  </main>
+
+  <script src="./achievements-data.js"></script>
+  <script src="./stage.js?v=12"></script>
+</body>
+</html>
