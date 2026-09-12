@@ -55,7 +55,7 @@ button:focus-visible { outline: 3px solid #e4c389; outline-offset: 4px; }
 .stage-header { position: absolute; z-index: 20; left: var(--safe-x); right: var(--safe-x); top: clamp(1.7rem,3vh,3.3rem); display: flex; align-items: flex-start; justify-content: space-between; pointer-events: none; }
 .stage-header p,.stage-header h2 { margin: 0; }
 .stage-header p { color: var(--wine); font-family: Georgia,serif; font-size: clamp(.7rem,.75vw,.98rem); letter-spacing: .34em; }
-.stage-header h2 { margin-top: .38rem; color: var(--ink); font-family: "ZCOOL XiaoWei",serif; font-size: clamp(1.5rem,1.82vw,2.38rem); font-weight: 400; letter-spacing: .18em; }
+.stage-header h2 { margin-top: .38rem; color: var(--ink); font-family: "Songti SC","STSong","Source Han Serif SC","Noto Serif SC",serif; font-size: clamp(1.5rem,1.82vw,2.38rem); font-weight: 400; letter-spacing: .18em; }
 .stage-status { display: flex; gap: 1.1rem; padding-top: .15rem; color: rgba(37,35,31,.58); font-family: Georgia,serif; font-size: clamp(.8rem,.86vw,1.08rem); letter-spacing: .12em; }
 .scene-canvas { position: absolute; inset: 0; z-index: 5; }
 .scene-enter { animation: scene-in .9s cubic-bezier(.22,1,.36,1) both; }
@@ -93,7 +93,7 @@ button:focus-visible { outline: 3px solid #e4c389; outline-offset: 4px; }
 .photo-scene__visual.is-group-bottom img { object-fit: contain !important; object-position: center bottom !important; animation: none; }
 @keyframes kenburns { from { transform: scale(1.025); } to { transform: scale(1); } }
 .photo-scene__number { color: var(--wine); font-family: Georgia,serif; font-size: clamp(.9rem,1.02vw,1.18rem); letter-spacing: .25em; }
-.photo-scene__copy h3 { margin: 1rem 0 1.1rem; color: var(--ink); font-family: "ZCOOL XiaoWei",serif; font-size: clamp(2.65rem,3.65vw,4.85rem); font-weight: 400; line-height: 1.24; letter-spacing: .08em; }
+.photo-scene__copy h3 { margin: 1rem 0 1.1rem; color: var(--ink); font-family: "Songti SC","STSong","Source Han Serif SC","Noto Serif SC",serif; font-size: clamp(2.65rem,3.65vw,4.85rem); font-weight: 400; line-height: 1.24; letter-spacing: .08em; }
 .photo-scene__meta { color: var(--wine-deep); font-size: clamp(1rem,1.18vw,1.42rem); line-height: 1.75; letter-spacing: .08em; }
 .photo-scene__desc { margin-top: 1.45rem; color: #665d54; font-size: clamp(2.36rem,2.86vw,3.48rem); line-height: 1.85; text-align: justify; }
 .photo-scene__credit { margin-top: 1.35rem; color: #83776b; font-family: "Noto Sans SC",sans-serif; font-size: clamp(.8rem,.92vw,1.08rem); letter-spacing: .08em; }
@@ -103,9 +103,8 @@ button:focus-visible { outline: 3px solid #e4c389; outline-offset: 4px; }
 .words-scene__heading h3 { margin: 1.2rem 0; color: var(--ink); font-family: "ZCOOL XiaoWei",serif; font-size: clamp(3rem,4.5vw,6rem); font-weight: 400; line-height: 1.35; letter-spacing: .12em; }
 .words-scene__heading small { color: #776c61; font-size: clamp(.96rem,1.14vw,1.34rem); letter-spacing: .12em; }
 .keyword-wall { display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: clamp(.7rem,1.2vw,1.4rem); }
-.keyword-wall span { padding: .6em 1em; border: 1px solid rgba(117,88,61,.2); border-radius: 999px; color: #5e564d; background: rgba(255,255,255,.38); font-size: clamp(1.12rem,1.5vw,1.9rem); letter-spacing: .1em; }
-.keyword-wall span:nth-child(3n+1) { color: var(--wine-deep); border-color: rgba(152,70,75,.27); background: rgba(255,247,238,.52); transform: translateY(-.4rem); }
-.keyword-wall span:nth-child(4n) { font-size: clamp(1.4rem,1.88vw,2.34rem); }
+.keyword-wall span { min-height: 2.2em; display: inline-flex; align-items: center; justify-content: center; padding: .6em 1em; border: 1px solid rgba(117,88,61,.2); border-radius: 999px; color: #5e564d; background: rgba(255,255,255,.38); font-size: clamp(1.12rem,1.5vw,1.9rem); font-weight: 400; line-height: 1; letter-spacing: .1em; text-align: center; text-indent: .1em; }
+.keyword-wall span:nth-child(3n+1) { color: var(--wine-deep); border-color: rgba(152,70,75,.27); background: rgba(255,247,238,.52); }
 
 .wish-scene { height: 100%; display: grid; place-items: center; padding: 10vh var(--safe-x) 6vh; color: var(--ink); background: var(--stage-bg); }
 .wish-stage-card { position: relative; width: min(94vw,116rem); height: min(76vh,54rem); min-height: 54vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(1.8rem,2.6vw,3.2rem); border: 0; overflow: hidden; background: transparent; box-shadow: none; color: var(--ink); }

@@ -79,6 +79,7 @@ const stageData = {
     { name: '陈凯文', identity: '2024 级硕士', text: `得遇良师，何其有幸！祝周老师六十大寿快乐美满，身体安康，学术常青，一切顺遂！` },
     { name: '杨小能', identity: '2024 级硕士', text: `祝周老师生日快乐🎂！很感恩求学路上能够遇见您。您待人温暖，做事认真严谨，无论是学业上的指点，还是平日里的关怀，都让我收获良多。愿您往后日子平安顺遂，万事舒心，身体健康，喜乐常伴！` },
     { name: '尹宗硕', identity: '2024 级博士', text: `周老师，很庆幸在人生和求学的这段路上能够遇到您，也一直很感谢您对学生的教导、关心和包容。正是因为您的接纳与包容，我才有机会来到浙大继续求学与成长。能够加入周门这个温暖有爱又彼此支持的大家庭，我一直觉得十分幸运，也格外珍惜这段难得的缘分。您教给我的不仅是科研上的知识，更是做事的态度、看问题的方式。\n\n六十岁是一个值得纪念的日子。希望未来的日子里，您少一些操劳，多一些轻松和自在。衷心祝愿您身体健康，平安顺遂。祝您往后的每一年，都从容、充实、喜乐。` },
+    { name: '许蒋鸿', identity: '2025 级博士', text: `初入师门，周老师始终以在科研上的严谨细致与生活中的关怀体恤教导我成长，如同园中葵，沐浴着阳光。祝老师六十岁生日快乐，身体健康，福寿双全，桃李满天下！` },
     { name: '贾丽婼', identity: '2025 级硕士', text: `敬爱的周老师，祝您六十岁生日快乐！作为 2025 级硕士新生，能够加入周门、成为您的学生，我感到非常幸运。您雍容而有气度，始终尊重每一位学生的想法，鼓励我们探索适合自己的方向、勇敢成长。无论面对学业上的困难，还是未来发展的选择，您总能给予我们最坚定、最有力的支持，是我们可以安心依靠的坚实后盾。在师门，我感受到的不仅是严谨与专业，更有像家一样的可靠与温暖。衷心祝愿您身体健康、岁月从容、喜乐常伴，未来的每一天都顺遂如意、幸福美满！` },
     { name: '王璐', identity: '2025 级硕士', text: `很幸运能够成为周门的一份子，感谢周老师在求学路上的悉心指引与包容鼓励。祝您生日快乐，岁月从容，喜乐安康，万事皆如意！` },
     { name: '豆泽欣', identity: '2026 级博士', text: `愿老师生辰喜乐，身体康健，万事顺遂，桃李芬芳！` },
@@ -160,6 +161,9 @@ const stageData = {
 
 const PHOTO_ASSET_VERSION = '20260912';
 const STORY_SCROLL_SPEED = 1.5;
+const SCROLL_SCENE_PLAYBACK_SPEED = 1.5;
+const SCROLL_SCENE_HOLD_DURATION = 1000;
+const ACHIEVEMENT_SCROLL_SPEED = 1.5;
 
 function stagePhotoSrc(file) {
   return `./assets/photos/${file}?v=${PHOTO_ASSET_VERSION}`;
@@ -222,6 +226,17 @@ let currentPhotoNumber = 0;
 function wishPageDuration(text) {
   const characterCount = [...text].filter((character) => !/\s/u.test(character)).length;
   return Math.min(12000, Math.max(6000, characterCount * 32));
+}
+
+function scrollSceneDuration(duration) {
+  return Math.round(duration / SCROLL_SCENE_PLAYBACK_SPEED);
+}
+
+function compactScrollSceneDuration(duration, previousHoldStart, previousHoldEnd, progressSpeed = 1) {
+  const acceleratedDuration = scrollSceneDuration(duration);
+  const acceleratedHolds = scrollSceneDuration(previousHoldStart) + scrollSceneDuration(previousHoldEnd);
+  const activeScrollDuration = Math.max(acceleratedDuration - acceleratedHolds, 1) / progressSpeed;
+  return Math.round((SCROLL_SCENE_HOLD_DURATION * 2) + activeScrollDuration);
 }
 
 function tokenizeWishText(text) {
@@ -327,10 +342,10 @@ function buildTimeline() {
       wishPageCount: pages.length
     }));
   });
-  stageData.stories.forEach((story) => items.push({ type: 'story', duration: Math.min(60000, Math.max(20000, story.body.length * 56)), eyebrow: 'MENTOR STORIES', chapter: '师生故事', story }));
+  stageData.stories.forEach((story) => items.push({ type: 'story', duration: compactScrollSceneDuration(Math.min(60000, Math.max(20000, story.body.length * 56)), 5000, 5000, STORY_SCROLL_SPEED), eyebrow: 'MENTOR STORIES', chapter: '师生故事', story }));
   items.push({ type: 'videoIntro', duration: STATIC_TIMINGS.videoIntro, eyebrow: 'BLESSINGS IN MOTION', chapter: '祝福视频' });
   stageData.videos.forEach((video, index) => items.push({ type: 'video', duration: 0, eyebrow: 'BLESSINGS IN MOTION', chapter: '祝福视频', video, videoIndex: index }));
-  items.push({ type: 'achievements', duration: STATIC_TIMINGS.achievements, eyebrow: 'A LIFE OF SCHOLARSHIP', chapter: '治学长卷' });
+  items.push({ type: 'achievements', duration: compactScrollSceneDuration(STATIC_TIMINGS.achievements, 7000, 8000, ACHIEVEMENT_SCROLL_SPEED), eyebrow: 'A LIFE OF SCHOLARSHIP', chapter: '治学长卷' });
   items.push({ type: 'closing', duration: STATIC_TIMINGS.closing, eyebrow: 'WITH LOVE & GRATITUDE', chapter: '谨以此页 · 敬贺华诞' });
   return items;
 }
@@ -511,7 +526,7 @@ function renderAchievements() {
 function renderClosing() {
   const scene = node('div', 'closing-scene scene-enter');
   const content = node('div', 'closing-scene__content');
-  content.innerHTML = '<div class="closing-scene__seal">寿</div><h3>岁月有光 · 师者如兰</h3><p class="closing-scene__wish">愿岁月常欢，身体康健，桃李芬芳<br>所行皆坦途，所愿皆如意</p><p class="closing-scene__credits"><strong>内容设计、网页制作</strong>：贾丽婼<br><strong>素材收集</strong>：许蒋鸿、贾丽婼<br><strong>筹备组支持</strong>：鄢贞、李凯、胡亦俊、金宇、许蒋鸿、贾丽婼、王璐</p>';
+  content.innerHTML = '<div class="closing-scene__seal">寿</div><h3>岁月有光 · 师者如兰</h3><p class="closing-scene__wish">愿岁月常欢，身体康健，桃李芬芳<br>所行皆坦途，所愿皆如意</p><p class="closing-scene__credits"><strong>内容设计、网页制作</strong>：贾丽婼<br><strong>素材收集</strong>：许蒋鸿、贾丽婼<br><strong>技术支持 · 网页部署与调试</strong>：甘华粱<br><strong>筹备组支持</strong>：鄢贞、李凯、胡亦俊、金宇、许蒋鸿、贾丽婼、王璐</p>';
   scene.appendChild(content);
   canvas.appendChild(scene);
 }
@@ -652,16 +667,16 @@ function playbackLoop(now) {
   stageProgress.style.width = `${progress * 100}%`;
   updateClock(elapsed);
   if (scene.type === 'story' && storyScroll) {
-    const holdStart = 5000;
-    const holdEnd = 5000;
+    const holdStart = SCROLL_SCENE_HOLD_DURATION;
+    const holdEnd = SCROLL_SCENE_HOLD_DURATION;
     const scrollDuration = Math.max(currentDuration - holdStart - holdEnd, 1);
-    const scrollProgress = Math.min(Math.max(((elapsed - holdStart) / scrollDuration) * STORY_SCROLL_SPEED, 0), 1);
+    const scrollProgress = Math.min(Math.max((elapsed - holdStart) / scrollDuration, 0), 1);
     const eased = scrollProgress < .5 ? 2 * scrollProgress * scrollProgress : 1 - Math.pow(-2 * scrollProgress + 2, 2) / 2;
     storyScroll.scrollTop = (storyScroll.scrollHeight - storyScroll.clientHeight) * eased;
   }
   if (scene.type === 'achievements' && achievementScroll) {
-    const holdStart = 7000;
-    const holdEnd = 8000;
+    const holdStart = SCROLL_SCENE_HOLD_DURATION;
+    const holdEnd = SCROLL_SCENE_HOLD_DURATION;
     const scrollDuration = Math.max(currentDuration - holdStart - holdEnd, 1);
     const scrollProgress = Math.min(Math.max((elapsed - holdStart) / scrollDuration, 0), 1);
     const eased = scrollProgress < .5 ? 2 * scrollProgress * scrollProgress : 1 - Math.pow(-2 * scrollProgress + 2, 2) / 2;
