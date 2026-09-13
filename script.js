@@ -1,58 +1,37 @@
-const portraitPrelude = [
-  ['photo-25.webp', '舞台上的从容与笑意', '往年留影', '', '聚光灯下的鲜活笑容，定格一份明亮的师者风采。', '供图：程嘉树', 'contain'],
-  ['portrait-02.webp', '年末工作会议留影', '往年留影', '', '在行走与交流之间，留下从容而明朗的一刻。', '供图：赵清妍', 'right'],
-  ['portrait-03.webp', '师门研讨会', '', '', '一方屏幕、一席讨论，把求知与思考带到每位学生身边。', '供图：程嘉树', 'left'],
-  ['photo-10.webp', '调研交流中的专注笃定', '近年留影', '某农业科技企业', '言传身教，将多年积淀化作现场清晰而温暖的启发。', '供图：唐若安', 'center'],
-  ['portrait-05.webp', '海外访学留影', '', '', '行走与求索之间，留下旅途中的明亮一刻。', '', 'right']
-];
-
 const chapters = [
   {
     numeral: '壹', label: '第一章', english: 'CHAPTER ONE', title: '杏坛与治学',
-    description: '躬耕杏坛，求索不止<br>在田野与课堂之间，见证治学的温度',
+    description: '躬耕杏坛，求索不止<br>在课堂与研讨之间，见证治学的温度',
     tone: 'scholar',
     photos: [
-      ['photo-02.webp', '早年调研', '早年', '', '从书斋走向田野，在真实世界中寻找问题，也寻找答案。', ''],
-      ['photo-01.webp', '课题申报研讨', '往年留影', '', '围坐研讨、切磋求真，是一段关于治学初心的珍贵记录。', '供图：程嘉树'],
-      ['photo-05.webp', '与海外高校团队合影', '往年留影', '', '在交流与碰撞中拓展研究边界，也留下同行的珍贵瞬间。', '供图：陆知秋'],
-      ['photo-03.webp', '水产基地调研', '往年留影', '某地水产基地', '师门一行深入一线开展水产调研，把学问写在广阔大地上。', '供图：赵清妍'],
-      ['photo-06.webp', '国际学术年会', '往年留影', '海外学术会议', '在国际学术舞台上交流新知，步履不停，求索不止。', '供图：沈清扬'],
-      ['photo-07.webp', '乡村调研', '近年留影', '某地乡村', '走进乡村、倾听现场，让研究始终与现实紧密相连。', '供图：许知意'],
-      ['photo-04.webp', '海外高校访学', '近年留影', '海外合作高校', '跨越山海的学术交流，让思考在更开阔的坐标中生长。', ''],
-      ['photo-08.webp', '海外调研学习', '近年留影', '海外合作高校', '严谨的指导与充分的信任，托举学生走向更远的学术天地。', '供图：江屿川'],
-      ['photo-09.webp', '企业调研合影', '近年留影', '某农业科技企业', '师生同行，在企业一线观察、提问与思考。', '供图：唐若安']
-    ]
+      ['fiction-02.webp', '学林剪影', '求学时光', '', '一场相聚，一次交流，也是一段关于求知与传承的共同记忆。', ''],
+      ['fiction-04.webp', '研讨会上的学术传承', '研讨时光', '', '在观点的交流与碰撞中，探索问题，也拓展思考的边界。', ''],
+      ['fiction-09.webp', '古韵中的求学之路', '求学时光', '', '庄重的合影，记录同行求索、彼此启发的珍贵片段。', ''],
+      ['fiction-11.webp', '草地上的研讨会', '研讨时光', '', '围坐交流、专注讨论，让知识在轻松而真诚的对话中生长。', ''],
+    ],
   },
   {
     numeral: '贰', label: '第二章', english: 'CHAPTER TWO', title: '同行与桃李',
     description: '一程相伴，满庭芳华<br>那些并肩走过的日子，汇成桃李芬芳',
     tone: 'companions',
     photos: [
-      ['photo-11.webp', '毕业聚餐', '往年留影', '', '从课堂到人生新程，老师的陪伴与祝福始终都在。', '供图：程嘉树'],
-      ['photo-13.webp', '毕业聚餐', '往年留影', '', '在告别与启程之间，把共同成长的岁月珍藏。', ''],
-      ['photo-14.webp', '教师节留影', '近年留影', '', '一束鲜花、一张合影，记录师生之间真挚而温暖的情谊。', ''],
-      ['photo-15.webp', '教师节留影', '近年留影', '', '以花与笑容致敬师恩，感谢一路的指引和守护。', '供图：沈砚舟'],
-      ['photo-16.webp', '又一年教师节', '近年留影', '', '岁月向前，师生情谊在一次次重逢里历久弥新。', '供图：程嘉树'],
-      ['photo-17.webp', '毕业时刻', '近年留影', '', '沈砚舟、沈念初毕业，带着老师的嘱托奔赴新程。', '供图：沈砚舟'],
-      ['photo-18.webp', '毕业留影', '近年留影', '', '求学路上的悉心指引，化作毕业时最笃定的底气。', '供图：沈砚舟'],
-      ['photo-19.webp', '师门合照', '近年留影', '', '一群人、一份共同的归属，笑意里都是家的温度。', '供图：沈念初'],
-      ['photo-20.webp', '并肩同行', '近年留影', '', '相聚有时，情谊长久；每一位学生都是师门故事的一页。', '供图：沈念初']
-    ]
+      ['fiction-01.webp', '山间课堂', '同行时光', '', '从课堂走向田野，在真实世界里观察、提问，也彼此陪伴。', ''],
+      ['fiction-05.webp', '实践中的同行', '实践时光', '', '走近一线、了解现场，让思考与实践在一次次同行中相遇。', ''],
+      ['fiction-07.webp', '蓝白韵律', '青春留影', '', '整齐的队伍与灿烂的笑容，定格共同成长的青春时刻。', ''],
+      ['fiction-12.webp', '荣誉时刻', '成长留影', '', '一份份收获，见证努力，也珍藏师生共同走过的成长岁月。', ''],
+    ],
   },
   {
     numeral: '叁', label: '第三章', english: 'CHAPTER THREE', title: '生活与欢聚',
     description: '灯火可亲，笑语常在<br>平凡而明亮的相聚，织成岁月的温柔底色',
     tone: 'celebration',
     photos: [
-      ['photo-21.webp', '生日相聚', '往年留影', '', '烛光与笑意相映，那些被惦念的时刻总格外温暖。', '供图：沈清扬'],
-      ['photo-24.webp', '露营烧烤', '近年留影', '', '走出课堂，围坐相谈；烟火气里，是师门自在的亲近。', '供图：程嘉树'],
-      ['photo-22.webp', '生日祝福', '近年留影', '', '年年有今日的祝愿，也有始终如一的敬爱与感恩。', '供图：程嘉树'],
-      ['photo-26.webp', '师门记忆', '岁月留影', '', '镜头记下相聚，也记下彼此陪伴的轻松时刻。', '供图：周明澈'],
-      ['photo-27.webp', '师门记忆', '岁月留影', '', '时光流转，熟悉的笑容让每次回望都倍感亲切。', '供图：周明澈'],
-      ['photo-28.webp', '欢聚一堂', '岁月留影', '', '生活的可爱，藏在一次次自然、真挚的相聚之中。', '供图：周明澈'],
-      ['photo-30.webp', '笑语长存', '岁月留影', '', '愿往后的每一年，都有这样的欢笑、从容与明亮。', '供图：周明澈']
-    ]
-  }
+      ['fiction-03.webp', '驰骋绿茵', '欢聚时光', '', '在明亮的操场上相聚，让活力与笑声成为青春的注脚。', ''],
+      ['fiction-08.webp', '岁首欢聚', '欢聚时光', '', '灯火、气球与笑脸，汇成一场轻松温暖的节日相聚。', ''],
+      ['fiction-10.webp', '墨香叙情', '雅集留影', '', '在书画与艺术的气息里，共享一段从容而美好的时光。', ''],
+      ['fiction-06.webp', '校园夏日', '青春留影', '', '阳光、喷泉与笑容，留下校园生活里清新明亮的一页。', ''],
+    ],
+  },
 ];
 
 const shell = document.querySelector('.app-shell');
@@ -62,16 +41,6 @@ const skipButton = document.querySelector('#skipAnimation');
 const greeting = document.querySelector('#greeting');
 const enterAlbum = document.querySelector('#enterAlbum');
 const album = document.querySelector('#album');
-const portraitPreludeEl = document.querySelector('#portraitPrelude');
-const portraitCard = document.querySelector('#portraitCard');
-const portraitPhoto = document.querySelector('#portraitPhoto');
-const portraitCounter = document.querySelector('#portraitCounter');
-const portraitTitle = document.querySelector('#portraitTitle');
-const portraitTime = document.querySelector('#portraitTime');
-const portraitDots = document.querySelector('#portraitDots');
-const previousPortrait = document.querySelector('#previousPortrait');
-const nextPortrait = document.querySelector('#nextPortrait');
-const enterFirstChapter = document.querySelector('#enterFirstChapter');
 const chapterIntro = document.querySelector('#chapterIntro');
 const photoCard = document.querySelector('#photoCard');
 const albumEnd = document.querySelector('#albumEnd');
@@ -199,7 +168,6 @@ let openingTimer;
 let isOpening = false;
 let chapterIndex = 0;
 let photoIndex = 0;
-let portraitIndex = 0;
 let albumMode = 'intro';
 let touchStartX = 0;
 let touchStartY = 0;
@@ -230,11 +198,10 @@ function bindOpenTrigger(element) {
   element.addEventListener('touchend', (event) => { event.preventDefault(); openCard(); }, { passive: false });
 }
 
-const chapterPhotoTotal = chapters.reduce((total, chapter) => total + chapter.photos.length, 0);
-const albumPhotoTotal = portraitPrelude.length + chapterPhotoTotal;
+const albumPhotoTotal = chapters.reduce((total, chapter) => total + chapter.photos.length, 0);
 
 function chapterStartNumber(index) {
-  return portraitPrelude.length + chapters.slice(0, index).reduce((total, chapter) => total + chapter.photos.length, 0) + 1;
+  return chapters.slice(0, index).reduce((total, chapter) => total + chapter.photos.length, 0) + 1;
 }
 
 function currentPhotoNumber() {
@@ -251,62 +218,6 @@ function updateHeader() {
   document.querySelectorAll('.chapter-dots span').forEach((dot, index) => dot.classList.toggle('is-active', index === chapterIndex));
 }
 
-function renderPortraitSlide(direction = 'forward') {
-  const portrait = portraitPrelude[portraitIndex];
-  portraitPhoto.src = `./assets/photos/${portrait[0]}`;
-  portraitPhoto.alt = `${portrait[1]}，${portrait[2]}`;
-  portraitPhoto.classList.toggle('is-focus-right', portrait[6] === 'right');
-  portraitPhoto.classList.toggle('is-focus-left', portrait[6] === 'left');
-  portraitPhoto.classList.toggle('is-landscape-contain', portrait[6] === 'contain');
-  portraitTitle.textContent = portrait[1];
-  portraitTime.textContent = portrait[2];
-  portraitTime.hidden = !portrait[2];
-  portraitCounter.textContent = `${String(portraitIndex + 1).padStart(2, '0')} / ${String(portraitPrelude.length).padStart(2, '0')}`;
-  document.querySelector('#albumProgress').textContent = `${String(portraitIndex + 1).padStart(2, '0')} / ${albumPhotoTotal}`;
-  portraitDots.querySelectorAll('span').forEach((dot, index) => dot.classList.toggle('is-active', index === portraitIndex));
-  previousPortrait.disabled = portraitIndex === 0;
-  nextPortrait.disabled = portraitIndex === portraitPrelude.length - 1;
-  enterFirstChapter.hidden = portraitIndex !== portraitPrelude.length - 1;
-  portraitCard.classList.remove('card-forward', 'card-back');
-  void portraitCard.offsetWidth;
-  portraitCard.classList.add(direction === 'back' ? 'card-back' : 'card-forward');
-  const neighbor = portraitPrelude[portraitIndex + (direction === 'back' ? -1 : 1)];
-  if (neighbor) { const image = new Image(); image.src = `./assets/photos/${neighbor[0]}`; }
-}
-
-function renderPortraitPrelude(reset = true) {
-  chapterIndex = 0;
-  photoIndex = 0;
-  if (reset) portraitIndex = 0;
-  albumMode = 'prelude';
-  album.dataset.tone = 'red';
-  portraitPreludeEl.hidden = false;
-  chapterIntro.hidden = true;
-  photoCard.hidden = true;
-  albumEnd.hidden = true;
-  controls.hidden = true;
-  swipeHint.hidden = true;
-  skipChapter.hidden = true;
-  document.querySelector('#albumChapter').textContent = '人物序章';
-  document.querySelector('#albumTitle').textContent = '先看见林老师';
-  document.querySelectorAll('.chapter-dots span').forEach((dot) => dot.classList.remove('is-active'));
-  portraitPrelude.forEach(([name]) => { const image = new Image(); image.src = `./assets/photos/${name}`; });
-  renderPortraitSlide('forward');
-  animateStage('forward');
-}
-
-function nextPortraitPhoto() {
-  if (portraitIndex >= portraitPrelude.length - 1) return;
-  portraitIndex += 1;
-  renderPortraitSlide('forward');
-}
-
-function previousPortraitPhoto() {
-  if (portraitIndex <= 0) return;
-  portraitIndex -= 1;
-  renderPortraitSlide('back');
-}
-
 function renderChapterIntro(index) {
   chapterIndex = index;
   photoIndex = 0;
@@ -315,7 +226,6 @@ function renderChapterIntro(index) {
   const firstNumber = chapterStartNumber(index);
   const lastNumber = firstNumber + chapter.photos.length - 1;
   album.dataset.tone = chapter.tone;
-  portraitPreludeEl.hidden = true;
   chapterIntro.hidden = false;
   photoCard.hidden = true;
   albumEnd.hidden = true;
@@ -335,7 +245,6 @@ function renderPhoto(direction = 'forward') {
   const chapter = chapters[chapterIndex];
   const photo = chapter.photos[photoIndex];
   albumMode = 'photo';
-  portraitPreludeEl.hidden = true;
   chapterIntro.hidden = true;
   albumEnd.hidden = true;
   photoCard.hidden = false;
@@ -365,7 +274,6 @@ function renderPhoto(direction = 'forward') {
 
 function renderAlbumEnd() {
   albumMode = 'end';
-  portraitPreludeEl.hidden = true;
   chapterIntro.hidden = true;
   photoCard.hidden = true;
   albumEnd.hidden = false;
@@ -405,7 +313,7 @@ function previousPhoto() {
     photoIndex = chapters[chapterIndex].photos.length - 1;
     album.dataset.tone = chapters[chapterIndex].tone;
     renderPhoto('back');
-  } else renderPortraitPrelude(false);
+  } else renderChapterIntro(0);
   window.setTimeout(() => { isTransitioning = false; }, 360);
 }
 
@@ -427,24 +335,21 @@ function openAlbum() {
   shell.classList.add('is-album');
   greeting.setAttribute('aria-hidden', 'true');
   album.setAttribute('aria-hidden', 'false');
-  renderPortraitPrelude();
+  renderChapterIntro(0);
 }
 
 bindOpenTrigger(tapZone);
 bindOpenTrigger(openHint);
 skipButton.addEventListener('click', showGreeting);
 enterAlbum.addEventListener('click', openAlbum);
-previousPortrait.addEventListener('click', previousPortraitPhoto);
-nextPortrait.addEventListener('click', nextPortraitPhoto);
-enterFirstChapter.addEventListener('click', () => renderChapterIntro(0));
 document.querySelector('#startChapter').addEventListener('click', startChapter);
-document.querySelector('#restartAlbum').addEventListener('click', renderPortraitPrelude);
+document.querySelector('#restartAlbum').addEventListener('click', () => renderChapterIntro(0));
 nextButton.addEventListener('click', nextPhoto);
 previousButton.addEventListener('click', previousPhoto);
 skipChapter.addEventListener('click', jumpToNextChapter);
 
 stage.addEventListener('touchstart', (event) => {
-  if (!['photo', 'prelude'].includes(albumMode) || event.target.closest('button')) return;
+  if (albumMode !== 'photo' || event.target.closest('button')) return;
   const touch = event.changedTouches[0];
   touchStartX = touch.clientX;
   touchStartY = touch.clientY;
@@ -452,7 +357,7 @@ stage.addEventListener('touchstart', (event) => {
 }, { passive: true });
 
 stage.addEventListener('touchend', (event) => {
-  if (!['photo', 'prelude'].includes(albumMode) || !touchStartTime) return;
+  if (albumMode !== 'photo' || !touchStartTime) return;
   const touch = event.changedTouches[0];
   const deltaX = touch.clientX - touchStartX;
   const deltaY = touch.clientY - touchStartY;
@@ -460,21 +365,14 @@ stage.addEventListener('touchend', (event) => {
   touchStartTime = 0;
   if (Math.abs(deltaX) < Math.abs(deltaY) * 1.25) return;
   if (Math.abs(deltaX) > 56 || (Math.abs(deltaX) > 34 && duration < 260)) {
-    if (albumMode === 'prelude') {
-      if (deltaX < 0) nextPortraitPhoto(); else previousPortraitPhoto();
-    } else if (deltaX < 0) nextPhoto(); else previousPhoto();
+    if (deltaX < 0) nextPhoto(); else previousPhoto();
   }
 }, { passive: true });
 
 document.addEventListener('keydown', (event) => {
   if (!shell.classList.contains('is-album') || shell.classList.contains('is-heartfelt')) return;
-  if (albumMode === 'prelude') {
-    if (event.key === 'ArrowRight') nextPortraitPhoto();
-    if (event.key === 'ArrowLeft') previousPortraitPhoto();
-  } else {
-    if (event.key === 'ArrowRight') nextPhoto();
-    if (event.key === 'ArrowLeft') previousPhoto();
-  }
+  if (event.key === 'ArrowRight') nextPhoto();
+  if (event.key === 'ArrowLeft') previousPhoto();
 });
 
 window.addEventListener('pageshow', (event) => { if (event.persisted && isOpening) showGreeting(); });
