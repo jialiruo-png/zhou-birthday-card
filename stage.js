@@ -141,11 +141,11 @@ const stageData = {
     }
   ],
   videos: [
-    { src: './assets/videos/video-yin-upright.mp4', poster: './assets/posters/video-yin-upright.jpg', name: '顾怀远', identity: '某高校 · 公共健康学院', duration: '01:28', caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', ratio: 9 / 16 },
+    { src: './assets/videos/video-04.mp4', poster: './assets/posters/video-04.jpg', name: '顾怀远', identity: '某高校 · 公共健康学院', duration: '01:28', caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', ratio: 9 / 16 },
     { src: './assets/videos/video-01.mp4', poster: './assets/posters/video-01.jpg', name: '江屿川', identity: '2024 级硕士生', duration: '00:46', caption: '感恩培养，生日快乐', orientation: 'landscape' },
     { src: './assets/videos/video-02.mp4', poster: './assets/posters/video-02.jpg', name: '沈砚舟', identity: '2021 级学生', duration: '00:52', caption: '感谢一路引领，祝福六十华诞', orientation: 'landscape' },
     { src: './assets/videos/video-03.mp4', poster: './assets/posters/video-03.jpg', name: '周明澈、白清禾及家人', identity: '2019 级博士 · 2020 级硕士', duration: '01:03', caption: '来自师门与家人的温暖祝福', orientation: 'portrait', ratio: 3 / 4 },
-    { src: './assets/videos/video-liyi.mp4', poster: './assets/posters/video-liyi.jpg', name: '许星澜', identity: '师门成员', duration: '01:19', caption: '一路相伴，从本科到今日的感恩与祝愿', orientation: 'landscape' }
+    { src: './assets/videos/video-05.mp4', poster: './assets/posters/video-05.jpg', name: '许星澜', identity: '师门成员', duration: '01:19', caption: '一路相伴，从本科到今日的感恩与祝愿', orientation: 'landscape' }
   ]
 };
 

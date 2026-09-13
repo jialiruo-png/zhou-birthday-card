@@ -651,7 +651,7 @@ if (previewState === 'heart' || previewState === 'wishes' || previewState === 's
 
 const blessingVideos = [
   {
-    src: './assets/videos/video-yin-upright.mp4', poster: './assets/posters/video-yin-upright.jpg',
+    src: './assets/videos/video-04.mp4', poster: './assets/posters/video-04.jpg',
     name: '顾怀远', identity: '某高校 · 公共健康学院', duration: '01:28',
     caption: '二十余载师生情，祝福温暖如初', orientation: 'portrait', ratio: 9 / 16
   },
@@ -671,7 +671,7 @@ const blessingVideos = [
     caption: '来自师门与家人的温暖祝福', orientation: 'portrait', ratio: 3 / 4
   },
   {
-    src: './assets/videos/video-liyi.mp4', poster: './assets/posters/video-liyi.jpg',
+    src: './assets/videos/video-05.mp4', poster: './assets/posters/video-05.jpg',
     name: '许星澜', identity: '师门成员', duration: '01:19',
     caption: '一路相伴，从本科到今日的感恩与祝愿', orientation: 'landscape'
   }
